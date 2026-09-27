@@ -15,28 +15,51 @@
   },
   "address": "Khasra no 698, NH-334 / NH 58, Haridwar-Delhi Highway, Bahadarabad, Haridwar, Uttarakhand – 249423 (Near CNG Station)",
   "bookingEngineUrl": "https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar",
+  "hero": {
+    "badge": "SINCE BAHADARABAD • NH-58 • 10 MINS FROM HAR KI PAURI",
+    "headlineMain": "DIVINE LUXURY.",
+    "headlineSub": "Sanctuary by the Ganges.",
+    "subtext": "Welcoming pilgrims and discerning travelers to Haridwar’s premier hospitality sanctuary. Featuring 32 boutique AC rooms, a 150-guest grand banquet ballroom, dedicated Char Dham Yatra desk, and the legendary 200-capacity Mohan Ji Poori Wale pure vegetarian dining heritage."
+  },
   "tariffs": {
     "standard": {
       "ep": 3500,
       "cp": 4000,
-      "map": 4950
+      "map": 4950,
+      "desc": "Exceptional comfort spanning 200 sqft. Features a dedicated solid-wood writing desk, seating lounge, high-speed Wi-Fi, LED television, and in-room tea/coffee amenities."
     },
     "deluxe": {
       "ep": 4500,
       "cp": 5000,
-      "map": 5950
+      "map": 5950,
+      "desc": "Freshly refurbished with contemporary styling and mountain vistas. Equipped with king bedding, ambient lighting controls, 24/7 hot/cold shower, and breakfast inclusions."
     },
     "family": {
       "ep": 7200,
       "cp": 8000,
-      "map": 9400
+      "map": 9400,
+      "desc": "Our most spacious signature suite spanning 350 sqft. Solely furnished to ensure the highest standard of family hospitality with twin double beds, luxury bath, and sofa lounge."
     }
   },
-  "policies": {
-    "checkin": "1:00 PM",
-    "checkout": "11:00 AM",
-    "childPolicy": "Children under 5 stay free with parents (without extra bed)",
-    "rules": "All rates on twin sharing basis. Advance deposit required for guaranteed confirmation."
+  "restaurant": {
+    "stampSub": "PURE VEG • 200 PAX",
+    "heading": "A Sacred Feast for Soul & Senses",
+    "desc": "Our chefs preserve centuries-old secret spice blends cooked in pure desi ghee. From the crisp golden crunch of morning balloon pooris to aromatic tawa rotis, rich paneer specialties, and soothing clay-pot masala chai, every meal is prepared with sattvic reverence.",
+    "dish1": {
+      "name": "Signature Bedmi Poori & Mathura Aloo",
+      "desc": "Crispy urad dal stuffed poori with spicy hing-infused potato curry & sweet pumpkin subzi.",
+      "badge": "Breakfast Icon"
+    },
+    "dish2": {
+      "name": "Shahi Kesar Sooji Halwa",
+      "desc": "Slow-roasted semolina in pure cow ghee, garnished with saffron strands, cashews & almonds.",
+      "badge": "Heritage Sweet"
+    },
+    "dish3": {
+      "name": "Royal Shivalik Paneer Thali",
+      "desc": "Fresh cottage cheese in makhani gravy, yellow dal tadka, jeera rice, tandoori rotis, raita & salad.",
+      "badge": "All-Day Dining"
+    }
   },
   "banquet": {
     "hallCharge": 25000,
@@ -47,6 +70,16 @@
       "katha": 400
     }
   },
-  "aartiTime": "18:30",
-  "weatherTicker": "Haridwar: 28°C • Holy Ganges Breeze"
+  "yatra": {
+    "heading": "Char Dham Yatra & Local Concierge",
+    "desc": "Ideally located on Haridwar-Delhi Highway NH 58 in Bahadarabad, serving as the stress-free starting sanctuary for the holy Char Dham pilgrimage (Yamunotri, Gangotri, Kedarnath, Badrinath)."
+  },
+  "policies": {
+    "checkin": "1:00 PM",
+    "checkout": "11:00 AM",
+    "childPolicy": "Children under 5 stay free with parents (without extra bed)",
+    "rules": "All rates on twin sharing basis. Advance deposit required for guaranteed confirmation."
+  },
+  "weatherTicker": "Haridwar: 28°C • Holy Ganges Breeze",
+  "aartiTime": "18:30"
 }

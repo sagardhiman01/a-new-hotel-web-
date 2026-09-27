@@ -184,17 +184,17 @@
       <div class="hero-content">
         <div class="hero-badge-pill">
           <span class="hero-badge-dot"></span>
-          <span>SINCE BAHADARABAD • NH-58 • 10 MINS FROM HAR KI PAURI</span>
+          <span id="hero-badge-text">SINCE BAHADARABAD • NH-58 • 10 MINS FROM HAR KI PAURI</span>
         </div>
 
         <h1 class="hero-headline">
-          DIVINE LUXURY.
-          <span class="hero-gold-text italic-line">Sanctuary by the Ganges.</span>
+          <span id="hero-headline-main">DIVINE LUXURY.</span>
+          <span class="hero-gold-text italic-line" id="hero-headline-sub">Sanctuary by the Ganges.</span>
         </h1>
 
         <div class="hairline-brass center"></div>
 
-        <p class="hero-subtext">
+        <p class="hero-subtext" id="hero-subtext-display">
           Welcoming pilgrims and discerning travelers to Haridwar’s premier hospitality sanctuary. Featuring 32 boutique AC rooms, a 150-guest grand banquet ballroom, dedicated Char Dham Yatra desk, and the legendary 200-capacity Mohan Ji Poori Wale pure vegetarian dining heritage.
         </p>
 
@@ -314,13 +314,13 @@
           <div class="room-card-media">
             <img src="assets/images/hotel_room_twin.jpg" alt="Standard AC Twin Room at Hotel Mohan Inn" class="room-card-img" loading="lazy">
             <span class="room-tag-badge">CP PLAN AVAILABLE</span>
-            <div class="room-price-badge">
+            <div class="room-price-badge" id="card-price-standard">
               ₹4,000<small>/ Night</small>
             </div>
           </div>
           <div class="room-card-body">
             <h3 class="room-type-title">Standard AC Room</h3>
-            <p class="room-card-desc">
+            <p class="room-card-desc" id="card-desc-standard">
               Exceptional comfort spanning 200 sqft. Features a dedicated solid-wood writing desk, seating lounge, high-speed Wi-Fi, LED television, and in-room tea/coffee amenities.
             </p>
             <div class="room-specs-list">
@@ -357,13 +357,13 @@
           <div class="room-card-media">
             <img src="assets/images/img_room1.jpg" alt="Deluxe AC Room at Hotel Mohan Inn Haridwar" class="room-card-img" loading="lazy">
             <span class="room-tag-badge">MOST POPULAR</span>
-            <div class="room-price-badge">
+            <div class="room-price-badge" id="card-price-deluxe">
               ₹5,000<small>/ Night</small>
             </div>
           </div>
           <div class="room-card-body">
             <h3 class="room-type-title">Deluxe AC Room</h3>
-            <p class="room-card-desc">
+            <p class="room-card-desc" id="card-desc-deluxe">
               Freshly refurbished with contemporary styling and mountain vistas. Equipped with king bedding, ambient lighting controls, 24/7 hot/cold shower, and breakfast inclusions.
             </p>
             <div class="room-specs-list">
@@ -400,13 +400,13 @@
           <div class="room-card-media">
             <img src="assets/images/hotel_room_family.jpg" alt="Family Suite AC at Hotel Mohan Inn" class="room-card-img" loading="lazy">
             <span class="room-tag-badge">FAMILY GRANDEUR</span>
-            <div class="room-price-badge">
+            <div class="room-price-badge" id="card-price-family">
               ₹8,000<small>/ Night</small>
             </div>
           </div>
           <div class="room-card-body">
             <h3 class="room-type-title">Family Suite AC</h3>
-            <p class="room-card-desc">
+            <p class="room-card-desc" id="card-desc-family">
               Our most spacious signature suite spanning 350 sqft. Solely furnished to ensure the highest standard of family hospitality with twin double beds, luxury bath, and sofa lounge.
             </p>
             <div class="room-specs-list">
@@ -609,42 +609,42 @@
           <img src="assets/images/img_restaurant_1.jpg" alt="Authentic Mohan Ji Poori Wale Breakfast Platter with Bedmi Poori, Aloo Sabzi, Chana & Kesar Halwa" loading="lazy">
           <div class="culinary-stamp">
             <span class="stamp-text">MOHAN JI</span>
-            <span class="stamp-sub">PURE VEG • 200 PAX</span>
+            <span class="stamp-sub" id="culinary-stamp-sub">PURE VEG • 200 PAX</span>
           </div>
         </div>
 
         <!-- Menu Highlights & Heritage Details -->
         <div>
-          <h3 class="font-serif" style="font-size: 2.2rem; font-weight: 400; margin-bottom: 12px; color: var(--text-charcoal-pure);">
+          <h3 class="font-serif" id="culinary-heading" style="font-size: 2.2rem; font-weight: 400; margin-bottom: 12px; color: var(--text-charcoal-pure);">
             A Sacred Feast for Soul & Senses
           </h3>
-          <p style="font-size: 0.9rem; color: var(--text-charcoal-muted); line-height: 1.75; margin-bottom: 24px;">
+          <p id="culinary-desc" style="font-size: 0.9rem; color: var(--text-charcoal-muted); line-height: 1.75; margin-bottom: 24px;">
             Our chefs preserve centuries-old secret spice blends cooked in pure desi ghee. From the crisp golden crunch of morning balloon pooris to aromatic tawa rotis, rich paneer specialties, and soothing clay-pot masala chai, every meal is prepared with sattvic reverence.
           </p>
 
           <div class="dishes-pills-container">
             <div class="dish-pill-item">
               <div class="dish-info">
-                <h4>Signature Bedmi Poori & Mathura Aloo</h4>
-                <p>Crispy urad dal stuffed poori with spicy hing-infused potato curry & sweet pumpkin subzi.</p>
+                <h4 id="dish-1-name">Signature Bedmi Poori & Mathura Aloo</h4>
+                <p id="dish-1-desc">Crispy urad dal stuffed poori with spicy hing-infused potato curry & sweet pumpkin subzi.</p>
               </div>
-              <span class="dish-badge">Breakfast Icon</span>
+              <span class="dish-badge" id="dish-1-badge">Breakfast Icon</span>
             </div>
 
             <div class="dish-pill-item">
               <div class="dish-info">
-                <h4>Shahi Kesar Sooji Halwa</h4>
-                <p>Slow-roasted semolina in pure cow ghee, garnished with saffron strands, cashews & almonds.</p>
+                <h4 id="dish-2-name">Shahi Kesar Sooji Halwa</h4>
+                <p id="dish-2-desc">Slow-roasted semolina in pure cow ghee, garnished with saffron strands, cashews & almonds.</p>
               </div>
-              <span class="dish-badge">Heritage Sweet</span>
+              <span class="dish-badge" id="dish-2-badge">Heritage Sweet</span>
             </div>
 
             <div class="dish-pill-item">
               <div class="dish-info">
-                <h4>Royal Shivalik Paneer Thali</h4>
-                <p>Fresh cottage cheese in makhani gravy, yellow dal tadka, jeera rice, tandoori rotis, raita & salad.</p>
+                <h4 id="dish-3-name">Royal Shivalik Paneer Thali</h4>
+                <p id="dish-3-desc">Fresh cottage cheese in makhani gravy, yellow dal tadka, jeera rice, tandoori rotis, raita & salad.</p>
               </div>
-              <span class="dish-badge">All-Day Dining</span>
+              <span class="dish-badge" id="dish-3-badge">All-Day Dining</span>
             </div>
           </div>
 
@@ -992,9 +992,9 @@
                   <small>200 sqft • Writing Desk • Wi-Fi • TV</small>
                 </div>
               </td>
-              <td><span class="tariff-price-val">₹3,500</span></td>
-              <td><span class="tariff-price-val" style="color: var(--bhagwa);">₹4,000</span></td>
-              <td><span class="tariff-price-val">₹4,950</span></td>
+              <td><span class="tariff-price-val" id="tariff-std-ep">₹3,500</span></td>
+              <td><span class="tariff-price-val" id="tariff-std-cp" style="color: var(--bhagwa);">₹4,000</span></td>
+              <td><span class="tariff-price-val" id="tariff-std-map">₹4,950</span></td>
               <td>
                 <button class="btn-brass-ghost btn-brass-small open-reserve-modal-btn" data-room="Standard AC Room">
                   Book Now
@@ -1009,9 +1009,9 @@
                   <small>220 sqft • Refurbished • Mountain View • King Bed</small>
                 </div>
               </td>
-              <td><span class="tariff-price-val">₹4,500</span></td>
-              <td><span class="tariff-price-val" style="color: var(--bhagwa);">₹5,000</span></td>
-              <td><span class="tariff-price-val">₹5,950</span></td>
+              <td><span class="tariff-price-val" id="tariff-dlx-ep">₹4,500</span></td>
+              <td><span class="tariff-price-val" id="tariff-dlx-cp" style="color: var(--bhagwa);">₹5,000</span></td>
+              <td><span class="tariff-price-val" id="tariff-dlx-map">₹5,950</span></td>
               <td>
                 <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Deluxe AC Room">
                   Book Now
@@ -1026,9 +1026,9 @@
                   <small>350 sqft • 3-4 Persons • Twin Double Beds • Lounge</small>
                 </div>
               </td>
-              <td><span class="tariff-price-val">₹7,200</span></td>
-              <td><span class="tariff-price-val" style="color: var(--bhagwa);">₹8,000</span></td>
-              <td><span class="tariff-price-val">₹9,400</span></td>
+              <td><span class="tariff-price-val" id="tariff-fam-ep">₹7,200</span></td>
+              <td><span class="tariff-price-val" id="tariff-fam-cp" style="color: var(--bhagwa);">₹8,000</span></td>
+              <td><span class="tariff-price-val" id="tariff-fam-map">₹9,400</span></td>
               <td>
                 <button class="btn-brass-ghost btn-brass-small open-reserve-modal-btn" data-room="Family Suite AC">
                   Book Now
@@ -1041,10 +1041,10 @@
 
       <!-- Policy Badges (Official Hotel Rules from tariff.php) -->
       <div style="display: flex; flex-wrap: wrap; gap: 14px; margin: 28px 0 50px 0; font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.1em; color: var(--text-charcoal); font-weight: 700;">
-        <span style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">CHECK-IN: 1:00 PM</span>
-        <span style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">CHECK-OUT: 11:00 AM</span>
-        <span style="border-left: 3.5px solid var(--gold-antique); padding: 8px 14px; background: rgba(212, 160, 23, 0.08); border-radius: 2px;">CHILDREN UNDER 5: FREE STAY (NO EXTRA BED)</span>
-        <span style="border-left: 3.5px solid var(--gold-antique); padding: 8px 14px; background: rgba(212, 160, 23, 0.08); border-radius: 2px;">TARIFF: TWIN SHARING BASIS</span>
+        <span id="badge-policy-checkin" style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">CHECK-IN: 1:00 PM</span>
+        <span id="badge-policy-checkout" style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">CHECK-OUT: 11:00 AM</span>
+        <span id="badge-policy-child" style="border-left: 3.5px solid var(--gold-antique); padding: 8px 14px; background: rgba(212, 160, 23, 0.08); border-radius: 2px;">CHILDREN UNDER 5: FREE STAY (NO EXTRA BED)</span>
+        <span id="badge-policy-rules" style="border-left: 3.5px solid var(--gold-antique); padding: 8px 14px; background: rgba(212, 160, 23, 0.08); border-radius: 2px;">TARIFF: TWIN SHARING BASIS</span>
         <span style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">ADVANCE DEPOSIT FOR CONFIRMATION</span>
         <span style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">CARDS, UPI & CASH ACCEPTED</span>
       </div>
@@ -1127,10 +1127,10 @@
       <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
         <div>
           <span class="section-eyebrow">GATEWAY TO DEVBHOOMI</span>
-          <h2 class="section-title">Char Dham Yatra & Local Concierge</h2>
+          <h2 class="section-title" id="yatra-heading">Char Dham Yatra & Local Concierge</h2>
           <div class="hairline-brass"></div>
         </div>
-        <p class="section-desc">
+        <p class="section-desc" id="yatra-desc">
           Ideally located on Haridwar-Delhi Highway NH 58 in Bahadarabad, serving as the stress-free starting sanctuary for the holy Char Dham pilgrimage (Yamunotri, Gangotri, Kedarnath, Badrinath).
         </p>
       </div>
@@ -1376,7 +1376,7 @@
               </div>
               <div class="contact-detail-text">
                 <div class="label">For Direct Booking & Queries</div>
-                <div class="val">
+                <div class="val" id="contact-phones-val">
                   <a href="tel:9259368869">+91 9259368869</a> / <a href="tel:9286081713">+91 92860 81713</a>
                 </div>
               </div>
@@ -1388,7 +1388,7 @@
               </div>
               <div class="contact-detail-text">
                 <div class="label">Official Email</div>
-                <div class="val">
+                <div class="val" id="contact-emails-val">
                   <a href="mailto:hotelmohaninn@gmail.com">hotelmohaninn@gmail.com</a> / <a href="mailto:info@hotelmohaninn.com">info@hotelmohaninn.com</a>
                 </div>
               </div>
@@ -1400,7 +1400,7 @@
               </div>
               <div class="contact-detail-text">
                 <div class="label">Hotel Address</div>
-                <div class="val">
+                <div class="val" id="contact-address-val">
                   Khasra no 698, NH-334 / NH 58, Haridwar-Delhi Highway, Bahadarabad, Haridwar, Uttarakhand – 249423 (Near CNG Station)
                 </div>
               </div>
@@ -1533,7 +1533,7 @@
           <p>
             Experience divine luxury by the Ganges. Featuring 32 boutique AC suites, a 150-guest AC banquet hall, and Haridwar's celebrated 200-capacity Mohan Ji Poori Wale restaurant.
           </p>
-          <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; color: var(--gold-antique); font-weight: 600;">
+          <div id="footer-director-display" style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; color: var(--gold-antique); font-weight: 600;">
             MANAGING DIRECTOR: MANISH MISHRA
           </div>
         </div>
@@ -1565,10 +1565,10 @@
 
         <div>
           <div class="footer-col-title">Direct Contact</div>
-          <p style="font-size: 0.85rem; color: rgba(249, 248, 246, 0.78); line-height: 1.6; margin-bottom: 12px;">
+          <p id="footer-address-display" style="font-size: 0.85rem; color: rgba(249, 248, 246, 0.78); line-height: 1.6; margin-bottom: 12px;">
             Khasra no 698, NH 58, Delhi-Haridwar Highway, Bahadarabad, Haridwar – 249423
           </p>
-          <div style="display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 13.5px;">
+          <div id="footer-contacts-list" style="display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 13.5px;">
             <a href="tel:9259368869" style="color: var(--gold-champagne); text-decoration: none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+91 9259368869</a>
             <a href="tel:9286081713" style="color: var(--gold-champagne); text-decoration: none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+91 92860 81713</a>
             <a href="mailto:hotelmohaninn@gmail.com" style="color: rgba(249, 248, 246, 0.78); text-decoration: none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>hotelmohaninn@gmail.com</a>

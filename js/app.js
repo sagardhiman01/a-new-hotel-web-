@@ -450,7 +450,8 @@ ${extrasList.length ? `- Add-ons: ${extrasList.join(', ')}\n` : ''}- Total Estim
 
 Kindly share availability and confirmation details.`;
 
-      bookBtn.href = `https://wa.me/919259368869?text=${encodeURIComponent(message)}`;
+      const whatsappNumber = window._siteConfig?.phones?.whatsapp || '919259368869';
+      bookBtn.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     }
   }
 
@@ -459,6 +460,7 @@ Kindly share availability and confirmation details.`;
     if (el && el.type === 'number') el.addEventListener('input', calculateBill);
   });
 
+  window._updateTariffConfigurator = calculateBill;
   calculateBill();
 }
 
@@ -479,21 +481,26 @@ function initBanquetCalculator() {
     if (guestsDisplay) guestsDisplay.textContent = `${guests} Guests (Max 150)`;
 
     const type = eventType ? eventType.value : 'wedding';
+    const cfgBanquet = window._siteConfig?.banquet;
     let perPlate = 650;
     let typeName = "Grand Wedding / Ring Ceremony";
 
-    if (type === 'reception') {
-      perPlate = 550;
-      typeName = "Anniversary / Family Gathering";
-    } else if (type === 'corporate') {
-      perPlate = 450;
-      typeName = "Corporate Conference / Meeting";
-    } else if (type === 'katha') {
-      perPlate = 400;
-      typeName = "Spiritual Katha / Bhajan Sandhya";
+    if (cfgBanquet?.perPlate) {
+      if (type === 'wedding') perPlate = cfgBanquet.perPlate.wedding || 650;
+      else if (type === 'reception') perPlate = cfgBanquet.perPlate.reception || 550;
+      else if (type === 'corporate') perPlate = cfgBanquet.perPlate.corporate || 450;
+      else if (type === 'katha') perPlate = cfgBanquet.perPlate.katha || 400;
+    } else {
+      if (type === 'reception') perPlate = 550;
+      else if (type === 'corporate') perPlate = 450;
+      else if (type === 'katha') perPlate = 400;
     }
 
-    const hallCharge = 25000;
+    if (type === 'reception') typeName = "Anniversary / Family Gathering";
+    else if (type === 'corporate') typeName = "Corporate Conference / Meeting";
+    else if (type === 'katha') typeName = "Spiritual Katha / Bhajan Sandhya";
+
+    const hallCharge = cfgBanquet?.hallCharge || 25000;
     const foodCost = guests * perPlate;
     const totalEst = hallCharge + foodCost;
 
@@ -502,6 +509,7 @@ function initBanquetCalculator() {
     }
 
     if (banquetInquiryBtn) {
+      const whatsappNumber = window._siteConfig?.phones?.whatsapp || '919259368869';
       const msg = `Namaste Manish ji! I want to inquire about booking the 150 Pax AC Banquet Hall at Hotel Mohan Inn:
 - Event: ${typeName}
 - Expected Gathering: ${guests} Guests
@@ -509,12 +517,13 @@ function initBanquetCalculator() {
 - Estimated Budget: ₹${totalEst.toLocaleString('en-IN')}
 
 Kindly provide availability and package details.`;
-      banquetInquiryBtn.href = `https://wa.me/919259368869?text=${encodeURIComponent(msg)}`;
+      banquetInquiryBtn.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
     }
   }
 
   guestsSlider.addEventListener('input', updateBanquet);
   if (eventType) eventType.addEventListener('change', updateBanquet);
+  window._updateBanquetCalculator = updateBanquet;
   updateBanquet();
 }
 
@@ -1086,8 +1095,9 @@ async function initDynamicConfig() {
   }
 
   if (!cfg) return;
+  window._siteConfig = cfg;
 
-  // 1. Ticker & Director
+  // 1. Ticker & Director Leadership
   const tickerEl = document.getElementById('topbar-ticker-text');
   if (tickerEl && cfg.weatherTicker) tickerEl.textContent = cfg.weatherTicker;
 
@@ -1103,13 +1113,106 @@ async function initDynamicConfig() {
   const dirQuoteEl = document.getElementById('display-director-quote');
   if (dirQuoteEl && cfg.directorQuote) dirQuoteEl.textContent = `"${cfg.directorQuote}"`;
 
+  const footerDirEl = document.getElementById('footer-director-display');
+  if (footerDirEl && cfg.directorName) {
+    footerDirEl.textContent = `MANAGING DIRECTOR: ${cfg.directorName.toUpperCase()}`;
+  }
+
   // 2. Aarti time target
   if (cfg.aartiTime) {
     window._customAartiTime = cfg.aartiTime;
   }
 
-  // 3. Tariffs & Configurator Sync
+  // 3. Hero Section & Main Branding
+  if (cfg.hero) {
+    const heroBadge = document.getElementById('hero-badge-text');
+    if (heroBadge && cfg.hero.badge) heroBadge.textContent = cfg.hero.badge;
+
+    const heroHeadMain = document.getElementById('hero-headline-main');
+    if (heroHeadMain && cfg.hero.headlineMain) heroHeadMain.textContent = cfg.hero.headlineMain;
+
+    const heroHeadSub = document.getElementById('hero-headline-sub');
+    if (heroHeadSub && cfg.hero.headlineSub) heroHeadSub.textContent = cfg.hero.headlineSub;
+
+    const heroSubtext = document.getElementById('hero-subtext-display');
+    if (heroSubtext && cfg.hero.subtext) heroSubtext.textContent = cfg.hero.subtext;
+  }
+
+  // 4. Tariffs, Room Cards, Filter Tabs & Configurator Sync
   if (cfg.tariffs) {
+    // Room Cards Prices & Descriptions
+    const cardPriceStd = document.getElementById('card-price-standard');
+    const cardDescStd = document.getElementById('card-desc-standard');
+    if (cardPriceStd && cfg.tariffs.standard?.cp) {
+      cardPriceStd.innerHTML = `₹${cfg.tariffs.standard.cp.toLocaleString('en-IN')}<small>/ Night</small>`;
+    }
+    if (cardDescStd && cfg.tariffs.standard?.desc) cardDescStd.textContent = cfg.tariffs.standard.desc;
+
+    const cardPriceDlx = document.getElementById('card-price-deluxe');
+    const cardDescDlx = document.getElementById('card-desc-deluxe');
+    if (cardPriceDlx && cfg.tariffs.deluxe?.cp) {
+      cardPriceDlx.innerHTML = `₹${cfg.tariffs.deluxe.cp.toLocaleString('en-IN')}<small>/ Night</small>`;
+    }
+    if (cardDescDlx && cfg.tariffs.deluxe?.desc) cardDescDlx.textContent = cfg.tariffs.deluxe.desc;
+
+    const cardPriceFam = document.getElementById('card-price-family');
+    const cardDescFam = document.getElementById('card-desc-family');
+    if (cardPriceFam && cfg.tariffs.family?.cp) {
+      cardPriceFam.innerHTML = `₹${cfg.tariffs.family.cp.toLocaleString('en-IN')}<small>/ Night</small>`;
+    }
+    if (cardDescFam && cfg.tariffs.family?.desc) cardDescFam.textContent = cfg.tariffs.family.desc;
+
+    // Filter Buttons
+    const filterStd = document.querySelector('.filter-btn[data-filter="standard"]');
+    if (filterStd && cfg.tariffs.standard?.cp) {
+      filterStd.textContent = `Standard AC (₹${cfg.tariffs.standard.cp.toLocaleString('en-IN')})`;
+    }
+    const filterDlx = document.querySelector('.filter-btn[data-filter="deluxe"]');
+    if (filterDlx && cfg.tariffs.deluxe?.cp) {
+      filterDlx.textContent = `Deluxe AC (₹${cfg.tariffs.deluxe.cp.toLocaleString('en-IN')})`;
+    }
+    const filterFam = document.querySelector('.filter-btn[data-filter="family"]');
+    if (filterFam && cfg.tariffs.family?.cp) {
+      filterFam.textContent = `Family Suite (₹${cfg.tariffs.family.cp.toLocaleString('en-IN')})`;
+    }
+
+    // Quick Bar Room Select Options
+    const barOptStd = document.querySelector('#bar-roomtype option[value="standard"]');
+    if (barOptStd && cfg.tariffs.standard?.cp) {
+      barOptStd.textContent = `Standard AC Room (₹${cfg.tariffs.standard.cp.toLocaleString('en-IN')})`;
+    }
+    const barOptDlx = document.querySelector('#bar-roomtype option[value="deluxe"]');
+    if (barOptDlx && cfg.tariffs.deluxe?.cp) {
+      barOptDlx.textContent = `Deluxe AC Room (₹${cfg.tariffs.deluxe.cp.toLocaleString('en-IN')})`;
+    }
+    const barOptFam = document.querySelector('#bar-roomtype option[value="family"]');
+    if (barOptFam && cfg.tariffs.family?.cp) {
+      barOptFam.textContent = `Family Suite AC (₹${cfg.tariffs.family.cp.toLocaleString('en-IN')})`;
+    }
+
+    // Published Tariff Table Cells
+    const stdEp = document.getElementById('tariff-std-ep');
+    const stdCp = document.getElementById('tariff-std-cp');
+    const stdMap = document.getElementById('tariff-std-map');
+    if (stdEp && cfg.tariffs.standard?.ep) stdEp.textContent = `₹${cfg.tariffs.standard.ep.toLocaleString('en-IN')}`;
+    if (stdCp && cfg.tariffs.standard?.cp) stdCp.textContent = `₹${cfg.tariffs.standard.cp.toLocaleString('en-IN')}`;
+    if (stdMap && cfg.tariffs.standard?.map) stdMap.textContent = `₹${cfg.tariffs.standard.map.toLocaleString('en-IN')}`;
+
+    const dlxEp = document.getElementById('tariff-dlx-ep');
+    const dlxCp = document.getElementById('tariff-dlx-cp');
+    const dlxMap = document.getElementById('tariff-dlx-map');
+    if (dlxEp && cfg.tariffs.deluxe?.ep) dlxEp.textContent = `₹${cfg.tariffs.deluxe.ep.toLocaleString('en-IN')}`;
+    if (dlxCp && cfg.tariffs.deluxe?.cp) dlxCp.textContent = `₹${cfg.tariffs.deluxe.cp.toLocaleString('en-IN')}`;
+    if (dlxMap && cfg.tariffs.deluxe?.map) dlxMap.textContent = `₹${cfg.tariffs.deluxe.map.toLocaleString('en-IN')}`;
+
+    const famEp = document.getElementById('tariff-fam-ep');
+    const famCp = document.getElementById('tariff-fam-cp');
+    const famMap = document.getElementById('tariff-fam-map');
+    if (famEp && cfg.tariffs.family?.ep) famEp.textContent = `₹${cfg.tariffs.family.ep.toLocaleString('en-IN')}`;
+    if (famCp && cfg.tariffs.family?.cp) famCp.textContent = `₹${cfg.tariffs.family.cp.toLocaleString('en-IN')}`;
+    if (famMap && cfg.tariffs.family?.map) famMap.textContent = `₹${cfg.tariffs.family.map.toLocaleString('en-IN')}`;
+
+    // Stay Configurator Select Options
     const optStd = document.querySelector('#cfg-room option[value="standard"]');
     const optDlx = document.querySelector('#cfg-room option[value="deluxe"]');
     const optFam = document.querySelector('#cfg-room option[value="family"]');
@@ -1133,28 +1236,151 @@ async function initDynamicConfig() {
       optFam.textContent = `Family Suite AC (From ₹${cfg.tariffs.family.ep.toLocaleString('en-IN')})`;
     }
 
-    // Trigger recalculation if configurator exists
-    const cfgRoom = document.getElementById('cfg-room');
-    if (cfgRoom) {
-      cfgRoom.dispatchEvent(new Event('change'));
+    if (window._updateTariffConfigurator) {
+      window._updateTariffConfigurator();
     }
   }
 
-  // 4. Update Phone Numbers across website
+  // 5. Mohan Ji Poori Wale Restaurant
+  if (cfg.restaurant) {
+    const stampEl = document.getElementById('culinary-stamp-sub');
+    if (stampEl && cfg.restaurant.stampSub) stampEl.textContent = cfg.restaurant.stampSub;
+
+    const headingEl = document.getElementById('culinary-heading');
+    if (headingEl && cfg.restaurant.heading) headingEl.textContent = cfg.restaurant.heading;
+
+    const descEl = document.getElementById('culinary-desc');
+    if (descEl && cfg.restaurant.desc) descEl.textContent = cfg.restaurant.desc;
+
+    // Dish 1
+    if (cfg.restaurant.dish1) {
+      const d1Name = document.getElementById('dish-1-name');
+      const d1Desc = document.getElementById('dish-1-desc');
+      const d1Badge = document.getElementById('dish-1-badge');
+      if (d1Name && cfg.restaurant.dish1.name) d1Name.textContent = cfg.restaurant.dish1.name;
+      if (d1Desc && cfg.restaurant.dish1.desc) d1Desc.textContent = cfg.restaurant.dish1.desc;
+      if (d1Badge && cfg.restaurant.dish1.badge) d1Badge.textContent = cfg.restaurant.dish1.badge;
+    }
+
+    // Dish 2
+    if (cfg.restaurant.dish2) {
+      const d2Name = document.getElementById('dish-2-name');
+      const d2Desc = document.getElementById('dish-2-desc');
+      const d2Badge = document.getElementById('dish-2-badge');
+      if (d2Name && cfg.restaurant.dish2.name) d2Name.textContent = cfg.restaurant.dish2.name;
+      if (d2Desc && cfg.restaurant.dish2.desc) d2Desc.textContent = cfg.restaurant.dish2.desc;
+      if (d2Badge && cfg.restaurant.dish2.badge) d2Badge.textContent = cfg.restaurant.dish2.badge;
+    }
+
+    // Dish 3
+    if (cfg.restaurant.dish3) {
+      const d3Name = document.getElementById('dish-3-name');
+      const d3Desc = document.getElementById('dish-3-desc');
+      const d3Badge = document.getElementById('dish-3-badge');
+      if (d3Name && cfg.restaurant.dish3.name) d3Name.textContent = cfg.restaurant.dish3.name;
+      if (d3Desc && cfg.restaurant.dish3.desc) d3Desc.textContent = cfg.restaurant.dish3.desc;
+      if (d3Badge && cfg.restaurant.dish3.badge) d3Badge.textContent = cfg.restaurant.dish3.badge;
+    }
+  }
+
+  // 6. Banquet Ballroom Estimator
+  if (cfg.banquet && window._updateBanquetCalculator) {
+    window._updateBanquetCalculator();
+  }
+
+  // 7. Char Dham Yatra
+  if (cfg.yatra) {
+    const yatraHeading = document.getElementById('yatra-heading');
+    if (yatraHeading && cfg.yatra.heading) yatraHeading.textContent = cfg.yatra.heading;
+
+    const yatraDesc = document.getElementById('yatra-desc');
+    if (yatraDesc && cfg.yatra.desc) yatraDesc.textContent = cfg.yatra.desc;
+  }
+
+  // 8. Timings & Stay Policies
+  if (cfg.policies) {
+    const badgeCheckin = document.getElementById('badge-policy-checkin');
+    if (badgeCheckin && cfg.policies.checkin) {
+      badgeCheckin.textContent = `CHECK-IN: ${cfg.policies.checkin.toUpperCase()}`;
+    }
+
+    const badgeCheckout = document.getElementById('badge-policy-checkout');
+    if (badgeCheckout && cfg.policies.checkout) {
+      badgeCheckout.textContent = `CHECK-OUT: ${cfg.policies.checkout.toUpperCase()}`;
+    }
+
+    const badgeChild = document.getElementById('badge-policy-child');
+    if (badgeChild && cfg.policies.childPolicy) {
+      badgeChild.textContent = cfg.policies.childPolicy.toUpperCase();
+    }
+
+    const badgeRules = document.getElementById('badge-policy-rules');
+    if (badgeRules && cfg.policies.rules) {
+      badgeRules.textContent = cfg.policies.rules.toUpperCase();
+    }
+  }
+
+  // 9. Contact Info, Address & Booking Engine URLs
   if (cfg.phones) {
+    const primaryClean = (cfg.phones.primary || '').replace(/[^0-9]/g, '');
+    const secondaryClean = (cfg.phones.secondary || '').replace(/[^0-9]/g, '');
+    const whatsappClean = (cfg.phones.whatsapp || secondaryClean || '919259368869').replace(/[^0-9]/g, '');
+
+    // Contact details block in Contact section
+    const contactPhonesVal = document.getElementById('contact-phones-val');
+    if (contactPhonesVal && (cfg.phones.secondary || cfg.phones.primary)) {
+      contactPhonesVal.innerHTML = `<a href="tel:${secondaryClean}">+91 ${cfg.phones.secondary}</a> / <a href="tel:${primaryClean}">+91 ${cfg.phones.primary}</a>`;
+    }
+
+    // Update tel links
     if (cfg.phones.primary) {
-      document.querySelectorAll('a[href^="tel:"]').forEach(a => {
-        if (a.href.includes('9286081713')) {
-          a.href = `tel:${cfg.phones.primary.replace(/[^0-9]/g, '')}`;
-        }
+      document.querySelectorAll('a[href*="9286081713"]').forEach(a => {
+        a.href = `tel:${primaryClean}`;
       });
     }
     if (cfg.phones.secondary) {
-      document.querySelectorAll('a[href^="tel:"]').forEach(a => {
-        if (a.href.includes('9259368869')) {
-          a.href = `tel:${cfg.phones.secondary.replace(/[^0-9]/g, '')}`;
-        }
+      document.querySelectorAll('a[href*="9259368869"]').forEach(a => {
+        a.href = `tel:${secondaryClean}`;
       });
     }
+
+    // Update WhatsApp links
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(a => {
+      try {
+        const u = new URL(a.href);
+        const textParam = u.searchParams.get('text');
+        a.href = `https://wa.me/${whatsappClean}${textParam ? '?text=' + encodeURIComponent(textParam) : ''}`;
+      } catch (err) {}
+    });
+  }
+
+  if (cfg.emails) {
+    const contactEmailsVal = document.getElementById('contact-emails-val');
+    if (contactEmailsVal && (cfg.emails.secondary || cfg.emails.primary)) {
+      contactEmailsVal.innerHTML = `<a href="mailto:${cfg.emails.secondary}">${cfg.emails.secondary}</a> / <a href="mailto:${cfg.emails.primary}">${cfg.emails.primary}</a>`;
+    }
+  }
+
+  if (cfg.address) {
+    const contactAddressVal = document.getElementById('contact-address-val');
+    if (contactAddressVal) contactAddressVal.textContent = cfg.address;
+
+    const footerAddressDisplay = document.getElementById('footer-address-display');
+    if (footerAddressDisplay) footerAddressDisplay.textContent = cfg.address;
+  }
+
+  if (cfg.bookingEngineUrl) {
+    document.querySelectorAll('a[href*="eglobe-solutions.com"]').forEach(a => {
+      a.href = cfg.bookingEngineUrl;
+    });
+    const quickBarForm = document.getElementById('hero-quick-booking-form');
+    if (quickBarForm) quickBarForm.action = cfg.bookingEngineUrl;
   }
 }
+
+// Cross-tab real-time configuration sync
+window.addEventListener('storage', (e) => {
+  if (e.key === 'mohan_site_config') {
+    initDynamicConfig();
+  }
+});

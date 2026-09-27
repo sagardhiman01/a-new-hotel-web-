@@ -169,7 +169,7 @@
     }
 
     .admin-header-container {
-      max-width: 1300px;
+      max-width: 1320px;
       margin: 0 auto;
       padding: 16px 24px;
       display: flex;
@@ -228,6 +228,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .btn-secondary {
@@ -277,7 +278,7 @@
     /* Main Container & Layout */
     .admin-main {
       flex: 1;
-      max-width: 1300px;
+      max-width: 1320px;
       width: 100%;
       margin: 0 auto;
       padding: 30px 24px 60px 24px;
@@ -297,10 +298,10 @@
       background: transparent;
       border: none;
       border-bottom: 2.5px solid transparent;
-      padding: 12px 20px;
+      padding: 12px 18px;
       color: var(--text-muted);
       font-family: var(--font-mono);
-      font-size: 12.5px;
+      font-size: 12px;
       letter-spacing: 0.08em;
       cursor: pointer;
       transition: all 0.25s ease;
@@ -470,7 +471,6 @@
       background: #EF4444;
     }
 
-    /* Live Preview Indicator */
     .preview-pill {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -500,7 +500,7 @@
     </div>
   </div>
 
-  <!-- Admin Workspace -->
+  <!-- Admin Workspace Header -->
   <header class="admin-header">
     <div class="admin-header-container">
       <div class="admin-brand">
@@ -524,7 +524,7 @@
           🔄 Reset Defaults
         </button>
         <button id="btn-save-all" class="btn-primary-save">
-          💾 Save Changes
+          💾 Save All Changes
         </button>
       </div>
     </div>
@@ -534,8 +534,11 @@
     <!-- Tabs Nav -->
     <nav class="admin-tabs-nav" aria-label="Admin Navigation Tabs">
       <button class="tab-btn active" data-tab="tab-contact">📞 Contact & Property</button>
-      <button class="tab-btn" data-tab="tab-tariffs">🏷️ Room Tariffs</button>
-      <button class="tab-btn" data-tab="tab-banquet">🏛️ Banquet Hall</button>
+      <button class="tab-btn" data-tab="tab-hero">🌟 Hero & Intro</button>
+      <button class="tab-btn" data-tab="tab-tariffs">🏷️ Room Tariffs & Suites</button>
+      <button class="tab-btn" data-tab="tab-culinary">🍛 Mohan Ji Poori Wale</button>
+      <button class="tab-btn" data-tab="tab-banquet">🏛️ Banquet Ballroom</button>
+      <button class="tab-btn" data-tab="tab-yatra">🗺️ Char Dham Yatra</button>
       <button class="tab-btn" data-tab="tab-policies">📜 Timings & Policies</button>
       <button class="tab-btn" data-tab="tab-announcements">🔔 Aarti & Ticker</button>
     </nav>
@@ -548,21 +551,18 @@
 
         <div class="form-grid-2">
           <div class="form-group">
-            <label class="form-label" for="field-phone-primary">Primary Official Line (Gallabox / Front Desk)</label>
+            <label class="form-label" for="field-phone-primary">Primary Official Line (Front Desk)</label>
             <input type="text" id="field-phone-primary" class="form-input" placeholder="+91 92860 81713">
-            <span class="preview-pill">Appears on navbar, contact section, and footer</span>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="field-phone-secondary">Secondary / Direct MD Contact</label>
             <input type="text" id="field-phone-secondary" class="form-input" placeholder="+91 9259368869">
-            <span class="preview-pill">Direct helpline for Manish Mishra</span>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="field-phone-whatsapp">WhatsApp Booking Number (Digits only)</label>
             <input type="text" id="field-phone-whatsapp" class="form-input" placeholder="919259368869">
-            <span class="preview-pill">Destination for instant room and banquet booking messages</span>
           </div>
 
           <div class="form-group">
@@ -610,11 +610,41 @@
       </div>
     </section>
 
-    <!-- Tab 2: Room Tariffs & Meal Plans -->
+    <!-- Tab 2: Hero & Intro Section -->
+    <section id="tab-hero" class="tab-pane">
+      <div class="card-section">
+        <h2 class="card-section-title">Hero Section & Main Branding</h2>
+        <p class="card-section-desc">Customize the top headline, italic subtitle, location pill badge, and welcoming narrative.</p>
+
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label class="form-label" for="hero-badge">Hero Top Location Badge</label>
+          <input type="text" id="hero-badge" class="form-input" placeholder="SINCE BAHADARABAD • NH-58 • 10 MINS FROM HAR KI PAURI">
+        </div>
+
+        <div class="form-grid-2" style="margin-bottom: 18px;">
+          <div class="form-group">
+            <label class="form-label" for="hero-headline-main">Main Headline</label>
+            <input type="text" id="hero-headline-main" class="form-input" placeholder="DIVINE LUXURY.">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="hero-headline-sub">Italic Sub-Headline</label>
+            <input type="text" id="hero-headline-sub" class="form-input" placeholder="Sanctuary by the Ganges.">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="hero-subtext">Hero Welcoming Narrative / Paragraph</label>
+          <textarea id="hero-subtext" class="form-textarea" placeholder="Welcoming pilgrims and discerning travelers..."></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 3: Room Tariffs & Suites -->
     <section id="tab-tariffs" class="tab-pane">
       <div class="card-section">
-        <h2 class="card-section-title">Room Tariffs & Meal Plan Pricing</h2>
-        <p class="card-section-desc">Control official published rates across all 3 room categories and meal plans (EP: Room Only, CP: With Breakfast, MAP: Breakfast + Dinner).</p>
+        <h2 class="card-section-title">Room Tariffs & Room Descriptions</h2>
+        <p class="card-section-desc">Control official published rates and descriptions across all 3 room categories and meal plans.</p>
 
         <div class="form-grid-3">
           <!-- Standard AC -->
@@ -631,9 +661,13 @@
               <label class="form-label" for="rate-standard-cp" style="color: var(--bhagwa);">CP (With Breakfast) ₹</label>
               <input type="number" id="rate-standard-cp" class="form-input" placeholder="4000">
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 14px;">
               <label class="form-label" for="rate-standard-map">MAP (B'fast + Dinner) ₹</label>
               <input type="number" id="rate-standard-map" class="form-input" placeholder="4950">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="desc-standard">Suite Description</label>
+              <textarea id="desc-standard" class="form-textarea" style="min-height: 70px;"></textarea>
             </div>
           </div>
 
@@ -651,9 +685,13 @@
               <label class="form-label" for="rate-deluxe-cp" style="color: var(--bhagwa);">CP (With Breakfast) ₹</label>
               <input type="number" id="rate-deluxe-cp" class="form-input" placeholder="5000">
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 14px;">
               <label class="form-label" for="rate-deluxe-map">MAP (B'fast + Dinner) ₹</label>
               <input type="number" id="rate-deluxe-map" class="form-input" placeholder="5950">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="desc-deluxe">Suite Description</label>
+              <textarea id="desc-deluxe" class="form-textarea" style="min-height: 70px;"></textarea>
             </div>
           </div>
 
@@ -671,16 +709,97 @@
               <label class="form-label" for="rate-family-cp" style="color: var(--bhagwa);">CP (With Breakfast) ₹</label>
               <input type="number" id="rate-family-cp" class="form-input" placeholder="8000">
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-bottom: 14px;">
               <label class="form-label" for="rate-family-map">MAP (B'fast + Dinner) ₹</label>
               <input type="number" id="rate-family-map" class="form-input" placeholder="9400">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="desc-family">Suite Description</label>
+              <textarea id="desc-family" class="form-textarea" style="min-height: 70px;"></textarea>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Tab 3: Banquet Hall & Events -->
+    <!-- Tab 4: Mohan Ji Poori Wale Restaurant -->
+    <section id="tab-culinary" class="tab-pane">
+      <div class="card-section">
+        <h2 class="card-section-title">Mohan Ji Poori Wale Dining Details</h2>
+        <p class="card-section-desc">Manage the restaurant header, seating capacity stamp, and 3 signature dishes.</p>
+
+        <div class="form-grid-2" style="margin-bottom: 18px;">
+          <div class="form-group">
+            <label class="form-label" for="resto-heading">Section Main Heading</label>
+            <input type="text" id="resto-heading" class="form-input" placeholder="A Sacred Feast for Soul & Senses">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="resto-stamp">Artisan Stamp Badge</label>
+            <input type="text" id="resto-stamp" class="form-input" placeholder="PURE VEG • 200 PAX">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label class="form-label" for="resto-desc">Culinary Heritage Story</label>
+          <textarea id="resto-desc" class="form-textarea" placeholder="Our chefs preserve centuries-old secret spice blends..."></textarea>
+        </div>
+
+        <h3 class="font-serif" style="font-size: 1.25rem; color: var(--gold-champagne); margin-bottom: 14px;">Signature Dishes Highlight</h3>
+        
+        <div class="form-grid-3">
+          <div class="rate-card">
+            <h4 style="font-size: 1rem; color: #FFFFFF; margin-bottom: 10px;">Dish 1</h4>
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label class="form-label" for="dish1-name">Name</label>
+              <input type="text" id="dish1-name" class="form-input" placeholder="Signature Bedmi Poori & Mathura Aloo">
+            </div>
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label class="form-label" for="dish1-badge">Badge</label>
+              <input type="text" id="dish1-badge" class="form-input" placeholder="Breakfast Icon">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="dish1-desc">Description</label>
+              <textarea id="dish1-desc" class="form-textarea" style="min-height: 60px;"></textarea>
+            </div>
+          </div>
+
+          <div class="rate-card">
+            <h4 style="font-size: 1rem; color: #FFFFFF; margin-bottom: 10px;">Dish 2</h4>
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label class="form-label" for="dish2-name">Name</label>
+              <input type="text" id="dish2-name" class="form-input" placeholder="Shahi Kesar Sooji Halwa">
+            </div>
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label class="form-label" for="dish2-badge">Badge</label>
+              <input type="text" id="dish2-badge" class="form-input" placeholder="Heritage Sweet">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="dish2-desc">Description</label>
+              <textarea id="dish2-desc" class="form-textarea" style="min-height: 60px;"></textarea>
+            </div>
+          </div>
+
+          <div class="rate-card">
+            <h4 style="font-size: 1rem; color: #FFFFFF; margin-bottom: 10px;">Dish 3</h4>
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label class="form-label" for="dish3-name">Name</label>
+              <input type="text" id="dish3-name" class="form-input" placeholder="Royal Shivalik Paneer Thali">
+            </div>
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label class="form-label" for="dish3-badge">Badge</label>
+              <input type="text" id="dish3-badge" class="form-input" placeholder="All-Day Dining">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="dish3-desc">Description</label>
+              <textarea id="dish3-desc" class="form-textarea" style="min-height: 60px;"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 5: Banquet Hall -->
     <section id="tab-banquet" class="tab-pane">
       <div class="card-section">
         <h2 class="card-section-title">150-Guest AC Banquet Pricing Calculator</h2>
@@ -690,7 +809,6 @@
           <div class="form-group">
             <label class="form-label" for="banquet-hall-charge">Base AC Hall Rental Charge (₹)</label>
             <input type="number" id="banquet-hall-charge" class="form-input" placeholder="25000">
-            <span class="preview-pill">Includes air conditioning, decor, and basic sound setup</span>
           </div>
 
           <div class="form-group">
@@ -716,7 +834,25 @@
       </div>
     </section>
 
-    <!-- Tab 4: Timings & Stay Policies -->
+    <!-- Tab 6: Char Dham Yatra -->
+    <section id="tab-yatra" class="tab-pane">
+      <div class="card-section">
+        <h2 class="card-section-title">Char Dham Yatra & Concierge Section</h2>
+        <p class="card-section-desc">Customize the title and introduction paragraph for pilgrimage travel services.</p>
+
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label class="form-label" for="yatra-heading-field">Section Title</label>
+          <input type="text" id="yatra-heading-field" class="form-input" placeholder="Char Dham Yatra & Local Concierge">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="yatra-desc-field">Introduction & Gateway Description</label>
+          <textarea id="yatra-desc-field" class="form-textarea" placeholder="Ideally located on Haridwar-Delhi Highway NH 58 in Bahadarabad..."></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 7: Timings & Stay Policies -->
     <section id="tab-policies" class="tab-pane">
       <div class="card-section">
         <h2 class="card-section-title">Check-in, Check-out & Child Policies</h2>
@@ -746,7 +882,7 @@
       </div>
     </section>
 
-    <!-- Tab 5: Aarti & Ticker -->
+    <!-- Tab 8: Aarti & Ticker -->
     <section id="tab-announcements" class="tab-pane">
       <div class="card-section">
         <h2 class="card-section-title">Topbar Announcement Ticker & Ganga Aarti Countdown</h2>
@@ -756,13 +892,11 @@
           <div class="form-group">
             <label class="form-label" for="ticker-weather">Topbar Status Ticker Message</label>
             <input type="text" id="ticker-weather" class="form-input" placeholder="Haridwar: 28°C • Holy Ganges Breeze">
-            <span class="preview-pill">Appears at the very top bar next to the live indicator dot</span>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="ticker-aarti-time">Sandhya Maha Aarti Evening Time (HH:MM)</label>
             <input type="time" id="ticker-aarti-time" class="form-input" value="18:30">
-            <span class="preview-pill">Syncs the 24-hour live countdown timer at Har Ki Pauri</span>
           </div>
         </div>
       </div>
@@ -776,7 +910,6 @@
   </div>
 
   <script>
-    // Management Studio Logic
     const DEFAULT_CONFIG = {
       hotelName: "Hotel Mohan Inn",
       tagline: "Modern Sacred Luxury • Rooms • Banquet • Mohan Ji Poori Wale",
@@ -794,16 +927,45 @@
       },
       address: "Khasra no 698, NH-334 / NH 58, Haridwar-Delhi Highway, Bahadarabad, Haridwar, Uttarakhand – 249423 (Near CNG Station)",
       bookingEngineUrl: "https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar",
-      tariffs: {
-        standard: { ep: 3500, cp: 4000, map: 4950 },
-        deluxe: { ep: 4500, cp: 5000, map: 5950 },
-        family: { ep: 7200, cp: 8000, map: 9400 }
+      hero: {
+        badge: "SINCE BAHADARABAD • NH-58 • 10 MINS FROM HAR KI PAURI",
+        headlineMain: "DIVINE LUXURY.",
+        headlineSub: "Sanctuary by the Ganges.",
+        subtext: "Welcoming pilgrims and discerning travelers to Haridwar’s premier hospitality sanctuary. Featuring 32 boutique AC rooms, a 150-guest grand banquet ballroom, dedicated Char Dham Yatra desk, and the legendary 200-capacity Mohan Ji Poori Wale pure vegetarian dining heritage."
       },
-      policies: {
-        checkin: "1:00 PM",
-        checkout: "11:00 AM",
-        childPolicy: "Children under 5 stay free with parents (without extra bed)",
-        rules: "All rates on twin sharing basis. Advance deposit required for guaranteed confirmation."
+      tariffs: {
+        standard: {
+          ep: 3500, cp: 4000, map: 4950,
+          desc: "Exceptional comfort spanning 200 sqft. Features a dedicated solid-wood writing desk, seating lounge, high-speed Wi-Fi, LED television, and in-room tea/coffee amenities."
+        },
+        deluxe: {
+          ep: 4500, cp: 5000, map: 5950,
+          desc: "Freshly refurbished with contemporary styling and mountain vistas. Equipped with king bedding, ambient lighting controls, 24/7 hot/cold shower, and breakfast inclusions."
+        },
+        family: {
+          ep: 7200, cp: 8000, map: 9400,
+          desc: "Our most spacious signature suite spanning 350 sqft. Solely furnished to ensure the highest standard of family hospitality with twin double beds, luxury bath, and sofa lounge."
+        }
+      },
+      restaurant: {
+        stampSub: "PURE VEG • 200 PAX",
+        heading: "A Sacred Feast for Soul & Senses",
+        desc: "Our chefs preserve centuries-old secret spice blends cooked in pure desi ghee. From the crisp golden crunch of morning balloon pooris to aromatic tawa rotis, rich paneer specialties, and soothing clay-pot masala chai, every meal is prepared with sattvic reverence.",
+        dish1: {
+          name: "Signature Bedmi Poori & Mathura Aloo",
+          desc: "Crispy urad dal stuffed poori with spicy hing-infused potato curry & sweet pumpkin subzi.",
+          badge: "Breakfast Icon"
+        },
+        dish2: {
+          name: "Shahi Kesar Sooji Halwa",
+          desc: "Slow-roasted semolina in pure cow ghee, garnished with saffron strands, cashews & almonds.",
+          badge: "Heritage Sweet"
+        },
+        dish3: {
+          name: "Royal Shivalik Paneer Thali",
+          desc: "Fresh cottage cheese in makhani gravy, yellow dal tadka, jeera rice, tandoori rotis, raita & salad.",
+          badge: "All-Day Dining"
+        }
       },
       banquet: {
         hallCharge: 25000,
@@ -814,8 +976,18 @@
           katha: 400
         }
       },
-      aartiTime: "18:30",
-      weatherTicker: "Haridwar: 28°C • Holy Ganges Breeze"
+      yatra: {
+        heading: "Char Dham Yatra & Local Concierge",
+        desc: "Ideally located on Haridwar-Delhi Highway NH 58 in Bahadarabad, serving as the stress-free starting sanctuary for the holy Char Dham pilgrimage (Yamunotri, Gangotri, Kedarnath, Badrinath)."
+      },
+      policies: {
+        checkin: "1:00 PM",
+        checkout: "11:00 AM",
+        childPolicy: "Children under 5 stay free with parents (without extra bed)",
+        rules: "All rates on twin sharing basis. Advance deposit required for guaranteed confirmation."
+      },
+      weatherTicker: "Haridwar: 28°C • Holy Ganges Breeze",
+      aartiTime: "18:30"
     };
 
     let activeConfig = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
@@ -891,18 +1063,44 @@
       document.getElementById('field-director-quote').value = data.directorQuote || '';
       document.getElementById('field-address').value = data.address || '';
 
+      // Hero
+      document.getElementById('hero-badge').value = data.hero?.badge || '';
+      document.getElementById('hero-headline-main').value = data.hero?.headlineMain || '';
+      document.getElementById('hero-headline-sub').value = data.hero?.headlineSub || '';
+      document.getElementById('hero-subtext').value = data.hero?.subtext || '';
+
       // Tariffs
       document.getElementById('rate-standard-ep').value = data.tariffs?.standard?.ep || 3500;
       document.getElementById('rate-standard-cp').value = data.tariffs?.standard?.cp || 4000;
       document.getElementById('rate-standard-map').value = data.tariffs?.standard?.map || 4950;
+      document.getElementById('desc-standard').value = data.tariffs?.standard?.desc || '';
 
       document.getElementById('rate-deluxe-ep').value = data.tariffs?.deluxe?.ep || 4500;
       document.getElementById('rate-deluxe-cp').value = data.tariffs?.deluxe?.cp || 5000;
       document.getElementById('rate-deluxe-map').value = data.tariffs?.deluxe?.map || 5950;
+      document.getElementById('desc-deluxe').value = data.tariffs?.deluxe?.desc || '';
 
       document.getElementById('rate-family-ep').value = data.tariffs?.family?.ep || 7200;
       document.getElementById('rate-family-cp').value = data.tariffs?.family?.cp || 8000;
       document.getElementById('rate-family-map').value = data.tariffs?.family?.map || 9400;
+      document.getElementById('desc-family').value = data.tariffs?.family?.desc || '';
+
+      // Culinary
+      document.getElementById('resto-heading').value = data.restaurant?.heading || '';
+      document.getElementById('resto-stamp').value = data.restaurant?.stampSub || '';
+      document.getElementById('resto-desc').value = data.restaurant?.desc || '';
+
+      document.getElementById('dish1-name').value = data.restaurant?.dish1?.name || '';
+      document.getElementById('dish1-badge').value = data.restaurant?.dish1?.badge || '';
+      document.getElementById('dish1-desc').value = data.restaurant?.dish1?.desc || '';
+
+      document.getElementById('dish2-name').value = data.restaurant?.dish2?.name || '';
+      document.getElementById('dish2-badge').value = data.restaurant?.dish2?.badge || '';
+      document.getElementById('dish2-desc').value = data.restaurant?.dish2?.desc || '';
+
+      document.getElementById('dish3-name').value = data.restaurant?.dish3?.name || '';
+      document.getElementById('dish3-badge').value = data.restaurant?.dish3?.badge || '';
+      document.getElementById('dish3-desc').value = data.restaurant?.dish3?.desc || '';
 
       // Banquet
       document.getElementById('banquet-hall-charge').value = data.banquet?.hallCharge || 25000;
@@ -910,6 +1108,10 @@
       document.getElementById('banquet-plate-reception').value = data.banquet?.perPlate?.reception || 550;
       document.getElementById('banquet-plate-corporate').value = data.banquet?.perPlate?.corporate || 450;
       document.getElementById('banquet-plate-katha').value = data.banquet?.perPlate?.katha || 400;
+
+      // Yatra
+      document.getElementById('yatra-heading-field').value = data.yatra?.heading || '';
+      document.getElementById('yatra-desc-field').value = data.yatra?.desc || '';
 
       // Policies
       document.getElementById('policy-checkin').value = data.policies?.checkin || '1:00 PM';
@@ -941,21 +1143,50 @@
         },
         address: document.getElementById('field-address').value.trim(),
         bookingEngineUrl: document.getElementById('field-booking-engine').value.trim(),
+        hero: {
+          badge: document.getElementById('hero-badge').value.trim(),
+          headlineMain: document.getElementById('hero-headline-main').value.trim(),
+          headlineSub: document.getElementById('hero-headline-sub').value.trim(),
+          subtext: document.getElementById('hero-subtext').value.trim()
+        },
         tariffs: {
           standard: {
             ep: parseInt(document.getElementById('rate-standard-ep').value) || 3500,
             cp: parseInt(document.getElementById('rate-standard-cp').value) || 4000,
-            map: parseInt(document.getElementById('rate-standard-map').value) || 4950
+            map: parseInt(document.getElementById('rate-standard-map').value) || 4950,
+            desc: document.getElementById('desc-standard').value.trim()
           },
           deluxe: {
             ep: parseInt(document.getElementById('rate-deluxe-ep').value) || 4500,
             cp: parseInt(document.getElementById('rate-deluxe-cp').value) || 5000,
-            map: parseInt(document.getElementById('rate-deluxe-map').value) || 5950
+            map: parseInt(document.getElementById('rate-deluxe-map').value) || 5950,
+            desc: document.getElementById('desc-deluxe').value.trim()
           },
           family: {
             ep: parseInt(document.getElementById('rate-family-ep').value) || 7200,
             cp: parseInt(document.getElementById('rate-family-cp').value) || 8000,
-            map: parseInt(document.getElementById('rate-family-map').value) || 9400
+            map: parseInt(document.getElementById('rate-family-map').value) || 9400,
+            desc: document.getElementById('desc-family').value.trim()
+          }
+        },
+        restaurant: {
+          heading: document.getElementById('resto-heading').value.trim(),
+          stampSub: document.getElementById('resto-stamp').value.trim(),
+          desc: document.getElementById('resto-desc').value.trim(),
+          dish1: {
+            name: document.getElementById('dish1-name').value.trim(),
+            badge: document.getElementById('dish1-badge').value.trim(),
+            desc: document.getElementById('dish1-desc').value.trim()
+          },
+          dish2: {
+            name: document.getElementById('dish2-name').value.trim(),
+            badge: document.getElementById('dish2-badge').value.trim(),
+            desc: document.getElementById('dish2-desc').value.trim()
+          },
+          dish3: {
+            name: document.getElementById('dish3-name').value.trim(),
+            badge: document.getElementById('dish3-badge').value.trim(),
+            desc: document.getElementById('dish3-desc').value.trim()
           }
         },
         banquet: {
@@ -966,6 +1197,10 @@
             corporate: parseInt(document.getElementById('banquet-plate-corporate').value) || 450,
             katha: parseInt(document.getElementById('banquet-plate-katha').value) || 400
           }
+        },
+        yatra: {
+          heading: document.getElementById('yatra-heading-field').value.trim(),
+          desc: document.getElementById('yatra-desc-field').value.trim()
         },
         policies: {
           checkin: document.getElementById('policy-checkin').value.trim(),
@@ -1011,9 +1246,9 @@
         });
 
         if (res.ok) {
-          showToast('✓ Settings successfully saved to server & live website!');
+          showToast('✓ All changes saved to server & live website!');
         } else {
-          showToast('Saved to browser storage (Server read-only).');
+          showToast('Saved to browser storage.');
         }
       } catch (err) {
         showToast('Saved to browser storage.');
