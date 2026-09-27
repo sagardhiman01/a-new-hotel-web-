@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Hotel Mohan Inn | Luxury Rooms, Banquet & Mohan Ji Poori Wale, Haridwar</title>
+  
+  <meta name="description" content="Experience sacred luxury at Hotel Mohan Inn Haridwar on NH 58 Bahadarabad. 32 Luxurious AC Rooms, 150 Pax AC Banquet Hall, 200 Pax Mohan Ji Poori Wale Restaurant, Char Dham Yatra desk, 10 mins from Har Ki Pauri.">
+  <meta name="keywords" content="Hotel Mohan Inn Haridwar, Haridwar Luxury Hotel, Mohan Ji Poori Wale, Banquet Hall Haridwar, Char Dham Yatra Package, Hotel near Har Ki Pauri, Haridwar Delhi Highway NH 58">
+  <meta name="author" content="Hotel Mohan Inn">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.hotelmohaninn.com/">
+  <meta property="og:title" content="Hotel Mohan Inn | Sacred Luxury Rooms & Banquet, Haridwar">
+  <meta property="og:description" content="32 Luxury AC Rooms, 150 Pax Banquet Ballroom & Heritage Mohan Ji Poori Wale Restaurant. 10 Mins to Har Ki Pauri.">
+  <meta property="og:image" content="assets/images/ganga_aarti_hero.jpg">
+  
+  <!-- Theme Color (Sacred Bhagwa & Gold) -->
+  <meta name="theme-color" content="#FF7A28">
+  <meta name="color-scheme" content="light">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/img_logo.png" type="image/png">
+
+  <!-- Google Fonts Preconnect & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD Hotel Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "Hotel Mohan Inn",
+    "image": "assets/images/ganga_aarti_hero.jpg",
+    "telephone": ["+91-9259368869", "+91-9286081713"],
+    "email": ["info@hotelmohaninn.com", "hotelmohaninn@gmail.com"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Khasra no 698, NH 58 / NH-334, Delhi-Haridwar Highway, Bahadarabad",
+      "addressLocality": "Haridwar",
+      "addressRegion": "Uttarakhand",
+      "postalCode": "249423",
+      "addressCountry": "IN"
+    },
+    "starRating": {
+      "@type": "Rating",
+      "ratingValue": "4.8"
+    },
+    "priceRange": "₹4000 - ₹8000",
+    "checkinTime": "13:00",
+    "checkoutTime": "11:00",
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "32 Luxurious AC Rooms" },
+      { "@type": "LocationFeatureSpecification", "name": "150 Pax AC Banquet Hall" },
+      { "@type": "LocationFeatureSpecification", "name": "200 Pax Mohan Ji Poori Wale Restaurant" },
+      { "@type": "LocationFeatureSpecification", "name": "Char Dham Yatra Package & Travels Desk" },
+      { "@type": "LocationFeatureSpecification", "name": "10 Minutes to Har Ki Pauri" },
+      { "@type": "LocationFeatureSpecification", "name": "Ample Car Parking Area" },
+      { "@type": "LocationFeatureSpecification", "name": "High Speed Wi-Fi & 24/7 Hot Water" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Kinetic Top Scroll Indicator -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+
+  <!-- Background Canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Announcement Bar (Deep Temple Teak & Antique Gold) -->
+  <div class="header-topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span class="topbar-ticker-item">
+          <span class="indicator"></span>
+          Haridwar: 28°C • Holy Ganges Breeze
+        </span>
+        <span class="topbar-ticker-item">
+          ● Sandhya Maha Aarti at Har Ki Pauri: <strong id="aarti-countdown" class="text-gold" style="margin-left:4px;">03h 45m 12s</strong>
+        </span>
+      </div>
+      <div class="topbar-right">
+        <span>Managing Director: Manish Mishra</span>
+        <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle Temple Flute Soundscape">
+          <span class="audio-equalizer">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="audio-label">Temple Flute</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Luxury Navbar -->
+  <header class="luxury-navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <!-- Logo Brand -->
+        <a href="#hero" class="brand-link" id="brand-logo-link">
+          <div class="brand-symbol-wrap">
+            <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn Logo" width="34" height="34">
+          </div>
+          <div class="brand-text-col">
+            <span class="brand-title">HOTEL MOHAN INN</span>
+            <span class="brand-subtitle">ROOMS • BANQUET • MOHAN JI POORI WALE</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-links-desktop" aria-label="Primary Navigation">
+          <a href="#suites" class="nav-item-link">Suites & Rooms</a>
+          <a href="#atmosphere" class="nav-item-link">Aura Studio</a>
+          <a href="#blueprint" class="nav-item-link">360° Specs</a>
+          <a href="#culinary" class="nav-item-link">Mohan Ji Poori Wale</a>
+          <a href="#banquet" class="nav-item-link">150 Pax Banquet</a>
+          <a href="#gallery" class="nav-item-link">Gallery</a>
+          <a href="#tariff" class="nav-item-link">Tariff & Config</a>
+          <a href="#yatra" class="nav-item-link">Char Dham Desk</a>
+          <a href="#contact" class="nav-item-link">Contact</a>
+        </nav>
+
+        <!-- Navbar CTAs (Sacred Bhagwa & Antique Gold) -->
+        <div class="nav-actions">
+          <a href="tel:9259368869" class="nav-phone-link" aria-label="Call Hotel Mohan Inn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>9259368869</span>
+          </a>
+          <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" id="nav-reserve-btn">
+            Reserve Suite
+          </button>
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Drawer -->
+      <div id="mobile-drawer" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s var(--ease-out-expo); background: var(--bg-sand); border-radius: 2px;">
+        <div style="padding: 20px; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 14px;">
+          <a href="#suites" class="nav-item-link">Suites & Rooms</a>
+          <a href="#atmosphere" class="nav-item-link">Aura Studio</a>
+          <a href="#blueprint" class="nav-item-link">360° Specs</a>
+          <a href="#culinary" class="nav-item-link">Mohan Ji Poori Wale</a>
+          <a href="#banquet" class="nav-item-link">150 Pax Banquet</a>
+          <a href="#gallery" class="nav-item-link">Gallery</a>
+          <a href="#tariff" class="nav-item-link">Tariff & Config</a>
+          <a href="#yatra" class="nav-item-link">Char Dham Desk</a>
+          <a href="#contact" class="nav-item-link">Contact</a>
+          <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="btn-bhagwa-primary" style="margin-top: 10px;">
+            Book on Eglobe Solutions ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-layer">
+      <img src="assets/images/ganga_aarti_hero.jpg" alt="Haridwar Ganga Aarti at Twilight" class="hero-bg-image">
+      <div class="hero-overlay-gradient"></div>
+      <div class="hero-overlay-linear"></div>
+      <div class="hero-side-glow-left"></div>
+      <div class="hero-side-glow-right"></div>
+      <div class="hero-glow-orb"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge-pill">
+          <span class="hero-badge-dot"></span>
+          <span>SINCE BAHADARABAD • NH-58 • 10 MINS FROM HAR KI PAURI</span>
+        </div>
+
+        <h1 class="hero-headline">
+          DIVINE LUXURY.
+          <span class="hero-gold-text italic-line">Sanctuary by the Ganges.</span>
+        </h1>
+
+        <div class="hairline-brass center"></div>
+
+        <p class="hero-subtext">
+          Welcoming pilgrims and discerning travelers to Haridwar’s premier hospitality sanctuary. Featuring 32 boutique AC rooms, a 150-guest grand banquet ballroom, dedicated Char Dham Yatra desk, and the legendary 200-capacity Mohan Ji Poori Wale pure vegetarian dining heritage.
+        </p>
+
+        <div class="hero-features-chips">
+          <span class="feature-chip">32 Luxurious AC Rooms</span>
+          <span class="feature-chip">150 Pax AC Banquet Hall</span>
+          <span class="feature-chip">Mohan Ji Poori Wale</span>
+          <span class="feature-chip">Char Dham Yatra Desk</span>
+          <span class="feature-chip">Ample Parking Area</span>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#suites" class="btn-bhagwa-primary" id="hero-explore-suites-btn">
+            Explore Suites
+            <span>→</span>
+          </a>
+          <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="btn-brass-ghost" id="hero-online-engine-btn">
+            Direct Booking Engine
+            <span>↗</span>
+          </a>
+        </div>
+
+        <!-- Metrics Strip -->
+        <div class="hero-metrics-strip">
+          <div class="metric-cell">
+            <div class="metric-number">32</div>
+            <div class="metric-label">Luxurious AC Suites</div>
+          </div>
+          <div class="metric-cell">
+            <div class="metric-number">150 Pax</div>
+            <div class="metric-label">Grand Banquet Hall</div>
+          </div>
+          <div class="metric-cell">
+            <div class="metric-number">10 Mins</div>
+            <div class="metric-label">To Har Ki Pauri Ghat</div>
+          </div>
+          <div class="metric-cell">
+            <div class="metric-number">200 Pax</div>
+            <div class="metric-label">Pure Veg Restaurant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Booking Search Widget Bar -->
+  <div class="container" style="position: relative; z-index: 25;">
+    <div class="booking-widget-bar" id="booking-quick-bar">
+      <form id="hero-quick-booking-form" class="booking-form-grid" action="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" method="GET" target="_blank">
+        <div class="input-field-group">
+          <label for="bar-checkin">Check-In Date</label>
+          <input type="date" id="bar-checkin" name="checkIn" class="custom-input" required>
+        </div>
+
+        <div class="input-field-group">
+          <label for="bar-checkout">Check-Out Date</label>
+          <input type="date" id="bar-checkout" name="ch_out" class="custom-input" required>
+        </div>
+
+        <div class="input-field-group">
+          <label for="bar-roomtype">Suite Category</label>
+          <select id="bar-roomtype" name="roomType" class="custom-select">
+            <option value="standard">Standard AC Room (₹4,000)</option>
+            <option value="deluxe" selected>Deluxe AC Room (₹5,000)</option>
+            <option value="family">Family Suite AC (₹8,000)</option>
+          </select>
+        </div>
+
+        <div class="input-field-group">
+          <label for="bar-guests">Guests</label>
+          <select id="bar-guests" name="adults" class="custom-select">
+            <option value="1">1 Adult</option>
+            <option value="2" selected>2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4+ Adults (Family)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-bhagwa-primary" style="height: 44px; width: 100%;" id="quick-check-rates-btn">
+          Reserve
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Section 1: Luxury Suites & Rooms Collection -->
+  <section class="luxury-section" id="suites">
+    <div class="section-bg-ambient">
+      <div class="ambient-orb-left"></div>
+      <div class="ambient-orb-right"></div>
+    </div>
+
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <div>
+          <span class="section-eyebrow">ACCOMMODATION & COMFORT</span>
+          <h2 class="section-title">Rooms & Signature Suites</h2>
+          <div class="hairline-brass"></div>
+        </div>
+        <p class="section-desc">
+          Refined sanctuaries designed with contemporary elegance, generous proportions, writing workstations, plush orthopedic beds, and pristine ensuite bathrooms for pilgrims and families.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="rooms-filter-nav">
+        <button class="filter-btn active" data-filter="all">All Suites (3)</button>
+        <button class="filter-btn" data-filter="standard">Standard AC (₹4,000)</button>
+        <button class="filter-btn" data-filter="deluxe">Deluxe AC (₹5,000)</button>
+        <button class="filter-btn" data-filter="family">Family Suite (₹8,000)</button>
+      </div>
+
+      <!-- Rooms Grid -->
+      <div class="rooms-grid">
+        <!-- Room 1: Standard AC Room -->
+        <article class="room-card" data-category="standard">
+          <div class="room-card-media">
+            <img src="assets/images/hotel_room_twin.jpg" alt="Standard AC Twin Room at Hotel Mohan Inn" class="room-card-img" loading="lazy">
+            <span class="room-tag-badge">CP PLAN AVAILABLE</span>
+            <div class="room-price-badge">
+              ₹4,000<small>/ Night</small>
+            </div>
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-type-title">Standard AC Room</h3>
+            <p class="room-card-desc">
+              Exceptional comfort spanning 200 sqft. Features a dedicated solid-wood writing desk, seating lounge, high-speed Wi-Fi, LED television, and in-room tea/coffee amenities.
+            </p>
+            <div class="room-specs-list">
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>1–2 Guests</span>
+              </div>
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+                <span>Twin / Single Beds</span>
+              </div>
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><circle cx="12" cy="20" r="1"/></svg>
+                <span>Free 5G Wi-Fi</span>
+              </div>
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                <span>200 sqft Area</span>
+              </div>
+            </div>
+            <div class="room-card-footer">
+              <button class="btn-brass-ghost btn-brass-small open-reserve-modal-btn" data-room="Standard AC Room">
+                Quick Reserve
+              </button>
+              <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="text-bhagwa font-mono" style="font-size: 12px; text-decoration: none; letter-spacing: 0.14em; font-weight: 700;">
+                Book Engine ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 2: Deluxe AC Room -->
+        <article class="room-card" data-category="deluxe">
+          <div class="room-card-media">
+            <img src="assets/images/img_room1.jpg" alt="Deluxe AC Room at Hotel Mohan Inn Haridwar" class="room-card-img" loading="lazy">
+            <span class="room-tag-badge">MOST POPULAR</span>
+            <div class="room-price-badge">
+              ₹5,000<small>/ Night</small>
+            </div>
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-type-title">Deluxe AC Room</h3>
+            <p class="room-card-desc">
+              Freshly refurbished with contemporary styling and mountain vistas. Equipped with king bedding, ambient lighting controls, 24/7 hot/cold shower, and breakfast inclusions.
+            </p>
+            <div class="room-specs-list">
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>2 Adults</span>
+              </div>
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+                <span>King Orthopedic</span>
+              </div>
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <span>Breakfast Included</span>
+              </div>
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                <span>220 sqft Area</span>
+              </div>
+            </div>
+            <div class="room-card-footer">
+              <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Deluxe AC Room">
+                Quick Reserve
+              </button>
+              <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="text-bhagwa font-mono" style="font-size: 12px; text-decoration: none; letter-spacing: 0.14em; font-weight: 700;">
+                Book Engine ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 3: Family Suite AC -->
+        <article class="room-card" data-category="family">
+          <div class="room-card-media">
+            <img src="assets/images/hotel_room_family.jpg" alt="Family Suite AC at Hotel Mohan Inn" class="room-card-img" loading="lazy">
+            <span class="room-tag-badge">FAMILY GRANDEUR</span>
+            <div class="room-price-badge">
+              ₹8,000<small>/ Night</small>
+            </div>
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-type-title">Family Suite AC</h3>
+            <p class="room-card-desc">
+              Our most spacious signature suite spanning 350 sqft. Solely furnished to ensure the highest standard of family hospitality with twin double beds, luxury bath, and sofa lounge.
+            </p>
+            <div class="room-specs-list">
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>3–4 Persons</span>
+              </div>
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+                <span>Twin Double Beds</span>
+              </div>
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><circle cx="12" cy="20" r="1"/></svg>
+                <span>High-Speed Wi-Fi</span>
+              </div>
+              <div class="room-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                <span>350 sqft Suite</span>
+              </div>
+            </div>
+            <div class="room-card-footer">
+              <button class="btn-brass-ghost btn-brass-small open-reserve-modal-btn" data-room="Family Suite AC">
+                Quick Reserve
+              </button>
+              <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="text-bhagwa font-mono" style="font-size: 12px; text-decoration: none; letter-spacing: 0.14em; font-weight: 700;">
+                Book Engine ↗
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Interactive Atmosphere & Lighting Calibration Studio -->
+  <section class="luxury-section" id="atmosphere" style="background: var(--bg-cream-alt);">
+    <div class="container">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto 30px auto;">
+        <span class="section-eyebrow">HARIDWAR NATURAL HARMONY</span>
+        <h2 class="section-title">Aura & Lighting Studio</h2>
+        <div class="hairline-brass center"></div>
+        <p class="section-desc" style="margin: 0 auto;">
+          Experience how natural Himalayan sunlight and sacred evening oil lamps illuminate Hotel Mohan Inn’s interiors across the 4 sacred quarters of the day.
+        </p>
+      </div>
+
+      <div class="atmosphere-studio-wrap">
+        <!-- Controls Column -->
+        <div class="atmosphere-controls">
+          <div>
+            <span class="section-eyebrow" style="margin-bottom: 8px;">CALIBRATE SACRED TIME</span>
+            <div class="atmosphere-presets-grid">
+              <button class="preset-chip-btn" data-preset="dawn">
+                <span class="time">04:30 AM</span>
+                <span class="label">Brahma Muhurta</span>
+              </button>
+              <button class="preset-chip-btn" data-preset="midday">
+                <span class="time">10:00 AM</span>
+                <span class="label">Surya Namaskar</span>
+              </button>
+              <button class="preset-chip-btn active" data-preset="aarti">
+                <span class="time">06:30 PM</span>
+                <span class="label">Sandhya Maha Aarti</span>
+              </button>
+              <button class="preset-chip-btn" data-preset="night">
+                <span class="time">11:00 PM</span>
+                <span class="label">Shanti Midnight</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Fine Tuning Sliders -->
+          <div class="atmosphere-slider-group">
+            <div class="slider-label-row">
+              <span>Light Azimuth</span>
+              <span class="font-mono text-bhagwa">Vector Direction</span>
+            </div>
+            <input type="range" id="range-azimuth" min="-200" max="200" value="140" class="custom-range">
+          </div>
+
+          <div class="atmosphere-slider-group">
+            <div class="slider-label-row">
+              <span>Light Elevation</span>
+              <span class="font-mono text-bhagwa">Sun Altitude</span>
+            </div>
+            <input type="range" id="range-elevation" min="0" max="100" value="45" class="custom-range">
+          </div>
+
+          <div class="atmosphere-slider-group">
+            <div class="slider-label-row">
+              <span>Aarti Warmth & Diffusion</span>
+              <span class="font-mono text-bhagwa">Amber Kelvin</span>
+            </div>
+            <input type="range" id="range-warmth" min="10" max="100" value="90" class="custom-range">
+          </div>
+
+          <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; color: var(--bhagwa); display: flex; align-items: center; gap: 8px; font-weight: 700;">
+            <span class="hero-badge-dot"></span>
+            REAL-TIME HARIDWAR AMBIENCE ACTIVE
+          </div>
+        </div>
+
+        <!-- Visual Preview Box -->
+        <div class="atmosphere-preview-box">
+          <img id="atmosphere-preview-img" src="assets/images/hotel_suite_aarti.jpg" alt="Hotel Mohan Inn Luxury Suite Ambience" class="atmosphere-preview-img">
+          <div id="atmosphere-filter-layer" class="atmosphere-filter-layer"></div>
+          <div class="atmosphere-caption-badge">
+            <h4 id="atmosphere-title" class="badge-title">Sandhya Maha Aarti (06:30 PM)</h4>
+            <p id="atmosphere-sub" class="badge-sub">Sacred fire lamps, floating flower diyas, warm amber sacred resonance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Virtual Suite Discovery Blueprint -->
+  <section class="luxury-section" id="blueprint">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <div>
+          <span class="section-eyebrow">SPATIAL ENGINEERING</span>
+          <h2 class="section-title">Virtual Suite Discovery Blueprint</h2>
+          <div class="hairline-brass"></div>
+        </div>
+        <p class="section-desc">
+          Click the interactive coordinate pins across the suite layout to inspect architectural materials, orthopedic bedding calibration, water pressure systems, and executive workstations.
+        </p>
+      </div>
+
+      <div class="blueprint-section-grid">
+        <!-- Blueprint Interactive Canvas Stage -->
+        <div class="blueprint-stage">
+          <img src="assets/images/hotel_room_deluxe.jpg" alt="Deluxe Suite Interior Architectural Blueprint" class="blueprint-stage-img">
+          <div class="blueprint-grid-overlay"></div>
+
+          <!-- Hotspot Pins -->
+          <button class="hotspot-pin active" data-node="1" style="top: 60%; left: 45%;" aria-label="Pin 1: Orthopedic King Bed">+</button>
+          <button class="hotspot-pin" data-node="2" style="top: 32%; left: 16%;" aria-label="Pin 2: Ensuite Geyser Bath">+</button>
+          <button class="hotspot-pin" data-node="3" style="top: 68%; left: 86%;" aria-label="Pin 3: Workstation & Wi-Fi">+</button>
+          <button class="hotspot-pin" data-node="4" style="top: 36%; left: 74%;" aria-label="Pin 4: Shivalik Balcony">+</button>
+          <button class="hotspot-pin" data-node="5" style="top: 68%; left: 15%;" aria-label="Pin 5: Tea & Refreshment Bar">+</button>
+        </div>
+
+        <!-- Node Specification Panel -->
+        <div class="blueprint-spec-panel">
+          <div>
+            <div id="bp-node-tag" class="node-header-tag">NODE 01 // SLEEP ARCHITECTURE</div>
+            <h3 id="bp-node-title" class="node-title">Royal Orthopedic King Bed</h3>
+            <p id="bp-node-desc" class="node-desc">
+              Custom pocket-spring 10-inch mattress draped in 400-thread count breathable Egyptian cotton linen. Acoustically shielded suite walls ensure deep peaceful sleep after sacred temple yatras.
+            </p>
+
+            <div class="tech-specs-table">
+              <div class="tech-spec-row">
+                <span class="label">Mattress Grade</span>
+                <span id="bp-val-1" class="value">Grade AAA Luxury</span>
+              </div>
+              <div class="metric-meter-bar">
+                <div id="bp-meter-1" class="metric-meter-fill" style="width: 98%;"></div>
+              </div>
+
+              <div class="tech-spec-row" style="margin-top: 14px;">
+                <span class="label">Linen Texture</span>
+                <span id="bp-val-2" class="value">100% Cotton Velvet</span>
+              </div>
+              <div class="metric-meter-bar">
+                <div id="bp-meter-2" class="metric-meter-fill" style="width: 95%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-medium); padding-top: 20px;">
+            <span class="font-mono text-muted" style="font-size: 12px; letter-spacing: 0.16em;">SPEC ID: #MOHAN-SUITE-01</span>
+            <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn">
+              Reserve This Suite
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Heritage Culinary Legacy - Mohan Ji Poori Wale -->
+  <section class="luxury-section heritage-culinary-section" id="culinary">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;">
+        <div>
+          <span class="section-eyebrow">LEGENDARY HARIDWAR FLAVOURS</span>
+          <h2 class="section-title">Mohan Ji Poori Wale</h2>
+          <div class="hairline-brass"></div>
+        </div>
+        <p class="section-desc">
+          Haridwar’s venerated pure vegetarian culinary institution right within Hotel Mohan Inn. Accommodating 200 guests in air-conditioned comfort with authentic Bedmi Poori, Aloo Sabzi, Kesar Halwa, and North/South Indian delicacies.
+        </p>
+      </div>
+
+      <div class="culinary-showcase-grid">
+        <!-- Visual Media Frame with Artisan Stamp -->
+        <div class="culinary-media-frame">
+          <img src="assets/images/img_restaurant_1.jpg" alt="Authentic Mohan Ji Poori Wale Breakfast Platter with Bedmi Poori, Aloo Sabzi, Chana & Kesar Halwa" loading="lazy">
+          <div class="culinary-stamp">
+            <span class="stamp-text">MOHAN JI</span>
+            <span class="stamp-sub">PURE VEG • 200 PAX</span>
+          </div>
+        </div>
+
+        <!-- Menu Highlights & Heritage Details -->
+        <div>
+          <h3 class="font-serif" style="font-size: 2.2rem; font-weight: 400; margin-bottom: 12px; color: var(--text-charcoal-pure);">
+            A Sacred Feast for Soul & Senses
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-charcoal-muted); line-height: 1.75; margin-bottom: 24px;">
+            Our chefs preserve centuries-old secret spice blends cooked in pure desi ghee. From the crisp golden crunch of morning balloon pooris to aromatic tawa rotis, rich paneer specialties, and soothing clay-pot masala chai, every meal is prepared with sattvic reverence.
+          </p>
+
+          <div class="dishes-pills-container">
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Signature Bedmi Poori & Mathura Aloo</h4>
+                <p>Crispy urad dal stuffed poori with spicy hing-infused potato curry & sweet pumpkin subzi.</p>
+              </div>
+              <span class="dish-badge">Breakfast Icon</span>
+            </div>
+
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Shahi Kesar Sooji Halwa</h4>
+                <p>Slow-roasted semolina in pure cow ghee, garnished with saffron strands, cashews & almonds.</p>
+              </div>
+              <span class="dish-badge">Heritage Sweet</span>
+            </div>
+
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Royal Shivalik Paneer Thali</h4>
+                <p>Fresh cottage cheese in makhani gravy, yellow dal tadka, jeera rice, tandoori rotis, raita & salad.</p>
+              </div>
+              <span class="dish-badge">All-Day Dining</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <a href="tel:9259368869" class="btn-bhagwa-primary">
+              Reserve Table (200 Capacity)
+            </a>
+            <span class="font-mono text-muted" style="font-size: 12px; letter-spacing: 0.12em; font-weight: 600;">
+              IN-ROOM DINING AVAILABLE 24/7
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: 150 Pax Grand AC Banquet Hall & Celebrations -->
+  <section class="luxury-section" id="banquet">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <div>
+          <span class="section-eyebrow">GRAND GATHERINGS & SATSANG</span>
+          <h2 class="section-title">150 Pax AC Banquet Hall</h2>
+          <div class="hairline-brass"></div>
+        </div>
+        <p class="section-desc">
+          Haridwar’s preferred venue for destination weddings, family ring ceremonies, spiritual kathas, corporate conferences, and anniversary celebrations with seamless catering and valet parking.
+        </p>
+      </div>
+
+      <div class="banquet-hero-grid">
+        <!-- Visual Ballroom -->
+        <div class="banquet-visual">
+          <img src="assets/images/banquet_hall_grand.jpg" alt="150 Pax Luxury Banquet Hall at Hotel Mohan Inn" loading="lazy">
+        </div>
+
+        <!-- Banquet Estimator & Inquiry Box -->
+        <div class="banquet-inquiry-box">
+          <span class="section-eyebrow" style="margin-bottom: 8px;">INSTANT EVENT ESTIMATOR</span>
+          <h3>Plan Your Grand Event</h3>
+          <p>
+            Configure your gathering size and event format for an immediate transparent package estimate.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 18px; margin-bottom: 24px;">
+            <div class="input-field-group">
+              <label for="banquet-event-type">Occasion Type</label>
+              <select id="banquet-event-type" class="custom-select">
+                <option value="wedding">Grand Wedding / Ring Ceremony</option>
+                <option value="reception">Anniversary / Family Gathering</option>
+                <option value="corporate">Corporate Conference / Workshop</option>
+                <option value="katha">Spiritual Katha / Bhajan Sandhya</option>
+              </select>
+            </div>
+
+            <div class="input-field-group">
+              <div style="display: flex; justify-content: space-between;">
+                <label>Expected Guests</label>
+                <span id="banquet-guests-display" class="font-mono text-bhagwa" style="font-size: 12.5px; font-weight: 700;">75 Guests (Max 150)</span>
+              </div>
+              <input type="range" id="banquet-guests-slider" min="25" max="150" value="75" step="5" class="custom-range">
+            </div>
+
+            <div style="background: #FFFFFF; border: 1px solid var(--border-medium); padding: 16px; border-radius: 2px;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--text-charcoal-muted);">
+                <span>ESTIMATED PACKAGE</span>
+                <span class="text-bhagwa" style="font-weight: 700;">ALL-INCLUSIVE</span>
+              </div>
+              <div id="banquet-estimate-total" style="font-family: var(--font-serif); font-size: 1.85rem; color: var(--bhagwa); margin-top: 6px; font-weight: 700;">
+                ₹73,750
+              </div>
+              <p style="font-size: 11.5px; font-family: var(--font-mono); color: var(--text-charcoal-muted); letter-spacing: 0.04em; margin-top: 6px; line-height: 1.5;">
+                Includes AC hall rental, basic decor, sound system & full buffet by Mohan Ji Poori Wale.
+              </p>
+            </div>
+          </div>
+
+          <a id="banquet-inquiry-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-bhagwa-primary" style="width: 100%; text-align: center;">
+            WhatsApp Banquet Inquiry ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Photo Gallery from Hotel Mohan Inn -->
+  <section class="luxury-section gallery-section" id="gallery">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <div>
+          <span class="section-eyebrow">AUTHENTIC VISUAL RETREAT</span>
+          <h2 class="section-title">Hotel Mohan Inn Gallery</h2>
+          <div class="hairline-brass"></div>
+        </div>
+        <p class="section-desc">
+          Browse authentic photographs of our boutique AC suites, Haridwar highway sanctuary facade, grand banquet ballroom, and legendary Mohan Ji Poori Wale restaurant dishes. Click any photo to expand into the fullscreen viewer.
+        </p>
+      </div>
+
+      <!-- Gallery Filter Tabs -->
+      <div class="gallery-filter-nav">
+        <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+        <button class="gallery-filter-btn" data-filter="rooms">Suites & Rooms</button>
+        <button class="gallery-filter-btn" data-filter="facade">Facade & Campus</button>
+        <button class="gallery-filter-btn" data-filter="dining">Mohan Ji Poori Wale</button>
+        <button class="gallery-filter-btn" data-filter="events">Banquet & Aarti</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="gallery-container">
+        <!-- 1: Deluxe AC King Suite (Room) - Real Property -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/img_room1.jpg" data-title="Deluxe AC King Suite (Real Property View)" data-tag="BOUTIQUE AC SUITES">
+          <img src="assets/images/img_room1.jpg" alt="Deluxe AC King Suite Real Interior with Lounge Seating" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">BOUTIQUE AC SUITES</span>
+            <h4 class="gallery-title">Deluxe AC King Suite (Real View)</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 2: Boutique AC King Suite (Room) -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/hotel_room_deluxe.jpg" data-title="Boutique AC King Suite with Mountain View" data-tag="BOUTIQUE AC SUITES">
+          <img src="assets/images/hotel_room_deluxe.jpg" alt="Deluxe AC King Suite Interior" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">BOUTIQUE AC SUITES</span>
+            <h4 class="gallery-title">Boutique AC King Suite</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 3: Family Grandeur Suite (Room) -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/hotel_room_family.jpg" data-title="Family Grandeur Suite (350 sqft)" data-tag="FAMILY AC SUITE">
+          <img src="assets/images/hotel_room_family.jpg" alt="Family Grandeur Suite with Twin Beds" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">FAMILY AC SUITE</span>
+            <h4 class="gallery-title">Family Grandeur Suite (350 sqft)</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 4: Twin Bedded AC Room (Room) -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/hotel_room_twin.jpg" data-title="Executive Twin Bedded AC Room" data-tag="TWIN AC ROOM">
+          <img src="assets/images/hotel_room_twin.jpg" alt="Executive Twin Bedded AC Room" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">TWIN AC ROOM</span>
+            <h4 class="gallery-title">Executive Twin Bedded AC Room</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 5: Heritage Double AC Suite (Room) -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/img_rooms_2.jpg" data-title="Heritage Double AC Suite" data-tag="HERITAGE AC SUITE">
+          <img src="assets/images/img_rooms_2.jpg" alt="Heritage Double AC Suite Bedroom" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">HERITAGE AC SUITE</span>
+            <h4 class="gallery-title">Heritage Double AC Suite</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 6: Modern En-Suite Luxury Bathroom (Room) -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/img_gallery_slider7.jpg" data-title="Modern En-Suite Luxury Bathroom (Glass Shower)" data-tag="EN-SUITE AMENITIES">
+          <img src="assets/images/img_gallery_slider7.jpg" alt="Attached Bathroom with Glass Shower & Ceramic Basin" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">EN-SUITE AMENITIES</span>
+            <h4 class="gallery-title">Modern En-Suite Bathroom (Shower)</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 7: Attached Bathroom Vanity & Mirror (Room) -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/img_gallery_rooms10.jpg" data-title="Attached Bathroom Vanity & Mirror" data-tag="EN-SUITE AMENITIES">
+          <img src="assets/images/img_gallery_rooms10.jpg" alt="Attached Bathroom with Ceramic Basin & Designer Wall Tiles" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">EN-SUITE AMENITIES</span>
+            <h4 class="gallery-title">Attached Bathroom Vanity & Mirror</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 8: Hotel Highway Facade (Facade) -->
+        <div class="gallery-card" data-category="facade" data-img="assets/images/img_gallery_rooms5.jpg" data-title="Hotel Mohan Inn Highway Facade & Signboard" data-tag="FACADE & HIGHWAY SANCTUARY">
+          <img src="assets/images/img_gallery_rooms5.jpg" alt="Hotel Mohan Inn Highway Entrance & Signboard" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">FACADE & HIGHWAY SANCTUARY</span>
+            <h4 class="gallery-title">Grand Entrance & Highway Facade</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 9: Grand Entrance Steps & Reception Porch (Facade) -->
+        <div class="gallery-card" data-category="facade" data-img="assets/images/img_gallery_slider5.jpg" data-title="Grand Entrance Steps & Reception Porch" data-tag="ENTRANCE ARCHITECTURE">
+          <img src="assets/images/img_gallery_slider5.jpg" alt="Hotel Entrance Steps and Glass Canopy" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">ENTRANCE ARCHITECTURE</span>
+            <h4 class="gallery-title">Arrival Steps & Glass Portico</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 10: 24/7 Pilgrimage Front Desk & Lobby (Facade) -->
+        <div class="gallery-card" data-category="facade" data-img="assets/images/img_slider_1.jpg" data-title="24/7 Pilgrimage Reception Desk & Lobby" data-tag="FRONT DESK & LOBBY">
+          <img src="assets/images/img_slider_1.jpg" alt="Hotel Mohan Inn Reception Desk and Lobby" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">FRONT DESK & LOBBY</span>
+            <h4 class="gallery-title">Warm Pilgrimage Reception</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 11: 200 Pax AC Restaurant Dining Hall (Dining) -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_resto6.jpg" data-title="200 Pax AC Restaurant Dining Hall & Bakery" data-tag="HERITAGE DINING">
+          <img src="assets/images/img_resto6.jpg" alt="Mohan Ji Poori Wale AC Restaurant Dining Hall" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">HERITAGE DINING</span>
+            <h4 class="gallery-title">200 Pax AC Restaurant Dining</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 12: Signature Bedmi Poori & Aloo Sabzi Platter (Dining) -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_restaurant_1.jpg" data-title="Signature Bedmi Poori & Aloo Sabzi Platter" data-tag="MOHAN JI SPECIAL">
+          <img src="assets/images/img_restaurant_1.jpg" alt="Signature Bedmi Poori, Aloo Sabzi & Kesar Halwa Platter" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">MOHAN JI SPECIAL</span>
+            <h4 class="gallery-title">Signature Bedmi Poori Platter</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 13: Fresh Fried Bedmi Poori & Spicy Chana (Dining) -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_gallery_ggn2.jpg" data-title="Fresh Fried Bedmi Poori & Spicy Chana Sabzi" data-tag="BREAKFAST HERITAGE">
+          <img src="assets/images/img_gallery_ggn2.jpg" alt="Fresh Fried Bedmi Poori and Chana" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">BREAKFAST HERITAGE</span>
+            <h4 class="gallery-title">Bedmi Poori & Spicy Chana</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 14: Pure Vegetarian Kadhi Pakoda Thali (Dining) -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_gallery_ggn3.jpg" data-title="Pure Vegetarian Kadhi Pakoda & Basmati Rice Thali" data-tag="PURE VEG THALI">
+          <img src="assets/images/img_gallery_ggn3.jpg" alt="Kadhi Pakoda & Fragrant Basmati Rice at Mohan Ji Poori Wale" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">PURE VEG THALI</span>
+            <h4 class="gallery-title">Kadhi Pakoda & Basmati Rice</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 15: Signature Desi Ghee Halwa & Sweets (Dining) -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_gallery_ggn4.jpg" data-title="Mohan Ji Puri Wale Sweets & Desi Ghee Halwa" data-tag="SWEETS & SNACKS">
+          <img src="assets/images/img_gallery_ggn4.jpg" alt="Mohan Ji Puri Wale Sweets and Halwa" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">SWEETS & SNACKS</span>
+            <h4 class="gallery-title">Desi Ghee Halwa & Sweets</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 16: Special Raj Kachori & Dahi Bhalla Chaat (Dining) -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_gallery_ggn5.jpg" data-title="Special Raj Kachori & Dahi Bhalla Chaat Platter" data-tag="HARIDWAR STREET CHAT">
+          <img src="assets/images/img_gallery_ggn5.jpg" alt="Special Raj Kachori & Dahi Bhalla Chaat" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">HARIDWAR STREET CHAT</span>
+            <h4 class="gallery-title">Special Raj Kachori & Chaat</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 17: Grand Banquet Ballroom (Events) -->
+        <div class="gallery-card" data-category="events" data-img="assets/images/banquet_hall_grand.jpg" data-title="150 Pax AC Banquet Ballroom" data-tag="EVENT BALLROOM">
+          <img src="assets/images/banquet_hall_grand.jpg" alt="150 Pax Banquet Ballroom" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">EVENT BALLROOM</span>
+            <h4 class="gallery-title">150 Pax AC Banquet Ballroom</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 18: Har Ki Pauri Evening Aarti (Events) -->
+        <div class="gallery-card" data-category="events" data-img="assets/images/img_slider_3.jpg" data-title="Har Ki Pauri Sandhya Maha Aarti (Sacred Flames)" data-tag="SACRED HARIDWAR">
+          <img src="assets/images/img_slider_3.jpg" alt="Har Ki Pauri Evening Aarti with Sacred Flames" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">SACRED HARIDWAR</span>
+            <h4 class="gallery-title">Sandhya Maha Aarti (10 Mins Away)</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 19: Ganges River & Har Ki Pauri Ghats Panorama (Events) -->
+        <div class="gallery-card" data-category="events" data-img="assets/images/img_slider_4.jpg" data-title="Har Ki Pauri Ghats & Ganges River Panorama" data-tag="DIVINE PILGRIMAGE">
+          <img src="assets/images/img_slider_4.jpg" alt="Panoramic view of Har Ki Pauri and Ganges" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">DIVINE PILGRIMAGE</span>
+            <h4 class="gallery-title">Ganges River & Ghats View</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 20: Twilight Ganga Aarti (Events) -->
+        <div class="gallery-card" data-category="events" data-img="assets/images/ganga_aarti_hero.jpg" data-title="Sacred Ganga Ghat Twilight Prayers & Floating Diyas" data-tag="GANGES SANCTUARY">
+          <img src="assets/images/ganga_aarti_hero.jpg" alt="Sacred Ganga Ghat Twilight Prayers" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">GANGES SANCTUARY</span>
+            <h4 class="gallery-title">Twilight Ganga Ghat Prayers</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Published Tariff & Bespoke Stay Configurator -->
+  <section class="luxury-section" id="tariff" style="background: var(--bg-cream-alt);">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <div>
+          <span class="section-eyebrow">TRANSPARENT HOSPITALITY</span>
+          <h2 class="section-title">Published Tariffs & Packages</h2>
+          <div class="hairline-brass"></div>
+        </div>
+        <p class="section-desc">
+          Official tariff approved and published by Hotel Mohan Inn management. All rates quoted on twin sharing basis with transparent check-in/out policies.
+        </p>
+      </div>
+
+      <!-- Published Tariff Table -->
+      <div class="tariff-table-wrap">
+        <table class="luxury-tariff-table">
+          <thead>
+            <tr>
+              <th>Room Category</th>
+              <th>EP (Room Only)</th>
+              <th>CP (With Breakfast)</th>
+              <th>MAP (Breakfast + Dinner)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="tariff-room-name">
+                  Standard AC Room
+                  <small>200 sqft • Writing Desk • Wi-Fi • TV</small>
+                </div>
+              </td>
+              <td><span class="tariff-price-val">₹3,500</span></td>
+              <td><span class="tariff-price-val" style="color: var(--bhagwa);">₹4,000</span></td>
+              <td><span class="tariff-price-val">₹4,950</span></td>
+              <td>
+                <button class="btn-brass-ghost btn-brass-small open-reserve-modal-btn" data-room="Standard AC Room">
+                  Book Now
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="tariff-room-name">
+                  Deluxe AC Room
+                  <small>220 sqft • Refurbished • Mountain View • King Bed</small>
+                </div>
+              </td>
+              <td><span class="tariff-price-val">₹4,500</span></td>
+              <td><span class="tariff-price-val" style="color: var(--bhagwa);">₹5,000</span></td>
+              <td><span class="tariff-price-val">₹5,950</span></td>
+              <td>
+                <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Deluxe AC Room">
+                  Book Now
+                </button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="tariff-room-name">
+                  Family Suite AC
+                  <small>350 sqft • 3-4 Persons • Twin Double Beds • Lounge</small>
+                </div>
+              </td>
+              <td><span class="tariff-price-val">₹7,200</span></td>
+              <td><span class="tariff-price-val" style="color: var(--bhagwa);">₹8,000</span></td>
+              <td><span class="tariff-price-val">₹9,400</span></td>
+              <td>
+                <button class="btn-brass-ghost btn-brass-small open-reserve-modal-btn" data-room="Family Suite AC">
+                  Book Now
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Policy Badges (Official Hotel Rules from tariff.php) -->
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; margin: 28px 0 50px 0; font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.1em; color: var(--text-charcoal); font-weight: 700;">
+        <span style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">CHECK-IN: 1:00 PM</span>
+        <span style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">CHECK-OUT: 11:00 AM</span>
+        <span style="border-left: 3.5px solid var(--gold-antique); padding: 8px 14px; background: rgba(212, 160, 23, 0.08); border-radius: 2px;">CHILDREN UNDER 5: FREE STAY (NO EXTRA BED)</span>
+        <span style="border-left: 3.5px solid var(--gold-antique); padding: 8px 14px; background: rgba(212, 160, 23, 0.08); border-radius: 2px;">TARIFF: TWIN SHARING BASIS</span>
+        <span style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">ADVANCE DEPOSIT FOR CONFIRMATION</span>
+        <span style="border-left: 3.5px solid var(--bhagwa); padding: 8px 14px; background: rgba(255, 122, 40, 0.06); border-radius: 2px;">CARDS, UPI & CASH ACCEPTED</span>
+      </div>
+
+      <!-- Interactive Stay & Yatra Configurator -->
+      <div style="background: var(--bg-sand); border: 1.5px solid var(--gold-border); padding: 40px 30px; border-radius: 3px; position: relative; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);">
+        <span class="section-eyebrow">BESPOKE YATRA CONFIGURATOR</span>
+        <h3 class="font-serif" style="font-size: 2.2rem; font-weight: 400; color: var(--text-charcoal-pure); margin-bottom: 24px;">
+          Customize Your Pilgrimage Stay
+        </h3>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) 280px; gap: 24px; align-items: flex-end;">
+          <div class="input-field-group">
+            <label for="cfg-room">1. Select Suite</label>
+            <select id="cfg-room" class="custom-select">
+              <option value="standard" data-ep="3500" data-cp="4000" data-map="4950">Standard AC Room (From ₹3,500)</option>
+              <option value="deluxe" data-ep="4500" data-cp="5000" data-map="5950" selected>Deluxe AC Room (From ₹4,500)</option>
+              <option value="family" data-ep="7200" data-cp="8000" data-map="9400">Family Suite AC (From ₹7,200)</option>
+            </select>
+          </div>
+
+          <div class="input-field-group">
+            <label for="cfg-plan">2. Select Meal Plan</label>
+            <select id="cfg-plan" class="custom-select">
+              <option value="EP">EP: Room Only</option>
+              <option value="CP" selected>CP: With Breakfast</option>
+              <option value="MAP">MAP: Breakfast & Dinner</option>
+            </select>
+          </div>
+
+          <div class="input-field-group">
+            <label for="cfg-nights">3. Number of Nights</label>
+            <input type="number" id="cfg-nights" min="1" max="30" value="2" class="custom-input">
+          </div>
+
+          <div class="input-field-group">
+            <label>4. Sacred Add-ons</label>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px;">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-charcoal);">
+                <input type="checkbox" id="cfg-aarti" style="accent-color: var(--bhagwa);">
+                VIP Aarti Assist (+₹500)
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-charcoal);">
+                <input type="checkbox" id="cfg-yatra" style="accent-color: var(--bhagwa);">
+                Char Dham Cab (+₹2,500)
+              </label>
+            </div>
+          </div>
+
+          <!-- Total Calculation Card -->
+          <div style="background: #FFFFFF; border: 1.5px solid var(--gold-border); padding: 18px; border-radius: 2px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);">
+            <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--text-charcoal-muted); letter-spacing: 0.12em;">
+              <span>BASE STAY:</span>
+              <span id="cfg-bill-base" class="text-bhagwa" style="font-weight: 700;">₹10,000</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--text-charcoal-muted); letter-spacing: 0.12em; margin-top: 6px;">
+              <span>MEAL PLAN:</span>
+              <span id="cfg-bill-plan" class="text-bhagwa" style="font-weight: 700;">₹900</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--text-charcoal-muted); letter-spacing: 0.12em; margin-top: 6px;">
+              <span>ADD-ONS:</span>
+              <span id="cfg-bill-extras" class="text-bhagwa" style="font-weight: 700;">₹0</span>
+            </div>
+            <div style="border-top: 1px solid var(--border-medium); margin-top: 10px; padding-top: 10px; display: flex; justify-content: space-between; align-items: baseline;">
+              <span class="font-mono text-muted" style="font-size: 12.5px;">TOTAL:</span>
+              <span id="cfg-bill-total" style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--bhagwa); font-weight: 700;">₹10,900</span>
+            </div>
+            <a id="cfg-book-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-bhagwa-primary btn-brass-small" style="width: 100%; margin-top: 12px; text-align: center;">
+              WhatsApp Instant Booking ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Char Dham Yatra & Haridwar Distance Concierge -->
+  <section class="luxury-section" id="yatra">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <div>
+          <span class="section-eyebrow">GATEWAY TO DEVBHOOMI</span>
+          <h2 class="section-title">Char Dham Yatra & Local Concierge</h2>
+          <div class="hairline-brass"></div>
+        </div>
+        <p class="section-desc">
+          Ideally located on Haridwar-Delhi Highway NH 58 in Bahadarabad, serving as the stress-free starting sanctuary for the holy Char Dham pilgrimage (Yamunotri, Gangotri, Kedarnath, Badrinath).
+        </p>
+      </div>
+
+      <!-- Distance Matrix Grid -->
+      <div class="yatra-matrix-grid">
+        <div class="yatra-location-card">
+          <div>
+            <div class="yatra-header">
+              <h3 class="yatra-name">Har Ki Pauri Ghat</h3>
+              <span class="yatra-time-badge">10 Mins (5.8 km)</span>
+            </div>
+            <p class="yatra-desc">
+              The sacred epicenter of Haridwar where drops of Amrit fell during Samudra Manthan. Witness the world-renowned evening Ganga Aarti.
+            </p>
+          </div>
+          <span class="font-mono text-bhagwa" style="font-size: 12px; letter-spacing: 0.12em; font-weight: 700;">Direct Cab & Auto Available</span>
+        </div>
+
+        <div class="yatra-location-card">
+          <div>
+            <div class="yatra-header">
+              <h3 class="yatra-name">Mansa Devi Temple</h3>
+              <span class="yatra-time-badge">12 Mins (6.5 km)</span>
+            </div>
+            <p class="yatra-desc">
+              Perched atop Bilwa Parvat on the Shivalik Hills, accessible via cable car ropeway or trekking trail for panoramic Ganges views.
+            </p>
+          </div>
+          <span class="font-mono text-bhagwa" style="font-size: 12px; letter-spacing: 0.12em; font-weight: 700;">Ropeway Booking Support</span>
+        </div>
+
+        <div class="yatra-location-card">
+          <div>
+            <div class="yatra-header">
+              <h3 class="yatra-name">Chandi Devi Temple</h3>
+              <span class="yatra-time-badge">15 Mins (8.2 km)</span>
+            </div>
+            <p class="yatra-desc">
+              Situated on Neel Parvat on the opposite bank of River Ganges. Historic shrine dedicated to Goddess Chandi.
+            </p>
+          </div>
+          <span class="font-mono text-bhagwa" style="font-size: 12px; letter-spacing: 0.12em; font-weight: 700;">Combined Cable Car Pass</span>
+        </div>
+
+        <div class="yatra-location-card">
+          <div>
+            <div class="yatra-header">
+              <h3 class="yatra-name">Patanjali Yogpeeth</h3>
+              <span class="yatra-time-badge">12 Mins (7.0 km)</span>
+            </div>
+            <p class="yatra-desc">
+              World’s premier center for Yoga, Ayurveda, and holistic rejuvenation located conveniently along the NH-58 highway route.
+            </p>
+          </div>
+          <span class="font-mono text-bhagwa" style="font-size: 12px; letter-spacing: 0.12em; font-weight: 700;">Direct Highway Access</span>
+        </div>
+
+        <div class="yatra-location-card">
+          <div>
+            <div class="yatra-header">
+              <h3 class="yatra-name">Rishikesh & Ganga Beach</h3>
+              <span class="yatra-time-badge">35 Mins (24 km)</span>
+            </div>
+            <p class="yatra-desc">
+              The world capital of Yoga, Ram Jhula, Triveni Ghat Aarti, white water rafting, and Beatles Ashram nestled in Himalayan foothills.
+            </p>
+          </div>
+          <span class="font-mono text-bhagwa" style="font-size: 12px; letter-spacing: 0.12em; font-weight: 700;">Day Excursion Package</span>
+        </div>
+
+        <div class="yatra-location-card">
+          <div>
+            <div class="yatra-header">
+              <h3 class="yatra-name">Char Dham Yatra Packages</h3>
+              <span class="yatra-time-badge">Dedicated Desk</span>
+            </div>
+            <p class="yatra-desc">
+              End-to-end pilgrimage travel planning: private SUV cabs, verified mountain drivers, Kedarnath helicopter booking guidance, and hotel stays.
+            </p>
+          </div>
+          <span class="font-mono text-bhagwa" style="font-size: 12px; letter-spacing: 0.12em; font-weight: 700;">Inquire with Manish Mishra</span>
+        </div>
+      </div>
+
+      <!-- How to Reach Hotel Mohan Inn (Official Transit Guide from Property) -->
+      <div style="margin-top: 48px; background: var(--bg-sand); border: 1.5px solid var(--gold-border); padding: 32px 28px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+        <div style="margin-bottom: 22px;">
+          <span class="section-eyebrow" style="margin-bottom: 4px;">CONNECTIVITY & TRANSIT GUIDE</span>
+          <h3 class="font-serif" style="font-size: 1.85rem; font-weight: 500; color: var(--text-charcoal-pure); margin-bottom: 6px;">
+            How to Reach Hotel Mohan Inn
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-charcoal-muted); line-height: 1.6; margin: 0;">
+            Prime location on NH-58 / NH-334 Delhi-Haridwar Highway at Bahadarabad ensures effortless arrival from Delhi NCR, Dehradun Airport, and Haridwar Junction.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+          <div style="background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 22px; border-radius: 3px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+              <span class="transit-icon-svg" style="color: var(--gold-champagne); display: inline-flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11 2 11.5 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></span>
+              <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-charcoal-pure); margin: 0;">By Road (NH-58 / NH-334)</h4>
+            </div>
+            <p style="font-size: 0.86rem; color: var(--text-charcoal-muted); line-height: 1.65; margin: 0;">
+              Haridwar is directly connected to Delhi NCR and northern cities. Regular luxury Volvo and state express buses operate round the clock from <strong>ISBT Kashmiri Gate & Anand Vihar</strong>. The hotel provides abundant private on-highway parking.
+            </p>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 22px; border-radius: 3px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+              <span class="transit-icon-svg" style="color: var(--gold-champagne); display: inline-flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg></span>
+              <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-charcoal-pure); margin: 0;">By Train (Haridwar Junction)</h4>
+            </div>
+            <p style="font-size: 0.86rem; color: var(--text-charcoal-muted); line-height: 1.65; margin: 0;">
+              Haridwar Junction Railway Station is on the main Northern Railway line, only <strong>10–12 minutes</strong> from our front gate. The <em>New Delhi – Haridwar Shatabdi</em> and <em>Jan Shatabdi Express</em> reach here in under 4 hours.
+            </p>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid var(--border-subtle); padding: 22px; border-radius: 3px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+              <span class="transit-icon-svg" style="color: var(--gold-champagne); display: inline-flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span>
+              <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-charcoal-pure); margin: 0;">By Air (Jolly Grant Airport)</h4>
+            </div>
+            <p style="font-size: 0.86rem; color: var(--text-charcoal-muted); line-height: 1.65; margin: 0;">
+              The nearest domestic airport is <strong>Jolly Grant (DED) Dehradun</strong>, situated <strong>45 km</strong> away, with non-stop flights from Delhi, Mumbai, Bengaluru, and Ahmedabad. Hotel airport transfers are gladly arranged upon advance request.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: General Amenities & Hotel Services -->
+  <section class="luxury-section" id="amenities" style="background: var(--bg-cream-alt);">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 30px auto;">
+        <span class="section-eyebrow">WORLD CLASS COMFORTS</span>
+        <h2 class="section-title">Hotel Mohan Inn Facilities</h2>
+        <div class="hairline-brass center"></div>
+        <p class="section-desc" style="margin: 0 auto;">
+          Every modern hospitality amenity thoughtfully provided for spiritual peace of mind, family comfort, and business connectivity.
+        </p>
+      </div>
+
+      <div class="amenities-grid">
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+          </div>
+          <h3 class="amenity-title">High Speed Wi-Fi</h3>
+          <p class="amenity-desc">Ultra-fast optical fiber internet coverage spanning all suites, lounge, and dining hall.</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+          </div>
+          <h3 class="amenity-title">Ample Car Parking</h3>
+          <p class="amenity-desc">Generous, secure on-site parking area accommodating private vehicles, tour tempo travellers, and buses.</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+          </div>
+          <h3 class="amenity-title">24/7 Hot & Cold Water</h3>
+          <p class="amenity-desc">Instant pressurised running water in all attached sanitary washrooms around the clock.</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m15 10-3-3-3 3"/><path d="m9 14 3 3 3-3"/></svg>
+          </div>
+          <h3 class="amenity-title">Modern Passenger Lift</h3>
+          <p class="amenity-desc">Smooth elevator access to all room floors, ensuring effortless mobility for senior pilgrims and luggage.</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="amenity-title">Round the Clock Security</h3>
+          <p class="amenity-desc">CCTV surveillance, trained security personnel, and 100% full electrical power backup.</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 class="amenity-title">Doctor On Call</h3>
+          <p class="amenity-desc">Immediate medical assistance and doctor-on-call facility for any emergency health requirements.</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <h3 class="amenity-title">All Major Cards & UPI</h3>
+          <p class="amenity-desc">Frictionless digital payments: Visa, MasterCard, RuPay, UPI, and instant digital invoicing.</p>
+        </div>
+
+        <div class="amenity-card">
+          <div class="amenity-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+          </div>
+          <h3 class="amenity-title">24/7 Room Dining</h3>
+          <p class="amenity-desc">Freshly prepared pure vegetarian delicacies delivered straight to your suite comfort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Contact, Leadership & Location Map -->
+  <section class="luxury-section" id="contact">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <div>
+          <span class="section-eyebrow">LOCATION & RESERVATIONS</span>
+          <h2 class="section-title">Connect with Hotel Mohan Inn</h2>
+          <div class="hairline-brass"></div>
+        </div>
+        <p class="section-desc">
+          Conveniently situated on NH 58 (NH 334) Delhi-Haridwar Highway near Bahadarabad. Speak directly with our management team for special group bookings and Char Dham coordination.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Information Column -->
+        <div class="contact-info-col">
+          <!-- Managing Director Card -->
+          <div class="director-card-signature">
+            <h3 class="director-name">Manish Mishra</h3>
+            <div class="director-role">Managing Director</div>
+            <p style="font-size: 0.88rem; color: var(--text-charcoal-muted); margin-top: 10px; line-height: 1.65;">
+              "At Hotel Mohan Inn, we take pride in serving every guest with authentic Indian hospitality and sacred warmth. Whether visiting for the holy dip at Har Ki Pauri or proceeding to the Himalayas, our team is committed to making your stay cherished forever."
+            </p>
+          </div>
+
+          <div class="contact-detail-items">
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <div class="label">For Direct Booking & Queries</div>
+                <div class="val">
+                  <a href="tel:9259368869">+91 9259368869</a> / <a href="tel:9286081713">+91 92860 81713</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <div class="label">Official Email</div>
+                <div class="val">
+                  <a href="mailto:hotelmohaninn@gmail.com">hotelmohaninn@gmail.com</a> / <a href="mailto:info@hotelmohaninn.com">info@hotelmohaninn.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <div class="label">Hotel Address</div>
+                <div class="val">
+                  Khasra no 698, NH-334 / NH 58, Haridwar-Delhi Highway, Bahadarabad, Haridwar, Uttarakhand – 249423 (Near CNG Station)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="https://wa.me/919259368869" target="_blank" rel="noopener noreferrer" class="btn-bhagwa-primary">
+              WhatsApp Chat With MD ↗
+            </a>
+            <button class="btn-brass-ghost open-reserve-modal-btn">
+              Online Booking Request
+            </button>
+          </div>
+        </div>
+
+        <!-- Google Maps Frame -->
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d221327.0752166378!2d77.889128416331!3d29.915120235473644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAddress%3A%20near%20CNG%20station%2C%20Haridwar%2C%20Uttarakhand%20249407!5e0!3m2!1sen!2sin!4v1756269158663!5m2!1sen!2sin" 
+            title="Google Maps Hotel Mohan Inn Haridwar Location" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Quick Booking Bar (Dock) -->
+  <aside class="floating-booking-dock" id="floating-dock">
+    <div class="dock-text-col">
+      <span class="dock-title">Hotel Mohan Inn Haridwar</span>
+      <span class="dock-sub">From ₹4,000 / Night • 10 Mins Har Ki Pauri</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <a href="tel:9259368869" class="dock-phone-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call 9259368869
+      </a>
+      <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" id="dock-reserve-btn">
+        Reserve Suite
+      </button>
+    </div>
+  </aside>
+
+  <!-- Reservation & Booking Modal -->
+  <div class="modal-overlay" id="reservation-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close booking modal">✕</button>
+      
+      <span class="section-eyebrow" style="margin-bottom: 6px;">DIRECT RESERVATION ENGINE</span>
+      <h3 id="modal-title" class="font-serif" style="font-size: 2rem; font-weight: 500; color: var(--text-charcoal-pure); margin-bottom: 8px;">
+        Reserve Your Stay
+      </h3>
+      <p style="font-size: 0.88rem; color: var(--text-charcoal-muted); margin-bottom: 24px;">
+        Submit your stay preferences for instant confirmation and booking coordination via WhatsApp and front desk.
+      </p>
+
+      <form id="modal-booking-form" style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="input-field-group">
+            <label for="modal-name">Your Full Name</label>
+            <input type="text" id="modal-name" class="custom-input" placeholder="e.g. Rahul Sharma" required>
+          </div>
+          <div class="input-field-group">
+            <label for="modal-phone">Phone / WhatsApp</label>
+            <input type="tel" id="modal-phone" class="custom-input" placeholder="e.g. 9876543210" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="input-field-group">
+            <label for="modal-checkin">Check-In Date</label>
+            <input type="date" id="modal-checkin" class="custom-input" required>
+          </div>
+          <div class="input-field-group">
+            <label for="modal-checkout">Check-Out Date</label>
+            <input type="date" id="modal-checkout" class="custom-input" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px;">
+          <div class="input-field-group">
+            <label for="modal-room-select">Room Category</label>
+            <select id="modal-room-select" class="custom-select">
+              <option value="Standard AC Room">Standard AC Room (₹4,000)</option>
+              <option value="Deluxe AC Room" selected>Deluxe AC Room (₹5,000)</option>
+              <option value="Family Suite AC">Family Suite AC (₹8,000)</option>
+            </select>
+          </div>
+          <div class="input-field-group">
+            <label for="modal-guests-select">Guests</label>
+            <select id="modal-guests-select" class="custom-select">
+              <option value="1 Adult">1 Adult</option>
+              <option value="2 Adults" selected>2 Adults</option>
+              <option value="3 Adults">3 Adults</option>
+              <option value="4+ Adults">4+ Family</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-bhagwa-primary" style="margin-top: 10px; width: 100%; height: 48px;">
+          Confirm & Send via WhatsApp ↗
+        </button>
+
+        <div style="text-align: center; margin-top: 6px;">
+          <span style="font-size: 12px; color: var(--text-charcoal-muted);">OR</span><br>
+          <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--bhagwa); text-decoration: underline; font-weight: 700;">
+            Open Eglobe Online Booking Engine ↗
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Luxury Deep Temple Teak & Antique Gold Footer -->
+  <footer class="luxury-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-bio">
+          <div class="brand-link" style="margin-bottom: 12px;">
+            <div class="brand-symbol-wrap" style="background: rgba(255, 255, 255, 0.1);">
+              <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn Logo" width="30" height="30">
+            </div>
+            <div class="brand-text-col">
+              <span class="brand-title" style="font-size: 1.25rem; color: #FFFFFF;">HOTEL MOHAN INN</span>
+              <span class="brand-subtitle" style="color: var(--gold-champagne);">HARIDWAR, UTTARAKHAND</span>
+            </div>
+          </div>
+          <p>
+            Experience divine luxury by the Ganges. Featuring 32 boutique AC suites, a 150-guest AC banquet hall, and Haridwar's celebrated 200-capacity Mohan Ji Poori Wale restaurant.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; color: var(--gold-antique); font-weight: 600;">
+            MANAGING DIRECTOR: MANISH MISHRA
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-nav-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#suites">Suites & Rooms</a></li>
+            <li><a href="#atmosphere">Aura Studio</a></li>
+            <li><a href="#blueprint">Blueprint 360°</a></li>
+            <li><a href="#culinary">Mohan Ji Poori Wale</a></li>
+            <li><a href="#banquet">150 Pax Banquet</a></li>
+            <li><a href="#gallery">Photo Gallery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Pilgrimage</div>
+          <ul class="footer-nav-list">
+            <li><a href="#tariff">Published Tariff</a></li>
+            <li><a href="#yatra">Char Dham Yatra</a></li>
+            <li><a href="#yatra">Har Ki Pauri (10 Mins)</a></li>
+            <li><a href="#amenities">Hotel Amenities</a></li>
+            <li><a href="#contact">Contact & Map</a></li>
+            <li><a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer">Booking Engine ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Direct Contact</div>
+          <p style="font-size: 0.85rem; color: rgba(249, 248, 246, 0.78); line-height: 1.6; margin-bottom: 12px;">
+            Khasra no 698, NH 58, Delhi-Haridwar Highway, Bahadarabad, Haridwar – 249423
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 13.5px;">
+            <a href="tel:9259368869" style="color: var(--gold-champagne); text-decoration: none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+91 9259368869</a>
+            <a href="tel:9286081713" style="color: var(--gold-champagne); text-decoration: none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+91 92860 81713</a>
+            <a href="mailto:hotelmohaninn@gmail.com" style="color: rgba(249, 248, 246, 0.78); text-decoration: none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>hotelmohaninn@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <span>© 2026 HOTEL MOHAN INN. ALL RIGHTS RESERVED. HARIDWAR, UTTARAKHAND.</span>
+        <span>MODERN SACRED LUXURY • BHAGWA & GOLD DESIGN SYSTEM</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image Gallery Lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close Lightbox">✕</button>
+      <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev-btn" aria-label="Previous Image">‹</button>
+      <button class="lightbox-nav-btn lightbox-next" id="lightbox-next-btn" aria-label="Next Image">›</button>
+
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="Enlarged Gallery Photo">
+      </div>
+
+      <div class="lightbox-caption-bar">
+        <div>
+          <span id="lightbox-tag" class="gallery-tag" style="display: block; margin-bottom: 2px;"></span>
+          <h3 id="lightbox-title" class="lightbox-title"></h3>
+        </div>
+        <span id="lightbox-counter" class="lightbox-counter"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>
