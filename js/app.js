@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModalAndDock();
   initMobileMenu();
   initHeroQuickBooking();
+  initDynamicConfig();
 });
 
 /* -------------------------------------------------------------
@@ -604,9 +605,18 @@ function initLiveAartiTimer() {
     const istOffset = 5.5 * 3600000;
     const istNow = new Date(utcTime + istOffset);
 
-    // Target: Today 18:30 IST
+    // Target: Today 18:30 IST (or configured custom aarti time)
     const target = new Date(istNow);
-    target.setHours(18, 30, 0, 0);
+    let targetHours = 18;
+    let targetMinutes = 30;
+    if (window._customAartiTime) {
+      const parts = window._customAartiTime.split(':');
+      if (parts.length === 2) {
+        targetHours = parseInt(parts[0]) || 18;
+        targetMinutes = parseInt(parts[1]) || 30;
+      }
+    }
+    target.setHours(targetHours, targetMinutes, 0, 0);
 
     if (istNow > target) {
       target.setDate(target.getDate() + 1);
@@ -1053,5 +1063,98 @@ function initHeroQuickBooking() {
         alert('Check-out date must be after Check-in date.');
       }
     });
+  }
+}
+
+/* -------------------------------------------------------------
+ * 17. Dynamic Site Configuration Sync (Admin Studio Integration)
+ * ------------------------------------------------------------- */
+async function initDynamicConfig() {
+  let cfg = null;
+  try {
+    const res = await fetch('/api/config');
+    if (res.ok) {
+      cfg = await res.json();
+    }
+  } catch (e) {}
+
+  if (!cfg) {
+    const local = localStorage.getItem('mohan_site_config');
+    if (local) {
+      try { cfg = JSON.parse(local); } catch (e) {}
+    }
+  }
+
+  if (!cfg) return;
+
+  // 1. Ticker & Director
+  const tickerEl = document.getElementById('topbar-ticker-text');
+  if (tickerEl && cfg.weatherTicker) tickerEl.textContent = cfg.weatherTicker;
+
+  const topDirEl = document.getElementById('topbar-director-display');
+  if (topDirEl && cfg.directorName) topDirEl.textContent = `Managing Director: ${cfg.directorName}`;
+
+  const dirNameEl = document.getElementById('display-director-name');
+  if (dirNameEl && cfg.directorName) dirNameEl.textContent = cfg.directorName;
+
+  const dirRoleEl = document.getElementById('display-director-role');
+  if (dirRoleEl && cfg.directorRole) dirRoleEl.textContent = cfg.directorRole;
+
+  const dirQuoteEl = document.getElementById('display-director-quote');
+  if (dirQuoteEl && cfg.directorQuote) dirQuoteEl.textContent = `"${cfg.directorQuote}"`;
+
+  // 2. Aarti time target
+  if (cfg.aartiTime) {
+    window._customAartiTime = cfg.aartiTime;
+  }
+
+  // 3. Tariffs & Configurator Sync
+  if (cfg.tariffs) {
+    const optStd = document.querySelector('#cfg-room option[value="standard"]');
+    const optDlx = document.querySelector('#cfg-room option[value="deluxe"]');
+    const optFam = document.querySelector('#cfg-room option[value="family"]');
+
+    if (optStd && cfg.tariffs.standard) {
+      optStd.dataset.ep = cfg.tariffs.standard.ep;
+      optStd.dataset.cp = cfg.tariffs.standard.cp;
+      optStd.dataset.map = cfg.tariffs.standard.map;
+      optStd.textContent = `Standard AC Room (From ₹${cfg.tariffs.standard.ep.toLocaleString('en-IN')})`;
+    }
+    if (optDlx && cfg.tariffs.deluxe) {
+      optDlx.dataset.ep = cfg.tariffs.deluxe.ep;
+      optDlx.dataset.cp = cfg.tariffs.deluxe.cp;
+      optDlx.dataset.map = cfg.tariffs.deluxe.map;
+      optDlx.textContent = `Deluxe AC Room (From ₹${cfg.tariffs.deluxe.ep.toLocaleString('en-IN')})`;
+    }
+    if (optFam && cfg.tariffs.family) {
+      optFam.dataset.ep = cfg.tariffs.family.ep;
+      optFam.dataset.cp = cfg.tariffs.family.cp;
+      optFam.dataset.map = cfg.tariffs.family.map;
+      optFam.textContent = `Family Suite AC (From ₹${cfg.tariffs.family.ep.toLocaleString('en-IN')})`;
+    }
+
+    // Trigger recalculation if configurator exists
+    const cfgRoom = document.getElementById('cfg-room');
+    if (cfgRoom) {
+      cfgRoom.dispatchEvent(new Event('change'));
+    }
+  }
+
+  // 4. Update Phone Numbers across website
+  if (cfg.phones) {
+    if (cfg.phones.primary) {
+      document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+        if (a.href.includes('9286081713')) {
+          a.href = `tel:${cfg.phones.primary.replace(/[^0-9]/g, '')}`;
+        }
+      });
+    }
+    if (cfg.phones.secondary) {
+      document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+        if (a.href.includes('9259368869')) {
+          a.href = `tel:${cfg.phones.secondary.replace(/[^0-9]/g, '')}`;
+        }
+      });
+    }
   }
 }

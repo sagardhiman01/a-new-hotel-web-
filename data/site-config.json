@@ -1,0 +1,52 @@
+{
+  "hotelName": "Hotel Mohan Inn",
+  "tagline": "Modern Sacred Luxury • Rooms • Banquet • Mohan Ji Poori Wale",
+  "directorName": "Manish Mishra",
+  "directorRole": "Managing Director",
+  "directorQuote": "At Hotel Mohan Inn, we take pride in serving every guest with authentic Indian hospitality and sacred warmth. Whether visiting for the holy dip at Har Ki Pauri or proceeding to the Himalayas, our team is committed to making your stay cherished forever.",
+  "phones": {
+    "primary": "+91 92860 81713",
+    "secondary": "+91 9259368869",
+    "whatsapp": "919259368869"
+  },
+  "emails": {
+    "primary": "info@hotelmohaninn.com",
+    "secondary": "hotelmohaninn@gmail.com"
+  },
+  "address": "Khasra no 698, NH-334 / NH 58, Haridwar-Delhi Highway, Bahadarabad, Haridwar, Uttarakhand – 249423 (Near CNG Station)",
+  "bookingEngineUrl": "https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar",
+  "tariffs": {
+    "standard": {
+      "ep": 3500,
+      "cp": 4000,
+      "map": 4950
+    },
+    "deluxe": {
+      "ep": 4500,
+      "cp": 5000,
+      "map": 5950
+    },
+    "family": {
+      "ep": 7200,
+      "cp": 8000,
+      "map": 9400
+    }
+  },
+  "policies": {
+    "checkin": "1:00 PM",
+    "checkout": "11:00 AM",
+    "childPolicy": "Children under 5 stay free with parents (without extra bed)",
+    "rules": "All rates on twin sharing basis. Advance deposit required for guaranteed confirmation."
+  },
+  "banquet": {
+    "hallCharge": 25000,
+    "perPlate": {
+      "wedding": 650,
+      "reception": 550,
+      "corporate": 450,
+      "katha": 400
+    }
+  },
+  "aartiTime": "18:30",
+  "weatherTicker": "Haridwar: 28°C • Holy Ganges Breeze"
+}

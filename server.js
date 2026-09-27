@@ -4,6 +4,7 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3005;
 const ROOT_DIR = path.resolve(__dirname);
+const CONFIG_FILE = path.join(ROOT_DIR, 'data', 'site-config.json');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -21,14 +22,64 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
+  let reqUrl = req.url.split('?')[0];
+
+  // API Route: GET /api/config
+  if (reqUrl === '/api/config' && req.method === 'GET') {
+    fs.readFile(CONFIG_FILE, 'utf8', (err, data) => {
+      if (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Failed to read configuration' }));
+        return;
+      }
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache'
+      });
+      res.end(data);
+    });
+    return;
+  }
+
+  // API Route: POST /api/config
+  if (reqUrl === '/api/config' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk.toString();
+      if (body.length > 1e6) { // 1MB limit
+        req.destroy();
+      }
+    });
+
+    req.on('end', () => {
+      try {
+        const parsed = JSON.parse(body);
+        fs.writeFile(CONFIG_FILE, JSON.stringify(parsed, null, 2), 'utf8', (err) => {
+          if (err) {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Failed to write configuration' }));
+            return;
+          }
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ success: true, message: 'Settings saved successfully' }));
+        });
+      } catch (parseErr) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid JSON payload' }));
+      }
+    });
+    return;
+  }
+
+  // Static File Serving
   if (req.method !== 'GET' && req.method !== 'HEAD') {
     res.writeHead(405, { 'Content-Type': 'text/plain' });
     res.end('405 Method Not Allowed');
     return;
   }
 
-  let reqUrl = req.url.split('?')[0];
   if (reqUrl === '/') reqUrl = '/index.html';
+  if (reqUrl === '/admin') reqUrl = '/admin.html';
 
   let decodedUrl;
   try {
@@ -73,7 +124,7 @@ const server = http.createServer((req, res) => {
     }
 
     const stream = fs.createReadStream(filePath);
-    stream.on('error', (streamErr) => {
+    stream.on('error', () => {
       if (!res.headersSent) {
         res.writeHead(500, { 'Content-Type': 'text/plain' });
         res.end('500 Internal Server Error');

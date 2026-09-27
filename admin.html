@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Mohan Inn | Management & Content Studio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="shortcut icon" href="assets/images/img_logo.png" type="image/png">
+
+  <style>
+    :root {
+      --bg-dark-obsidian: #0D0704;
+      --bg-dark-card: #180D07;
+      --bg-card-subtle: rgba(38, 20, 11, 0.7);
+      --bhagwa: #FF7A28;
+      --bhagwa-deep: #D9531E;
+      --bhagwa-glow: rgba(255, 122, 40, 0.35);
+      --gold-antique: #D4AF37;
+      --gold-champagne: #F5E6BE;
+      --gold-border: rgba(212, 175, 55, 0.35);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --text-pure: #FFFFFF;
+      --text-muted: rgba(255, 255, 255, 0.65);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark-obsidian);
+      color: var(--text-pure);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 122, 40, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    /* Security Gate (PIN Authentication Overlay) */
+    #auth-screen {
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 7, 4, 0.95);
+      backdrop-filter: blur(25px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .auth-card {
+      background: var(--bg-dark-card);
+      border: 1.5px solid var(--gold-border);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 35px var(--bhagwa-glow);
+      border-radius: 6px;
+      width: 100%;
+      max-width: 440px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .auth-logo {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 16px auto;
+      border-radius: 50%;
+      background: rgba(255, 122, 40, 0.15);
+      border: 1px solid var(--bhagwa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .auth-logo img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .auth-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      color: var(--gold-champagne);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .auth-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .auth-input-group {
+      margin-bottom: 20px;
+    }
+
+    .auth-pin-input {
+      width: 100%;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1.5px solid var(--gold-border);
+      border-radius: 4px;
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      letter-spacing: 0.3em;
+      text-align: center;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .auth-pin-input:focus {
+      border-color: var(--bhagwa);
+      box-shadow: 0 0 20px var(--bhagwa-glow);
+    }
+
+    .btn-auth-unlock {
+      width: 100%;
+      height: 48px;
+      background: linear-gradient(135deg, var(--bhagwa), var(--bhagwa-deep));
+      border: 1px solid var(--gold-antique);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-auth-unlock:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--bhagwa-glow);
+    }
+
+    .auth-error {
+      color: #FF5E5E;
+      font-size: 0.84rem;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* Admin Workspace Header */
+    .admin-header {
+      background: rgba(24, 13, 7, 0.85);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .admin-header-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .admin-brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 122, 40, 0.15);
+      border: 1px solid var(--bhagwa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--gold-champagne);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .admin-brand-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bhagwa);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 10px #10B981;
+    }
+
+    .admin-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-pure);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 9px 18px;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--gold-border);
+      color: var(--gold-champagne);
+    }
+
+    .btn-primary-save {
+      background: linear-gradient(135deg, var(--bhagwa), var(--bhagwa-deep));
+      border: 1px solid var(--gold-antique);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 9px 24px;
+      border-radius: 3px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px var(--bhagwa-glow);
+    }
+
+    .btn-primary-save:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px var(--bhagwa-glow);
+    }
+
+    /* Main Container & Layout */
+    .admin-main {
+      flex: 1;
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 30px 24px 60px 24px;
+    }
+
+    /* Navigation Tabs */
+    .admin-tabs-nav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 30px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 2.5px solid transparent;
+      padding: 12px 20px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-pure);
+    }
+
+    .tab-btn.active {
+      color: var(--bhagwa);
+      border-bottom-color: var(--bhagwa);
+      font-weight: 700;
+    }
+
+    /* Tab Content Cards */
+    .tab-pane {
+      display: none;
+      animation: fadeInTab 0.3s ease-out;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-section {
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-section-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--gold-champagne);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .card-section-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    /* Form Grids & Inputs */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .form-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--gold-champagne);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: 3px;
+      padding: 12px 14px;
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      transition: all 0.25s ease;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--bhagwa);
+      box-shadow: 0 0 12px var(--bhagwa-glow);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 85px;
+      line-height: 1.6;
+    }
+
+    .rate-card {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--gold-border);
+      border-radius: 4px;
+      padding: 20px;
+    }
+
+    .rate-card-header {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rate-card-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--bhagwa);
+      border: 1px solid var(--bhagwa);
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+
+    /* Toast Notification */
+    #toast-msg {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #10B981;
+      color: #FFFFFF;
+      padding: 14px 24px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.35s ease;
+      z-index: 2000;
+    }
+
+    #toast-msg.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    #toast-msg.error {
+      background: #EF4444;
+    }
+
+    /* Live Preview Indicator */
+    .preview-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Security Gate PIN Unlock Screen -->
+  <div id="auth-screen">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn Logo">
+      </div>
+      <h2 class="auth-title">Management Studio</h2>
+      <p class="auth-sub">Hotel Mohan Inn, Haridwar<br>Enter management PIN code to edit property details.</p>
+
+      <form id="auth-form">
+        <div class="auth-input-group">
+          <input type="password" id="admin-pin-input" class="auth-pin-input" placeholder="••••" maxlength="8" autocomplete="off" autofocus required>
+        </div>
+        <button type="submit" class="btn-auth-unlock">Unlock Admin Panel</button>
+        <p id="auth-error-msg" class="auth-error">Incorrect PIN. Hint: Default PIN is 1985</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Workspace -->
+  <header class="admin-header">
+    <div class="admin-header-container">
+      <div class="admin-brand">
+        <div class="admin-brand-logo">
+          <img src="assets/images/img_logo.png" alt="Logo" width="24" height="24">
+        </div>
+        <div>
+          <h1 class="admin-brand-title">Hotel Mohan Inn Admin Studio</h1>
+          <div class="admin-brand-badge">
+            <span class="status-dot"></span>
+            <span id="api-status-text">Connected to Server</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-actions">
+        <a href="/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          👁️ Live Website
+        </a>
+        <button id="btn-reset-defaults" class="btn-secondary" title="Reset all fields to property defaults">
+          🔄 Reset Defaults
+        </button>
+        <button id="btn-save-all" class="btn-primary-save">
+          💾 Save Changes
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- Tabs Nav -->
+    <nav class="admin-tabs-nav" aria-label="Admin Navigation Tabs">
+      <button class="tab-btn active" data-tab="tab-contact">📞 Contact & Property</button>
+      <button class="tab-btn" data-tab="tab-tariffs">🏷️ Room Tariffs</button>
+      <button class="tab-btn" data-tab="tab-banquet">🏛️ Banquet Hall</button>
+      <button class="tab-btn" data-tab="tab-policies">📜 Timings & Policies</button>
+      <button class="tab-btn" data-tab="tab-announcements">🔔 Aarti & Ticker</button>
+    </nav>
+
+    <!-- Tab 1: Contact & Property Info -->
+    <section id="tab-contact" class="tab-pane active">
+      <div class="card-section">
+        <h2 class="card-section-title">Direct Contact Numbers & Messaging</h2>
+        <p class="card-section-desc">Manage primary helpline, WhatsApp reservation lines, and official inquiry email addresses.</p>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="field-phone-primary">Primary Official Line (Gallabox / Front Desk)</label>
+            <input type="text" id="field-phone-primary" class="form-input" placeholder="+91 92860 81713">
+            <span class="preview-pill">Appears on navbar, contact section, and footer</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="field-phone-secondary">Secondary / Direct MD Contact</label>
+            <input type="text" id="field-phone-secondary" class="form-input" placeholder="+91 9259368869">
+            <span class="preview-pill">Direct helpline for Manish Mishra</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="field-phone-whatsapp">WhatsApp Booking Number (Digits only)</label>
+            <input type="text" id="field-phone-whatsapp" class="form-input" placeholder="919259368869">
+            <span class="preview-pill">Destination for instant room and banquet booking messages</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="field-email-primary">Primary Official Email</label>
+            <input type="email" id="field-email-primary" class="form-input" placeholder="info@hotelmohaninn.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="field-email-secondary">Secondary Gmail</label>
+            <input type="email" id="field-email-secondary" class="form-input" placeholder="hotelmohaninn@gmail.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="field-booking-engine">Online Booking Engine URL (eGlobe Solutions)</label>
+            <input type="url" id="field-booking-engine" class="form-input" placeholder="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar">
+          </div>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <h2 class="card-section-title">Management Leadership & Location</h2>
+        <p class="card-section-desc">Managing Director bio, property address, and highway landmark details.</p>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="field-director-name">Managing Director Name</label>
+            <input type="text" id="field-director-name" class="form-input" placeholder="Manish Mishra">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="field-director-role">Director Role / Designation</label>
+            <input type="text" id="field-director-role" class="form-input" placeholder="Managing Director">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 18px;">
+          <label class="form-label" for="field-director-quote">Director Welcome Message / Quote</label>
+          <textarea id="field-director-quote" class="form-textarea" placeholder="Welcome message shown on contact signature card..."></textarea>
+        </div>
+
+        <div class="form-group" style="margin-top: 18px;">
+          <label class="form-label" for="field-address">Hotel Address & Highway Landmark</label>
+          <input type="text" id="field-address" class="form-input" placeholder="Khasra no 698, NH-334 / NH 58, Haridwar-Delhi Highway, Bahadarabad, Haridwar, Uttarakhand – 249423 (Near CNG Station)">
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 2: Room Tariffs & Meal Plans -->
+    <section id="tab-tariffs" class="tab-pane">
+      <div class="card-section">
+        <h2 class="card-section-title">Room Tariffs & Meal Plan Pricing</h2>
+        <p class="card-section-desc">Control official published rates across all 3 room categories and meal plans (EP: Room Only, CP: With Breakfast, MAP: Breakfast + Dinner).</p>
+
+        <div class="form-grid-3">
+          <!-- Standard AC -->
+          <div class="rate-card">
+            <div class="rate-card-header">
+              <span>Standard AC Room</span>
+              <span class="rate-card-badge">200 sqft</span>
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="form-label" for="rate-standard-ep">EP (Room Only) ₹</label>
+              <input type="number" id="rate-standard-ep" class="form-input" placeholder="3500">
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="form-label" for="rate-standard-cp" style="color: var(--bhagwa);">CP (With Breakfast) ₹</label>
+              <input type="number" id="rate-standard-cp" class="form-input" placeholder="4000">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rate-standard-map">MAP (B'fast + Dinner) ₹</label>
+              <input type="number" id="rate-standard-map" class="form-input" placeholder="4950">
+            </div>
+          </div>
+
+          <!-- Deluxe AC -->
+          <div class="rate-card">
+            <div class="rate-card-header">
+              <span>Deluxe AC Room</span>
+              <span class="rate-card-badge">220 sqft</span>
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="form-label" for="rate-deluxe-ep">EP (Room Only) ₹</label>
+              <input type="number" id="rate-deluxe-ep" class="form-input" placeholder="4500">
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="form-label" for="rate-deluxe-cp" style="color: var(--bhagwa);">CP (With Breakfast) ₹</label>
+              <input type="number" id="rate-deluxe-cp" class="form-input" placeholder="5000">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rate-deluxe-map">MAP (B'fast + Dinner) ₹</label>
+              <input type="number" id="rate-deluxe-map" class="form-input" placeholder="5950">
+            </div>
+          </div>
+
+          <!-- Family Suite AC -->
+          <div class="rate-card">
+            <div class="rate-card-header">
+              <span>Family Suite AC</span>
+              <span class="rate-card-badge">350 sqft</span>
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="form-label" for="rate-family-ep">EP (Room Only) ₹</label>
+              <input type="number" id="rate-family-ep" class="form-input" placeholder="7200">
+            </div>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="form-label" for="rate-family-cp" style="color: var(--bhagwa);">CP (With Breakfast) ₹</label>
+              <input type="number" id="rate-family-cp" class="form-input" placeholder="8000">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="rate-family-map">MAP (B'fast + Dinner) ₹</label>
+              <input type="number" id="rate-family-map" class="form-input" placeholder="9400">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 3: Banquet Hall & Events -->
+    <section id="tab-banquet" class="tab-pane">
+      <div class="card-section">
+        <h2 class="card-section-title">150-Guest AC Banquet Pricing Calculator</h2>
+        <p class="card-section-desc">Adjust the base hall rental charge and per-plate catering packages for weddings, corporate meetings, and religious gatherings.</p>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="banquet-hall-charge">Base AC Hall Rental Charge (₹)</label>
+            <input type="number" id="banquet-hall-charge" class="form-input" placeholder="25000">
+            <span class="preview-pill">Includes air conditioning, decor, and basic sound setup</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="banquet-plate-wedding">Grand Wedding Per Plate (₹)</label>
+            <input type="number" id="banquet-plate-wedding" class="form-input" placeholder="650">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="banquet-plate-reception">Anniversary / Reception Per Plate (₹)</label>
+            <input type="number" id="banquet-plate-reception" class="form-input" placeholder="550">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="banquet-plate-corporate">Corporate Conference Per Plate (₹)</label>
+            <input type="number" id="banquet-plate-corporate" class="form-input" placeholder="450">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="banquet-plate-katha">Spiritual Katha / Bhajan Sandhya Per Plate (₹)</label>
+            <input type="number" id="banquet-plate-katha" class="form-input" placeholder="400">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 4: Timings & Stay Policies -->
+    <section id="tab-policies" class="tab-pane">
+      <div class="card-section">
+        <h2 class="card-section-title">Check-in, Check-out & Child Policies</h2>
+        <p class="card-section-desc">Official hotel rules displayed across the tariff section, booking forms, and pilgrimage desks.</p>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="policy-checkin">Official Check-In Time</label>
+            <input type="text" id="policy-checkin" class="form-input" placeholder="1:00 PM">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="policy-checkout">Official Check-Out Time</label>
+            <input type="text" id="policy-checkout" class="form-input" placeholder="11:00 AM">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 18px;">
+          <label class="form-label" for="policy-child">Child / Extra Bed Policy Text</label>
+          <input type="text" id="policy-child" class="form-input" placeholder="Children under 5 stay free with parents (without extra bed)">
+        </div>
+
+        <div class="form-group" style="margin-top: 18px;">
+          <label class="form-label" for="policy-rules">Payment & Reservation Deposit Note</label>
+          <input type="text" id="policy-rules" class="form-input" placeholder="All rates on twin sharing basis. Advance deposit required for guaranteed confirmation.">
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 5: Aarti & Ticker -->
+    <section id="tab-announcements" class="tab-pane">
+      <div class="card-section">
+        <h2 class="card-section-title">Topbar Announcement Ticker & Ganga Aarti Countdown</h2>
+        <p class="card-section-desc">Customize the marquee ticker message and Har Ki Pauri Sandhya Aarti evening time.</p>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="ticker-weather">Topbar Status Ticker Message</label>
+            <input type="text" id="ticker-weather" class="form-input" placeholder="Haridwar: 28°C • Holy Ganges Breeze">
+            <span class="preview-pill">Appears at the very top bar next to the live indicator dot</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ticker-aarti-time">Sandhya Maha Aarti Evening Time (HH:MM)</label>
+            <input type="time" id="ticker-aarti-time" class="form-input" value="18:30">
+            <span class="preview-pill">Syncs the 24-hour live countdown timer at Har Ki Pauri</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification Popup -->
+  <div id="toast-msg">
+    <span id="toast-icon">✓</span>
+    <span id="toast-text">Changes saved successfully!</span>
+  </div>
+
+  <script>
+    // Management Studio Logic
+    const DEFAULT_CONFIG = {
+      hotelName: "Hotel Mohan Inn",
+      tagline: "Modern Sacred Luxury • Rooms • Banquet • Mohan Ji Poori Wale",
+      directorName: "Manish Mishra",
+      directorRole: "Managing Director",
+      directorQuote: "At Hotel Mohan Inn, we take pride in serving every guest with authentic Indian hospitality and sacred warmth. Whether visiting for the holy dip at Har Ki Pauri or proceeding to the Himalayas, our team is committed to making your stay cherished forever.",
+      phones: {
+        primary: "+91 92860 81713",
+        secondary: "+91 9259368869",
+        whatsapp: "919259368869"
+      },
+      emails: {
+        primary: "info@hotelmohaninn.com",
+        secondary: "hotelmohaninn@gmail.com"
+      },
+      address: "Khasra no 698, NH-334 / NH 58, Haridwar-Delhi Highway, Bahadarabad, Haridwar, Uttarakhand – 249423 (Near CNG Station)",
+      bookingEngineUrl: "https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar",
+      tariffs: {
+        standard: { ep: 3500, cp: 4000, map: 4950 },
+        deluxe: { ep: 4500, cp: 5000, map: 5950 },
+        family: { ep: 7200, cp: 8000, map: 9400 }
+      },
+      policies: {
+        checkin: "1:00 PM",
+        checkout: "11:00 AM",
+        childPolicy: "Children under 5 stay free with parents (without extra bed)",
+        rules: "All rates on twin sharing basis. Advance deposit required for guaranteed confirmation."
+      },
+      banquet: {
+        hallCharge: 25000,
+        perPlate: {
+          wedding: 650,
+          reception: 550,
+          corporate: 450,
+          katha: 400
+        }
+      },
+      aartiTime: "18:30",
+      weatherTicker: "Haridwar: 28°C • Holy Ganges Breeze"
+    };
+
+    let activeConfig = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+
+    // Security Gate Authentication
+    const AUTH_PIN = "1985";
+    const authScreen = document.getElementById('auth-screen');
+    const authForm = document.getElementById('auth-form');
+    const pinInput = document.getElementById('admin-pin-input');
+    const authError = document.getElementById('auth-error-msg');
+
+    if (sessionStorage.getItem('mohan_admin_auth') === 'true') {
+      authScreen.style.display = 'none';
+    }
+
+    authForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const entered = pinInput.value.trim();
+      if (entered === AUTH_PIN || entered === 'mohan2026') {
+        sessionStorage.setItem('mohan_admin_auth', 'true');
+        authScreen.style.opacity = '0';
+        setTimeout(() => authScreen.style.display = 'none', 300);
+      } else {
+        authError.style.display = 'block';
+        pinInput.value = '';
+        pinInput.focus();
+      }
+    });
+
+    // Tab Navigation
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanes.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const target = document.getElementById(btn.dataset.tab);
+        if (target) target.classList.add('active');
+      });
+    });
+
+    // Toast Utility
+    const toast = document.getElementById('toast-msg');
+    const toastText = document.getElementById('toast-text');
+    let toastTimer = null;
+
+    function showToast(message, isError = false) {
+      if (toastTimer) clearTimeout(toastTimer);
+      toast.classList.toggle('error', isError);
+      toastText.textContent = message;
+      toast.classList.add('show');
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    // Populate Fields from Configuration
+    function populateForm(data) {
+      // Contact
+      document.getElementById('field-phone-primary').value = data.phones?.primary || '';
+      document.getElementById('field-phone-secondary').value = data.phones?.secondary || '';
+      document.getElementById('field-phone-whatsapp').value = data.phones?.whatsapp || '';
+      document.getElementById('field-email-primary').value = data.emails?.primary || '';
+      document.getElementById('field-email-secondary').value = data.emails?.secondary || '';
+      document.getElementById('field-booking-engine').value = data.bookingEngineUrl || '';
+
+      // Management
+      document.getElementById('field-director-name').value = data.directorName || '';
+      document.getElementById('field-director-role').value = data.directorRole || '';
+      document.getElementById('field-director-quote').value = data.directorQuote || '';
+      document.getElementById('field-address').value = data.address || '';
+
+      // Tariffs
+      document.getElementById('rate-standard-ep').value = data.tariffs?.standard?.ep || 3500;
+      document.getElementById('rate-standard-cp').value = data.tariffs?.standard?.cp || 4000;
+      document.getElementById('rate-standard-map').value = data.tariffs?.standard?.map || 4950;
+
+      document.getElementById('rate-deluxe-ep').value = data.tariffs?.deluxe?.ep || 4500;
+      document.getElementById('rate-deluxe-cp').value = data.tariffs?.deluxe?.cp || 5000;
+      document.getElementById('rate-deluxe-map').value = data.tariffs?.deluxe?.map || 5950;
+
+      document.getElementById('rate-family-ep').value = data.tariffs?.family?.ep || 7200;
+      document.getElementById('rate-family-cp').value = data.tariffs?.family?.cp || 8000;
+      document.getElementById('rate-family-map').value = data.tariffs?.family?.map || 9400;
+
+      // Banquet
+      document.getElementById('banquet-hall-charge').value = data.banquet?.hallCharge || 25000;
+      document.getElementById('banquet-plate-wedding').value = data.banquet?.perPlate?.wedding || 650;
+      document.getElementById('banquet-plate-reception').value = data.banquet?.perPlate?.reception || 550;
+      document.getElementById('banquet-plate-corporate').value = data.banquet?.perPlate?.corporate || 450;
+      document.getElementById('banquet-plate-katha').value = data.banquet?.perPlate?.katha || 400;
+
+      // Policies
+      document.getElementById('policy-checkin').value = data.policies?.checkin || '1:00 PM';
+      document.getElementById('policy-checkout').value = data.policies?.checkout || '11:00 AM';
+      document.getElementById('policy-child').value = data.policies?.childPolicy || '';
+      document.getElementById('policy-rules').value = data.policies?.rules || '';
+
+      // Announcements
+      document.getElementById('ticker-weather').value = data.weatherTicker || '';
+      document.getElementById('ticker-aarti-time').value = data.aartiTime || '18:30';
+    }
+
+    // Collect Form Values
+    function gatherFormData() {
+      return {
+        hotelName: "Hotel Mohan Inn",
+        tagline: "Modern Sacred Luxury • Rooms • Banquet • Mohan Ji Poori Wale",
+        directorName: document.getElementById('field-director-name').value.trim(),
+        directorRole: document.getElementById('field-director-role').value.trim(),
+        directorQuote: document.getElementById('field-director-quote').value.trim(),
+        phones: {
+          primary: document.getElementById('field-phone-primary').value.trim(),
+          secondary: document.getElementById('field-phone-secondary').value.trim(),
+          whatsapp: document.getElementById('field-phone-whatsapp').value.trim()
+        },
+        emails: {
+          primary: document.getElementById('field-email-primary').value.trim(),
+          secondary: document.getElementById('field-email-secondary').value.trim()
+        },
+        address: document.getElementById('field-address').value.trim(),
+        bookingEngineUrl: document.getElementById('field-booking-engine').value.trim(),
+        tariffs: {
+          standard: {
+            ep: parseInt(document.getElementById('rate-standard-ep').value) || 3500,
+            cp: parseInt(document.getElementById('rate-standard-cp').value) || 4000,
+            map: parseInt(document.getElementById('rate-standard-map').value) || 4950
+          },
+          deluxe: {
+            ep: parseInt(document.getElementById('rate-deluxe-ep').value) || 4500,
+            cp: parseInt(document.getElementById('rate-deluxe-cp').value) || 5000,
+            map: parseInt(document.getElementById('rate-deluxe-map').value) || 5950
+          },
+          family: {
+            ep: parseInt(document.getElementById('rate-family-ep').value) || 7200,
+            cp: parseInt(document.getElementById('rate-family-cp').value) || 8000,
+            map: parseInt(document.getElementById('rate-family-map').value) || 9400
+          }
+        },
+        banquet: {
+          hallCharge: parseInt(document.getElementById('banquet-hall-charge').value) || 25000,
+          perPlate: {
+            wedding: parseInt(document.getElementById('banquet-plate-wedding').value) || 650,
+            reception: parseInt(document.getElementById('banquet-plate-reception').value) || 550,
+            corporate: parseInt(document.getElementById('banquet-plate-corporate').value) || 450,
+            katha: parseInt(document.getElementById('banquet-plate-katha').value) || 400
+          }
+        },
+        policies: {
+          checkin: document.getElementById('policy-checkin').value.trim(),
+          checkout: document.getElementById('policy-checkout').value.trim(),
+          childPolicy: document.getElementById('policy-child').value.trim(),
+          rules: document.getElementById('policy-rules').value.trim()
+        },
+        weatherTicker: document.getElementById('ticker-weather').value.trim(),
+        aartiTime: document.getElementById('ticker-aarti-time').value.trim() || '18:30'
+      };
+    }
+
+    // Load initial config (Server API with localStorage fallback)
+    async function loadConfig() {
+      try {
+        const res = await fetch('/api/config');
+        if (res.ok) {
+          activeConfig = await res.json();
+          document.getElementById('api-status-text').textContent = 'Server Live Storage';
+        } else {
+          throw new Error('API unavailable');
+        }
+      } catch (err) {
+        const local = localStorage.getItem('mohan_site_config');
+        if (local) {
+          activeConfig = JSON.parse(local);
+        }
+        document.getElementById('api-status-text').textContent = 'Browser Storage Mode';
+      }
+      populateForm(activeConfig);
+    }
+
+    // Save Configuration Handler
+    async function saveConfig() {
+      const data = gatherFormData();
+      localStorage.setItem('mohan_site_config', JSON.stringify(data));
+
+      try {
+        const res = await fetch('/api/config', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (res.ok) {
+          showToast('✓ Settings successfully saved to server & live website!');
+        } else {
+          showToast('Saved to browser storage (Server read-only).');
+        }
+      } catch (err) {
+        showToast('Saved to browser storage.');
+      }
+    }
+
+    // Reset Defaults Handler
+    document.getElementById('btn-reset-defaults').addEventListener('click', () => {
+      if (confirm('Reset all fields to original Hotel Mohan Inn property defaults?')) {
+        populateForm(DEFAULT_CONFIG);
+        showToast('Reset to original defaults (Click Save to commit).');
+      }
+    });
+
+    document.getElementById('btn-save-all').addEventListener('click', saveConfig);
+
+    // Initial Load
+    loadConfig();
+  </script>
+</body>
+</html>

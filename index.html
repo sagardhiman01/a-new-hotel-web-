@@ -82,14 +82,14 @@
       <div class="topbar-info">
         <span class="topbar-ticker-item">
           <span class="indicator"></span>
-          Haridwar: 28°C • Holy Ganges Breeze
+          <span id="topbar-ticker-text">Haridwar: 28°C • Holy Ganges Breeze</span>
         </span>
         <span class="topbar-ticker-item">
           ● Sandhya Maha Aarti at Har Ki Pauri: <strong id="aarti-countdown" class="text-gold" style="margin-left:4px;">03h 45m 12s</strong>
         </span>
       </div>
       <div class="topbar-right">
-        <span>Managing Director: Manish Mishra</span>
+        <span id="topbar-director-display">Managing Director: Manish Mishra</span>
         <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle Temple Flute Soundscape">
           <span class="audio-equalizer">
             <span></span><span></span><span></span>
@@ -1362,9 +1362,9 @@
         <div class="contact-info-col">
           <!-- Managing Director Card -->
           <div class="director-card-signature">
-            <h3 class="director-name">Manish Mishra</h3>
-            <div class="director-role">Managing Director</div>
-            <p style="font-size: 0.88rem; color: var(--text-charcoal-muted); margin-top: 10px; line-height: 1.65;">
+            <h3 class="director-name" id="display-director-name">Manish Mishra</h3>
+            <div class="director-role" id="display-director-role">Managing Director</div>
+            <p id="display-director-quote" style="font-size: 0.88rem; color: var(--text-charcoal-muted); margin-top: 10px; line-height: 1.65;">
               "At Hotel Mohan Inn, we take pride in serving every guest with authentic Indian hospitality and sacred warmth. Whether visiting for the holy dip at Har Ki Pauri or proceeding to the Himalayas, our team is committed to making your stay cherished forever."
             </p>
           </div>
@@ -1578,7 +1578,13 @@
 
       <div class="footer-bottom-strip">
         <span>© 2026 HOTEL MOHAN INN. ALL RIGHTS RESERVED. HARIDWAR, UTTARAKHAND.</span>
-        <span>MODERN SACRED LUXURY • BHAGWA & GOLD DESIGN SYSTEM</span>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <a href="/admin" target="_blank" rel="noopener noreferrer" style="color: var(--gold-champagne); text-decoration: none; font-size: 11px; font-family: var(--font-mono); display: inline-flex; align-items: center; gap: 5px; opacity: 0.85; transition: opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'">
+            ⚙️ Management Studio
+          </a>
+          <span>•</span>
+          <span>MODERN SACRED LUXURY • BHAGWA & GOLD DESIGN SYSTEM</span>
+        </div>
       </div>
     </div>
   </footer>
