@@ -1,6 +1,6 @@
 /**
- * HOTEL MOHAN INN - MODERN SACRED LUXURY (BHAGWA & ANTIQUE GOLD)
- * High-Performance Client Logic & Interactive Modules (All Bugs Fixed)
+ * HOTEL MOHAN INN - MODERN SACRED LUXURY (BHAGWA, GOLD & NATURE GREEN)
+ * High-Performance Client Logic & Interactive Modules
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initHeroQuickBooking();
   initDynamicConfig();
+  initScrollReveal();
+  initActiveNavLinks();
 });
 
 /* -------------------------------------------------------------
@@ -70,11 +72,16 @@ function initParticles() {
   setupCanvasSize();
   window.addEventListener('resize', setupCanvasSize);
 
-  const particleCount = Math.min(width > 768 ? 40 : 20, 50);
+  const particleCount = Math.min(width > 768 ? 45 : 22, 55);
   const particles = [];
+  const colorPalette = [
+    'rgba(255, 122, 40,',   // bhagwa
+    'rgba(212, 175, 55,',   // gold
+    'rgba(76, 175, 130,',   // fresh green
+  ];
 
   for (let i = 0; i < particleCount; i++) {
-    const isBhagwa = i % 2 === 0;
+    const colorIdx = i % 3;
     particles.push({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -84,8 +91,9 @@ function initParticles() {
       opacity: Math.random() * 0.5 + 0.2,
       pulse: Math.random() * Math.PI,
       pulseSpeed: Math.random() * 0.02 + 0.01,
-      isBhagwa: isBhagwa,
-      color: isBhagwa ? 'rgba(255, 122, 40,' : 'rgba(212, 175, 55,'
+      isBhagwa: colorIdx === 0,
+      colorIdx: colorIdx,
+      color: colorPalette[colorIdx]
     });
   }
 
@@ -1437,3 +1445,130 @@ window.addEventListener('storage', (e) => {
   }
 });
 
+
+/* -------------------------------------------------------------
+ * MOBILE MENU - Right-Side Drawer
+ * ------------------------------------------------------------- */
+function initMobileMenu() {
+  const toggle = document.querySelector('.mobile-nav-toggle');
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-nav-backdrop');
+  const closeBtn = document.getElementById('mobile-drawer-close');
+  const drawerLinks = document.querySelectorAll('.mobile-drawer-link');
+
+  if (!toggle || !drawer) return;
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = drawer.classList.contains('open');
+    isOpen ? closeDrawer() : openDrawer();
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+}
+
+/* -------------------------------------------------------------
+ * SCROLL REVEAL ANIMATIONS
+ * ------------------------------------------------------------- */
+function initScrollReveal() {
+  // Add reveal classes to key elements
+  const revealTargets = [
+    { selector: '.room-card', cls: 'reveal', stagger: true },
+    { selector: '.amenity-card', cls: 'reveal', stagger: true },
+    { selector: '.gallery-card', cls: 'reveal-scale', stagger: true },
+    { selector: '.yatra-location-card', cls: 'reveal', stagger: true },
+    { selector: '.dish-pill-item', cls: 'reveal-right', stagger: true },
+    { selector: '.booking-widget-bar', cls: 'reveal' },
+    { selector: '.section-eyebrow', cls: 'reveal' },
+    { selector: '.culinary-media-frame', cls: 'reveal-left' },
+    { selector: '.culinary-showcase-grid > div:last-child', cls: 'reveal-right' },
+    { selector: '.banquet-visual', cls: 'reveal-left' },
+    { selector: '.banquet-inquiry-box', cls: 'reveal-right' },
+    { selector: '.blueprint-stage', cls: 'reveal-left' },
+    { selector: '.blueprint-spec-panel', cls: 'reveal-right' },
+    { selector: '.director-card-signature', cls: 'reveal' },
+    { selector: '.map-container', cls: 'reveal-scale' },
+    { selector: '.tariff-table-wrap', cls: 'reveal' },
+    { selector: '.hero-metrics-strip', cls: 'reveal' },
+  ];
+
+  const delays = ['', 'delay-1', 'delay-2', 'delay-3', 'delay-4', 'delay-5'];
+
+  revealTargets.forEach(({ selector, cls, stagger }) => {
+    const els = document.querySelectorAll(selector);
+    els.forEach((el, i) => {
+      // Don't re-add if already has a reveal class
+      if (!el.classList.contains('reveal') &&
+          !el.classList.contains('reveal-left') &&
+          !el.classList.contains('reveal-right') &&
+          !el.classList.contains('reveal-scale')) {
+        el.classList.add(cls);
+        if (stagger && i > 0) {
+          el.classList.add(delays[Math.min(i, 5)]);
+        }
+      }
+    });
+  });
+
+  // IntersectionObserver to trigger .revealed
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  // Observe all reveal elements
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+    .forEach(el => observer.observe(el));
+}
+
+/* -------------------------------------------------------------
+ * ACTIVE NAV LINKS (highlight on scroll)
+ * ------------------------------------------------------------- */
+function initActiveNavLinks() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-item-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active-link');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active-link');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => observer.observe(s));
+}
