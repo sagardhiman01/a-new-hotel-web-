@@ -271,13 +271,13 @@ body {
 .hairline-brass {
   width: 70px;
   height: 2px;
-  background: linear-gradient(90deg, var(--bhagwa), var(--gold-antique), transparent);
+  background: linear-gradient(90deg, var(--green-fresh), var(--gold-antique), transparent);
   margin: 20px 0 24px 0;
 }
 
 .hairline-brass.center {
   margin: 20px auto 24px auto;
-  background: linear-gradient(90deg, transparent, var(--bhagwa), var(--gold-antique), transparent);
+  background: linear-gradient(90deg, transparent, var(--green-fresh), var(--gold-antique), transparent);
 }
 
 /* Buttons: Bhagwa Saffron & Antique Gold */
@@ -537,7 +537,7 @@ body {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.28em;
-  color: var(--bhagwa);
+  color: var(--green-fresh);
   margin-top: 5px;
   font-weight: 600;
 }
@@ -570,12 +570,12 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--bhagwa);
+  background: var(--green-fresh);
   transition: width 0.3s var(--ease-out-expo);
 }
 
 .nav-item-link:hover {
-  color: var(--bhagwa);
+  color: var(--green-fresh);
 }
 
 .nav-item-link:hover::after {
@@ -592,23 +592,24 @@ body {
   font-family: var(--font-mono);
   font-size: 12.5px;
   letter-spacing: 0.08em;
-  color: var(--bhagwa);
+  color: var(--green-fresh);
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  border: 1.5px solid var(--bhagwa-border);
+  border: 1.5px solid var(--green-border);
   border-radius: 2px;
-  background: rgba(255, 122, 40, 0.06);
+  background: var(--green-tint);
   font-weight: 700;
   transition: var(--transition-fast);
 }
 
 .nav-phone-link:hover {
-  border-color: var(--bhagwa);
-  background: var(--bhagwa);
+  border-color: var(--green-fresh);
+  background: var(--green-fresh);
   color: #FFFFFF;
+  box-shadow: 0 4px 14px var(--green-glow);
 }
 
 .mobile-nav-toggle {
@@ -901,7 +902,7 @@ body {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--bhagwa);
+  color: var(--green-fresh);
   font-weight: 600;
 }
 
@@ -919,8 +920,8 @@ body {
 }
 
 .custom-input:focus, .custom-select:focus {
-  border-color: var(--bhagwa);
-  box-shadow: 0 0 10px var(--bhagwa-glow);
+  border-color: var(--green-fresh);
+  box-shadow: 0 0 10px var(--green-glow);
 }
 
 .custom-select option {
@@ -990,10 +991,10 @@ body {
 }
 
 .filter-btn:hover, .filter-btn.active {
-  border-color: var(--bhagwa);
+  border-color: var(--green-fresh);
   color: #FFFFFF;
-  background: var(--bhagwa);
-  box-shadow: 0 4px 15px var(--bhagwa-glow);
+  background: var(--green-fresh);
+  box-shadow: 0 4px 15px var(--green-glow);
 }
 
 .rooms-grid {
@@ -1020,7 +1021,7 @@ body {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--bhagwa), var(--gold-antique), var(--bhagwa));
+  background: linear-gradient(90deg, var(--green-fresh), var(--gold-antique), var(--green-light));
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.6s var(--ease-out-expo);
@@ -1029,8 +1030,8 @@ body {
 
 .room-card:hover {
   transform: translateY(-6px);
-  border-color: var(--bhagwa-border);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08), 0 0 25px var(--bhagwa-glow);
+  border-color: var(--green-border);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08), 0 0 25px var(--green-glow);
 }
 
 .room-card:hover::before {
@@ -1118,7 +1119,7 @@ body {
 }
 
 .room-card:hover .room-type-title {
-  color: var(--bhagwa);
+  color: var(--green-fresh);
 }
 
 .room-card-desc {
@@ -1494,7 +1495,7 @@ body {
 
 .metric-meter-fill {
   height: 100%;
-  background: var(--bhagwa);
+  background: linear-gradient(90deg, var(--green-fresh), var(--green-light));
   width: 95%;
   transition: width 0.8s ease;
 }
@@ -1606,11 +1607,11 @@ body {
   font-size: 11.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--bhagwa);
-  background: rgba(255, 122, 40, 0.1);
+  color: var(--green-fresh);
+  background: var(--green-tint);
   padding: 5px 12px;
   border-radius: 20px;
-  border: 1px solid var(--bhagwa-border);
+  border: 1px solid var(--green-border);
   font-weight: 600;
 }
 
@@ -1721,7 +1722,7 @@ body {
 .tariff-price-val {
   font-family: var(--font-mono);
   font-size: 1.1rem;
-  color: var(--bhagwa);
+  color: var(--green-fresh);
   font-weight: 700;
 }
 
@@ -1745,10 +1746,10 @@ body {
 }
 
 .yatra-location-card:hover {
-  border-color: var(--bhagwa);
+  border-color: var(--green-fresh);
   background: #FFFFFF;
   transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 0 18px var(--green-glow);
 }
 
 .yatra-header {
@@ -1770,10 +1771,10 @@ body {
   font-size: 11.5px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--bhagwa);
-  background: rgba(255, 122, 40, 0.08);
+  color: var(--green-fresh);
+  background: var(--green-tint);
   padding: 5px 10px;
-  border: 1px solid var(--bhagwa-border);
+  border: 1px solid var(--green-border);
   font-weight: 600;
   border-radius: 2px;
 }
@@ -1802,10 +1803,10 @@ body {
 }
 
 .amenity-card:hover {
-  border-color: var(--bhagwa);
+  border-color: var(--green-fresh);
   background: #FFFFFF;
   transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06), 0 0 20px var(--green-glow);
 }
 
 .amenity-icon-box {
@@ -2004,7 +2005,7 @@ body {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--bhagwa);
+  color: var(--green-fresh);
   font-weight: 600;
 }
 
@@ -2094,8 +2095,8 @@ body {
 }
 
 .modal-close-btn:hover {
-  border-color: var(--bhagwa);
-  background: var(--bhagwa);
+  border-color: var(--green-fresh);
+  background: var(--green-fresh);
   color: #FFFFFF;
 }
 
@@ -2148,7 +2149,7 @@ body {
 }
 
 .footer-nav-list a:hover {
-  color: var(--gold-champagne);
+  color: var(--green-pale);
 }
 
 .footer-bottom-strip {
@@ -2196,10 +2197,10 @@ body {
 }
 
 .gallery-filter-btn:hover, .gallery-filter-btn.active {
-  border-color: var(--bhagwa);
+  border-color: var(--green-fresh);
   color: #FFFFFF;
-  background: var(--bhagwa);
-  box-shadow: 0 4px 15px var(--bhagwa-glow);
+  background: var(--green-fresh);
+  box-shadow: 0 4px 15px var(--green-glow);
 }
 
 .gallery-grid {
@@ -2221,8 +2222,8 @@ body {
 
 .gallery-card:hover {
   transform: translateY(-5px);
-  border-color: var(--bhagwa);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12), 0 0 25px var(--bhagwa-glow);
+  border-color: var(--green-fresh);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12), 0 0 25px var(--green-glow);
 }
 
 .gallery-card img {
@@ -2251,7 +2252,7 @@ body {
 
 .gallery-card:hover .gallery-overlay {
   opacity: 1;
-  background: linear-gradient(180deg, rgba(255, 122, 40, 0.15) 0%, rgba(20, 8, 2, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(76, 175, 130, 0.18) 0%, rgba(20, 8, 2, 0.94) 100%);
 }
 
 .gallery-tag {
@@ -2410,10 +2411,11 @@ body {
 }
 
 .lightbox-nav-btn:hover {
-  background: var(--bhagwa);
+  background: var(--green-fresh);
   color: #FFFFFF;
-  border-color: var(--bhagwa);
+  border-color: var(--green-fresh);
   transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 18px var(--green-glow);
 }
 
 .lightbox-prev {
