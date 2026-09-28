@@ -477,6 +477,113 @@
       color: var(--text-muted);
       margin-top: 4px;
     }
+    .gallery-editor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item-card {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+    .gallery-item-card:hover {
+      border-color: var(--gold-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .gallery-thumb-wrap {
+      width: 100%;
+      height: 180px;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-thumb-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(13, 7, 4, 0.85);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-champagne);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+    }
+    .gallery-item-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .gallery-item-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-subtle);
+      padding: 10px 16px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .admin-gal-filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .admin-gal-filter-btn:hover {
+      color: #FFFFFF;
+      border-color: var(--gold-border);
+    }
+    .admin-gal-filter-btn.active {
+      background: rgba(255, 122, 40, 0.15);
+      border-color: var(--bhagwa);
+      color: var(--bhagwa);
+      font-weight: 700;
+    }
+    .btn-gal-del {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #F87171;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-gal-del:hover {
+      background: #EF4444;
+      color: #FFFFFF;
+    }
+    .btn-gal-order {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-pure);
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .btn-gal-order:hover {
+      border-color: var(--gold-antique);
+    }
   </style>
 </head>
 <body>
@@ -541,6 +648,7 @@
       <button class="tab-btn" data-tab="tab-yatra">🗺️ Char Dham Yatra</button>
       <button class="tab-btn" data-tab="tab-policies">📜 Timings & Policies</button>
       <button class="tab-btn" data-tab="tab-announcements">🔔 Aarti & Ticker</button>
+      <button class="tab-btn" data-tab="tab-gallery">🖼️ Photo Gallery</button>
     </nav>
 
     <!-- Tab 1: Contact & Property Info -->
@@ -901,6 +1009,38 @@
         </div>
       </div>
     </section>
+
+    <!-- Tab 9: Photo Gallery Manager -->
+    <section id="tab-gallery" class="tab-pane">
+      <div class="card-section">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 14px;">
+          <div>
+            <h2 class="card-section-title">Hotel Mohan Inn Photo Gallery Manager</h2>
+            <p class="card-section-desc" style="margin-bottom: 0;">Add new photos, edit titles/tags, change category filters, or remove images displayed across the live website gallery.</p>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <span id="gallery-counter-badge" class="rate-card-badge" style="font-size: 11px; padding: 6px 12px;">20 Photos</span>
+            <button type="button" id="btn-add-gallery-item" class="btn-primary-save" style="background: linear-gradient(135deg, var(--bhagwa), var(--bhagwa-deep)); padding: 9px 18px; font-size: 12px;">
+              ➕ Add New Photo
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter bar in admin to quickly filter while editing -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 14px;">
+          <button type="button" class="admin-gal-filter-btn active" data-cat="all">All Photos</button>
+          <button type="button" class="admin-gal-filter-btn" data-cat="rooms">Suites & Rooms</button>
+          <button type="button" class="admin-gal-filter-btn" data-cat="facade">Facade & Campus</button>
+          <button type="button" class="admin-gal-filter-btn" data-cat="dining">Mohan Ji Poori Wale</button>
+          <button type="button" class="admin-gal-filter-btn" data-cat="events">Banquet & Aarti</button>
+        </div>
+
+        <!-- Gallery cards editor grid -->
+        <div id="gallery-cards-editor" class="gallery-editor-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Toast Notification Popup -->
@@ -910,6 +1050,29 @@
   </div>
 
   <script>
+    const DEFAULT_GALLERY = [
+      { id: "gal-1", category: "rooms", img: "assets/images/img_room1.jpg", title: "Deluxe AC King Suite (Real View)", tag: "BOUTIQUE AC SUITES" },
+      { id: "gal-2", category: "rooms", img: "assets/images/hotel_room_deluxe.jpg", title: "Boutique AC King Suite", tag: "BOUTIQUE AC SUITES" },
+      { id: "gal-3", category: "rooms", img: "assets/images/hotel_room_family.jpg", title: "Family Grandeur Suite (350 sqft)", tag: "FAMILY AC SUITE" },
+      { id: "gal-4", category: "rooms", img: "assets/images/hotel_room_twin.jpg", title: "Executive Twin Bedded AC Room", tag: "TWIN AC ROOM" },
+      { id: "gal-5", category: "rooms", img: "assets/images/img_rooms_2.jpg", title: "Heritage Double AC Suite", tag: "HERITAGE AC SUITE" },
+      { id: "gal-6", category: "rooms", img: "assets/images/img_gallery_slider7.jpg", title: "Modern En-Suite Bathroom (Shower)", tag: "EN-SUITE AMENITIES" },
+      { id: "gal-7", category: "rooms", img: "assets/images/img_gallery_rooms10.jpg", title: "Attached Bathroom Vanity & Mirror", tag: "EN-SUITE AMENITIES" },
+      { id: "gal-8", category: "facade", img: "assets/images/img_gallery_rooms5.jpg", title: "Grand Entrance & Highway Facade", tag: "FACADE & HIGHWAY SANCTUARY" },
+      { id: "gal-9", category: "facade", img: "assets/images/img_gallery_slider5.jpg", title: "Arrival Steps & Glass Portico", tag: "ENTRANCE ARCHITECTURE" },
+      { id: "gal-10", category: "facade", img: "assets/images/img_slider_1.jpg", title: "Warm Pilgrimage Reception", tag: "FRONT DESK & LOBBY" },
+      { id: "gal-11", category: "dining", img: "assets/images/img_resto6.jpg", title: "200 Pax AC Restaurant Dining", tag: "HERITAGE DINING" },
+      { id: "gal-12", category: "dining", img: "assets/images/img_restaurant_1.jpg", title: "Signature Bedmi Poori Platter", tag: "MOHAN JI SPECIAL" },
+      { id: "gal-13", category: "dining", img: "assets/images/img_gallery_ggn2.jpg", title: "Bedmi Poori & Spicy Chana", tag: "BREAKFAST HERITAGE" },
+      { id: "gal-14", category: "dining", img: "assets/images/img_gallery_ggn3.jpg", title: "Kadhi Pakoda & Basmati Rice", tag: "PURE VEG THALI" },
+      { id: "gal-15", category: "dining", img: "assets/images/img_gallery_ggn4.jpg", title: "Desi Ghee Halwa & Sweets", tag: "SWEETS & SNACKS" },
+      { id: "gal-16", category: "dining", img: "assets/images/img_gallery_ggn5.jpg", title: "Special Raj Kachori & Chaat", tag: "HARIDWAR STREET CHAT" },
+      { id: "gal-17", category: "events", img: "assets/images/banquet_hall_grand.jpg", title: "150 Pax AC Banquet Ballroom", tag: "EVENT BALLROOM" },
+      { id: "gal-18", category: "events", img: "assets/images/img_slider_3.jpg", title: "Sandhya Maha Aarti (10 Mins Away)", tag: "SACRED HARIDWAR" },
+      { id: "gal-19", category: "events", img: "assets/images/img_slider_4.jpg", title: "Ganges River & Ghats View", tag: "DIVINE PILGRIMAGE" },
+      { id: "gal-20", category: "events", img: "assets/images/ganga_aarti_hero.jpg", title: "Twilight Ganga Ghat Prayers", tag: "GANGES SANCTUARY" }
+    ];
+
     const DEFAULT_CONFIG = {
       hotelName: "Hotel Mohan Inn",
       tagline: "Modern Sacred Luxury • Rooms • Banquet • Mohan Ji Poori Wale",
@@ -987,10 +1150,13 @@
         rules: "All rates on twin sharing basis. Advance deposit required for guaranteed confirmation."
       },
       weatherTicker: "Haridwar: 28°C • Holy Ganges Breeze",
-      aartiTime: "18:30"
+      aartiTime: "18:30",
+      gallery: DEFAULT_GALLERY
     };
 
     let activeConfig = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+    let currentGallery = JSON.parse(JSON.stringify(DEFAULT_GALLERY));
+    let currentGalFilter = 'all';
 
     // Security Gate Authentication
     const AUTH_PIN = "1985";
@@ -1045,6 +1211,180 @@
       toastTimer = setTimeout(() => {
         toast.classList.remove('show');
       }, 3500);
+    }
+
+    // Render Gallery Editor Cards
+    function renderGalleryEditor() {
+      const container = document.getElementById('gallery-cards-editor');
+      const badge = document.getElementById('gallery-counter-badge');
+      if (!container) return;
+
+      if (badge) badge.textContent = `${currentGallery.length} Photos`;
+
+      const visibleItems = currentGallery.map((item, originalIdx) => ({ item, originalIdx }))
+        .filter(({ item }) => currentGalFilter === 'all' || item.category === currentGalFilter);
+
+      if (!visibleItems.length) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted); font-family: var(--font-mono);">
+            No photos found in category "${currentGalFilter}". Click "➕ Add New Photo" to create one.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = visibleItems.map(({ item, originalIdx }) => `
+        <div class="gallery-item-card" data-index="${originalIdx}">
+          <div class="gallery-thumb-wrap">
+            <img src="${escapeHtml(item.img)}" alt="${escapeHtml(item.title)}" id="gal-thumb-${originalIdx}" onerror="this.onerror=null;this.src='assets/images/img_room1.jpg'">
+            <span class="gallery-thumb-tag">${escapeHtml(item.tag || 'PHOTO')}</span>
+          </div>
+
+          <div class="gallery-item-body">
+            <div class="form-group">
+              <label class="form-label" style="font-size:10px;">Photo Title</label>
+              <input type="text" class="form-input gal-input-title" data-idx="${originalIdx}" value="${escapeHtml(item.title)}" placeholder="e.g. Deluxe Suite Interior">
+            </div>
+
+            <div class="form-grid-2" style="gap: 10px;">
+              <div class="form-group">
+                <label class="form-label" style="font-size:10px;">Category</label>
+                <select class="form-select gal-input-cat" data-idx="${originalIdx}">
+                  <option value="rooms" ${item.category === 'rooms' ? 'selected' : ''}>Suites & Rooms</option>
+                  <option value="facade" ${item.category === 'facade' ? 'selected' : ''}>Facade & Campus</option>
+                  <option value="dining" ${item.category === 'dining' ? 'selected' : ''}>Mohan Ji Poori</option>
+                  <option value="events" ${item.category === 'events' ? 'selected' : ''}>Banquet & Aarti</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" style="font-size:10px;">Badge / Tag</label>
+                <input type="text" class="form-input gal-input-tag" data-idx="${originalIdx}" value="${escapeHtml(item.tag || '')}" placeholder="e.g. BOUTIQUE AC SUITE">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" style="font-size:10px;">Image URL / Path</label>
+              <input type="text" class="form-input gal-input-img" data-idx="${originalIdx}" value="${escapeHtml(item.img)}" placeholder="assets/images/... or https://...">
+            </div>
+          </div>
+
+          <div class="gallery-item-actions">
+            <div style="display:flex; gap:6px;">
+              <button type="button" class="btn-gal-order gal-btn-up" data-idx="${originalIdx}" title="Move Up" ${originalIdx === 0 ? 'disabled style="opacity:0.3;cursor:not-allowed;"' : ''}>▲</button>
+              <button type="button" class="btn-gal-order gal-btn-down" data-idx="${originalIdx}" title="Move Down" ${originalIdx === currentGallery.length - 1 ? 'disabled style="opacity:0.3;cursor:not-allowed;"' : ''}>▼</button>
+              <span class="preview-pill" style="margin-left:4px; margin-top:2px;">#${originalIdx + 1}</span>
+            </div>
+            <button type="button" class="btn-gal-del gal-btn-del" data-idx="${originalIdx}" title="Delete this photo">🗑️ Delete</button>
+          </div>
+        </div>
+      `).join('');
+
+      // Attach event listeners
+      container.querySelectorAll('.gal-input-title').forEach(input => {
+        input.addEventListener('input', (e) => {
+          const idx = parseInt(e.target.dataset.idx);
+          if (currentGallery[idx]) currentGallery[idx].title = e.target.value.trim();
+        });
+      });
+
+      container.querySelectorAll('.gal-input-tag').forEach(input => {
+        input.addEventListener('input', (e) => {
+          const idx = parseInt(e.target.dataset.idx);
+          if (currentGallery[idx]) currentGallery[idx].tag = e.target.value.trim();
+        });
+      });
+
+      container.querySelectorAll('.gal-input-cat').forEach(sel => {
+        sel.addEventListener('change', (e) => {
+          const idx = parseInt(e.target.dataset.idx);
+          if (currentGallery[idx]) currentGallery[idx].category = e.target.value;
+        });
+      });
+
+      container.querySelectorAll('.gal-input-img').forEach(input => {
+        input.addEventListener('input', (e) => {
+          const idx = parseInt(e.target.dataset.idx);
+          const val = e.target.value.trim();
+          if (currentGallery[idx]) {
+            currentGallery[idx].img = val;
+            const thumb = document.getElementById(`gal-thumb-${idx}`);
+            if (thumb) thumb.src = val;
+          }
+        });
+      });
+
+      container.querySelectorAll('.gal-btn-del').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const idx = parseInt(e.target.dataset.idx);
+          const item = currentGallery[idx];
+          if (confirm(`Delete "${item?.title || 'this photo'}" from gallery?`)) {
+            currentGallery.splice(idx, 1);
+            renderGalleryEditor();
+            showToast('Photo removed from gallery (Click Save to commit).');
+          }
+        });
+      });
+
+      container.querySelectorAll('.gal-btn-up').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const idx = parseInt(e.target.dataset.idx);
+          if (idx > 0) {
+            const temp = currentGallery[idx];
+            currentGallery[idx] = currentGallery[idx - 1];
+            currentGallery[idx - 1] = temp;
+            renderGalleryEditor();
+          }
+        });
+      });
+
+      container.querySelectorAll('.gal-btn-down').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const idx = parseInt(e.target.dataset.idx);
+          if (idx < currentGallery.length - 1) {
+            const temp = currentGallery[idx];
+            currentGallery[idx] = currentGallery[idx + 1];
+            currentGallery[idx + 1] = temp;
+            renderGalleryEditor();
+          }
+        });
+      });
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Gallery Admin Filter Buttons
+    document.querySelectorAll('.admin-gal-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.admin-gal-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentGalFilter = btn.dataset.cat || 'all';
+        renderGalleryEditor();
+      });
+    });
+
+    // Add New Gallery Photo Button
+    const btnAddGal = document.getElementById('btn-add-gallery-item');
+    if (btnAddGal) {
+      btnAddGal.addEventListener('click', () => {
+        currentGallery.unshift({
+          id: 'gal-' + Date.now(),
+          category: currentGalFilter === 'all' ? 'rooms' : currentGalFilter,
+          img: 'assets/images/img_room1.jpg',
+          title: 'New Gallery Photo',
+          tag: 'FEATURED PHOTO'
+        });
+        renderGalleryEditor();
+        showToast('New photo added to top of gallery!');
+      });
     }
 
     // Populate Fields from Configuration
@@ -1122,6 +1462,12 @@
       // Announcements
       document.getElementById('ticker-weather').value = data.weatherTicker || '';
       document.getElementById('ticker-aarti-time').value = data.aartiTime || '18:30';
+
+      // Photo Gallery
+      currentGallery = (data.gallery && Array.isArray(data.gallery) && data.gallery.length)
+        ? JSON.parse(JSON.stringify(data.gallery))
+        : JSON.parse(JSON.stringify(DEFAULT_GALLERY));
+      renderGalleryEditor();
     }
 
     // Collect Form Values
@@ -1209,7 +1555,8 @@
           rules: document.getElementById('policy-rules').value.trim()
         },
         weatherTicker: document.getElementById('ticker-weather').value.trim(),
-        aartiTime: document.getElementById('ticker-aarti-time').value.trim() || '18:30'
+        aartiTime: document.getElementById('ticker-aarti-time').value.trim() || '18:30',
+        gallery: currentGallery
       };
     }
 

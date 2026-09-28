@@ -81,5 +81,147 @@
     "rules": "All rates on twin sharing basis. Advance deposit required for guaranteed confirmation."
   },
   "weatherTicker": "Haridwar: 28°C • Holy Ganges Breeze",
-  "aartiTime": "18:30"
+  "aartiTime": "18:30",
+  "gallery": [
+    {
+      "id": "gal-1",
+      "category": "rooms",
+      "img": "assets/images/img_room1.jpg",
+      "title": "Deluxe AC King Suite (Real View)",
+      "tag": "BOUTIQUE AC SUITES"
+    },
+    {
+      "id": "gal-2",
+      "category": "rooms",
+      "img": "assets/images/hotel_room_deluxe.jpg",
+      "title": "Boutique AC King Suite",
+      "tag": "BOUTIQUE AC SUITES"
+    },
+    {
+      "id": "gal-3",
+      "category": "rooms",
+      "img": "assets/images/hotel_room_family.jpg",
+      "title": "Family Grandeur Suite (350 sqft)",
+      "tag": "FAMILY AC SUITE"
+    },
+    {
+      "id": "gal-4",
+      "category": "rooms",
+      "img": "assets/images/hotel_room_twin.jpg",
+      "title": "Executive Twin Bedded AC Room",
+      "tag": "TWIN AC ROOM"
+    },
+    {
+      "id": "gal-5",
+      "category": "rooms",
+      "img": "assets/images/img_rooms_2.jpg",
+      "title": "Heritage Double AC Suite",
+      "tag": "HERITAGE AC SUITE"
+    },
+    {
+      "id": "gal-6",
+      "category": "rooms",
+      "img": "assets/images/img_gallery_slider7.jpg",
+      "title": "Modern En-Suite Bathroom (Shower)",
+      "tag": "EN-SUITE AMENITIES"
+    },
+    {
+      "id": "gal-7",
+      "category": "rooms",
+      "img": "assets/images/img_gallery_rooms10.jpg",
+      "title": "Attached Bathroom Vanity & Mirror",
+      "tag": "EN-SUITE AMENITIES"
+    },
+    {
+      "id": "gal-8",
+      "category": "facade",
+      "img": "assets/images/img_gallery_rooms5.jpg",
+      "title": "Grand Entrance & Highway Facade",
+      "tag": "FACADE & HIGHWAY SANCTUARY"
+    },
+    {
+      "id": "gal-9",
+      "category": "facade",
+      "img": "assets/images/img_gallery_slider5.jpg",
+      "title": "Arrival Steps & Glass Portico",
+      "tag": "ENTRANCE ARCHITECTURE"
+    },
+    {
+      "id": "gal-10",
+      "category": "facade",
+      "img": "assets/images/img_slider_1.jpg",
+      "title": "Warm Pilgrimage Reception",
+      "tag": "FRONT DESK & LOBBY"
+    },
+    {
+      "id": "gal-11",
+      "category": "dining",
+      "img": "assets/images/img_resto6.jpg",
+      "title": "200 Pax AC Restaurant Dining",
+      "tag": "HERITAGE DINING"
+    },
+    {
+      "id": "gal-12",
+      "category": "dining",
+      "img": "assets/images/img_restaurant_1.jpg",
+      "title": "Signature Bedmi Poori Platter",
+      "tag": "MOHAN JI SPECIAL"
+    },
+    {
+      "id": "gal-13",
+      "category": "dining",
+      "img": "assets/images/img_gallery_ggn2.jpg",
+      "title": "Bedmi Poori & Spicy Chana",
+      "tag": "BREAKFAST HERITAGE"
+    },
+    {
+      "id": "gal-14",
+      "category": "dining",
+      "img": "assets/images/img_gallery_ggn3.jpg",
+      "title": "Kadhi Pakoda & Basmati Rice",
+      "tag": "PURE VEG THALI"
+    },
+    {
+      "id": "gal-15",
+      "category": "dining",
+      "img": "assets/images/img_gallery_ggn4.jpg",
+      "title": "Desi Ghee Halwa & Sweets",
+      "tag": "SWEETS & SNACKS"
+    },
+    {
+      "id": "gal-16",
+      "category": "dining",
+      "img": "assets/images/img_gallery_ggn5.jpg",
+      "title": "Special Raj Kachori & Chaat",
+      "tag": "HARIDWAR STREET CHAT"
+    },
+    {
+      "id": "gal-17",
+      "category": "events",
+      "img": "assets/images/banquet_hall_grand.jpg",
+      "title": "150 Pax AC Banquet Ballroom",
+      "tag": "EVENT BALLROOM"
+    },
+    {
+      "id": "gal-18",
+      "category": "events",
+      "img": "assets/images/img_slider_3.jpg",
+      "title": "Sandhya Maha Aarti (10 Mins Away)",
+      "tag": "SACRED HARIDWAR"
+    },
+    {
+      "id": "gal-19",
+      "category": "events",
+      "img": "assets/images/img_slider_4.jpg",
+      "title": "Ganges River & Ghats View",
+      "tag": "DIVINE PILGRIMAGE"
+    },
+    {
+      "id": "gal-20",
+      "category": "events",
+      "img": "assets/images/ganga_aarti_hero.jpg",
+      "title": "Twilight Ganga Ghat Prayers",
+      "tag": "GANGES SANCTUARY"
+    }
+  ]
 }

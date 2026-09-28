@@ -926,7 +926,7 @@ function initMobileMenu() {
  * ------------------------------------------------------------- */
 function initPhotoGallery() {
   const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-  const cards = Array.from(document.querySelectorAll('.gallery-card'));
+  const galleryContainer = document.getElementById('gallery-container');
   const lightbox = document.getElementById('lightbox-modal');
   const lbImg = document.getElementById('lightbox-img');
   const lbTitle = document.getElementById('lightbox-title');
@@ -936,42 +936,57 @@ function initPhotoGallery() {
   const prevBtn = document.getElementById('lightbox-prev-btn');
   const nextBtn = document.getElementById('lightbox-next-btn');
 
-  if (!cards.length) return;
+  function getCards() {
+    return Array.from(document.querySelectorAll('.gallery-card'));
+  }
 
-  let currentVisibleCards = cards;
+  function getActiveFilter() {
+    const activeBtn = document.querySelector('.gallery-filter-btn.active');
+    return activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+  }
+
+  function getVisibleCards() {
+    const filterVal = getActiveFilter();
+    return getCards().filter(c => filterVal === 'all' || c.getAttribute('data-category') === filterVal);
+  }
+
   let currentIndex = 0;
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterVal = btn.getAttribute('data-filter');
-
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        if (filterVal === 'all' || cat === filterVal) {
-          card.style.display = 'block';
-          card.style.opacity = '0';
-          setTimeout(() => {
-            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 30);
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      currentVisibleCards = cards.filter(c => filterVal === 'all' || c.getAttribute('data-category') === filterVal);
-      currentIndex = 0;
+  function filterGallery(filterVal) {
+    const cards = getCards();
+    cards.forEach(card => {
+      const cat = card.getAttribute('data-category');
+      if (filterVal === 'all' || cat === filterVal) {
+        card.style.display = 'block';
+        card.style.opacity = '0';
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 30);
+      } else {
+        card.style.display = 'none';
+      }
     });
-  });
+    currentIndex = 0;
+  }
+
+  if (!window._galleryFilterEventsAttached) {
+    window._galleryFilterEventsAttached = true;
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterGallery(btn.getAttribute('data-filter'));
+      });
+    });
+  }
 
   function openLightbox(index) {
-    if (!currentVisibleCards.length || !currentVisibleCards[index] || !lightbox) return;
+    const visible = getVisibleCards();
+    if (!visible.length || !visible[index] || !lightbox) return;
     currentIndex = index;
-    const card = currentVisibleCards[currentIndex];
+    const card = visible[currentIndex];
     const imgSrc = card.getAttribute('data-img');
     const title = card.getAttribute('data-title') || '';
     const tag = card.getAttribute('data-tag') || '';
@@ -982,7 +997,7 @@ function initPhotoGallery() {
     }
     if (lbTitle) lbTitle.textContent = title;
     if (lbTag) lbTag.textContent = tag;
-    if (lbCounter) lbCounter.textContent = `Photo ${currentIndex + 1} of ${currentVisibleCards.length}`;
+    if (lbCounter) lbCounter.textContent = `Photo ${currentIndex + 1} of ${visible.length}`;
 
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -995,44 +1010,52 @@ function initPhotoGallery() {
   }
 
   function showNext() {
-    if (!currentVisibleCards.length) return;
-    currentIndex = (currentIndex + 1) % currentVisibleCards.length;
+    const visible = getVisibleCards();
+    if (!visible.length) return;
+    currentIndex = (currentIndex + 1) % visible.length;
     openLightbox(currentIndex);
   }
 
   function showPrev() {
-    if (!currentVisibleCards.length) return;
-    currentIndex = (currentIndex - 1 + currentVisibleCards.length) % currentVisibleCards.length;
+    const visible = getVisibleCards();
+    if (!visible.length) return;
+    currentIndex = (currentIndex - 1 + visible.length) % visible.length;
     openLightbox(currentIndex);
   }
 
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      const idx = currentVisibleCards.indexOf(card);
+  // Delegation on container
+  if (galleryContainer && !galleryContainer._clickBound) {
+    galleryContainer._clickBound = true;
+    galleryContainer.addEventListener('click', (e) => {
+      const card = e.target.closest('.gallery-card');
+      if (!card) return;
+      const visible = getVisibleCards();
+      const idx = visible.indexOf(card);
       if (idx !== -1) {
         openLightbox(idx);
       }
     });
-  });
-
-  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-  if (nextBtn) nextBtn.addEventListener('click', showNext);
-  if (prevBtn) prevBtn.addEventListener('click', showPrev);
-
-  if (lightbox) {
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
   }
 
-  window.addEventListener('keydown', (e) => {
-    if (!lightbox || !lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
+  if (!window._galleryModalEventsAttached) {
+    window._galleryModalEventsAttached = true;
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (nextBtn) nextBtn.addEventListener('click', showNext);
+    if (prevBtn) prevBtn.addEventListener('click', showPrev);
+
+    if (lightbox) {
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox || !lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+  }
 }
 
 /* -------------------------------------------------------------
@@ -1376,6 +1399,35 @@ async function initDynamicConfig() {
     const quickBarForm = document.getElementById('hero-quick-booking-form');
     if (quickBarForm) quickBarForm.action = cfg.bookingEngineUrl;
   }
+
+  // 10. Photo Gallery Synchronization
+  if (cfg.gallery && Array.isArray(cfg.gallery) && cfg.gallery.length) {
+    const galleryContainer = document.getElementById('gallery-container');
+    if (galleryContainer) {
+      galleryContainer.innerHTML = cfg.gallery.map(item => `
+        <div class="gallery-card" data-category="${escapeHtml(item.category || 'rooms')}" data-img="${escapeHtml(item.img)}" data-title="${escapeHtml(item.title || '')}" data-tag="${escapeHtml(item.tag || '')}">
+          <img src="${escapeHtml(item.img)}" alt="${escapeHtml(item.title || '')}" loading="lazy" onerror="this.onerror=null;this.src='assets/images/img_room1.jpg'">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">${escapeHtml(item.tag || '')}</span>
+            <h4 class="gallery-title">${escapeHtml(item.title || '')}</h4>
+          </div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+      `).join('');
+
+      initPhotoGallery();
+    }
+  }
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 
 // Cross-tab real-time configuration sync
@@ -1384,3 +1436,4 @@ window.addEventListener('storage', (e) => {
     initDynamicConfig();
   }
 });
+
