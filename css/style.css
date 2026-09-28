@@ -1,11 +1,12 @@
 /* ==========================================================================
-   HOTEL MOHAN INN - MODERN SACRED LUXURY (BHAGWA & ANTIQUE GOLD)
+   HOTEL MOHAN INN - MODERN SACRED LUXURY (BHAGWA, ANTIQUE GOLD & NATURE GREEN)
    Color Palette:
    • Background: Soft Cream (#F9F8F6)
    • Primary Text: Deep Charcoal (#2C2C2C)
    • Surface/Cards: Warm Sand (#EFECE6)
    • Primary Accent (CTA): Sacred Bhagwa / Royal Kesariya (#D9531E)
    • Secondary Accent: Antique Gold (#D4AF37)
+   • Tertiary Accent: Fresh Nature Green (#4CAF82)
    • Deep Sacred Foundation: Deep Temple Teak (#3A1405)
    Typography: Cormorant Garamond, Inter, JetBrains Mono
    ========================================================================== */
@@ -51,6 +52,17 @@
   --gold-glow-strong: rgba(212, 175, 55, 0.52);
   --gold-border: rgba(212, 175, 55, 0.40);
   --gold-border-subtle: rgba(212, 175, 55, 0.20);
+
+  /* Nature Green Accents — Fresh Haridwar Greenery */
+  --green-fresh: #4CAF82;
+  --green-light: #72C9A0;
+  --green-pale: #A8E6C5;
+  --green-tint: #F0FAF5;
+  --green-deep: #2E8B62;
+  --green-glow: rgba(76, 175, 130, 0.22);
+  --green-glow-strong: rgba(76, 175, 130, 0.42);
+  --green-border: rgba(76, 175, 130, 0.35);
+  --green-border-subtle: rgba(76, 175, 130, 0.18);
 
   /* Borders & Dividers */
   --border-subtle: rgba(44, 44, 44, 0.08);
@@ -115,7 +127,7 @@ body {
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--bhagwa);
+  background: var(--green-fresh);
 }
 
 /* Global Typography Utilities */
@@ -149,6 +161,17 @@ body {
   display: inline-block;
 }
 
+.text-green {
+  color: var(--green-fresh);
+}
+
+.green-gradient-text {
+  background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-fresh) 50%, var(--green-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
 .hero-gold-text {
   background: linear-gradient(135deg, var(--gold-champagne) 0%, var(--gold-light) 40%, var(--gold-antique) 100%);
   -webkit-background-clip: text;
@@ -163,7 +186,7 @@ body {
   left: 0;
   height: 3px;
   width: 0%;
-  background: linear-gradient(90deg, var(--bhagwa), var(--gold-antique), var(--gold-light));
+  background: linear-gradient(90deg, var(--bhagwa), var(--gold-antique), var(--green-fresh), var(--gold-light));
   z-index: 9999;
   box-shadow: 0 0 12px var(--bhagwa-glow-strong);
   transition: width 0.1s linear;
@@ -217,8 +240,8 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--gold-antique);
-  box-shadow: 0 0 8px var(--gold-antique);
+  background: var(--green-fresh);
+  box-shadow: 0 0 8px var(--green-fresh);
   animation: pulseDot 2.2s infinite ease-in-out;
 }
 
@@ -927,7 +950,7 @@ body {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 122, 40, 0.16), transparent 70%);
+  background: radial-gradient(circle, rgba(76, 175, 130, 0.14), rgba(255, 122, 40, 0.10), transparent 70%);
   filter: blur(85px);
 }
 
@@ -938,7 +961,7 @@ body {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 122, 40, 0.12), rgba(212, 175, 55, 0.10), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 122, 40, 0.12), rgba(76, 175, 130, 0.10), transparent 70%);
   filter: blur(85px);
 }
 
@@ -1129,7 +1152,7 @@ body {
 .room-spec-item svg {
   width: 14px;
   height: 14px;
-  color: var(--bhagwa);
+  color: var(--green-fresh);
   flex-shrink: 0;
 }
 
@@ -1788,14 +1811,19 @@ body {
 .amenity-icon-box {
   width: 44px;
   height: 44px;
-  border: 1px solid var(--bhagwa-border);
+  border: 1px solid var(--green-border);
   border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--bhagwa);
+  color: var(--green-fresh);
   margin-bottom: 18px;
-  background: rgba(255, 122, 40, 0.06);
+  background: var(--green-tint);
+}
+
+.amenity-card:hover .amenity-icon-box {
+  background: rgba(76, 175, 130, 0.15);
+  box-shadow: 0 0 14px var(--green-glow);
 }
 
 .amenity-title {
@@ -1878,14 +1906,21 @@ body {
 .contact-icon-bubble {
   width: 38px;
   height: 38px;
-  border: 1px solid var(--bhagwa-border);
+  border: 1px solid var(--green-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--bhagwa);
+  color: var(--green-fresh);
   flex-shrink: 0;
   border-radius: 2px;
-  background: rgba(255, 122, 40, 0.06);
+  background: var(--green-tint);
+  transition: all var(--transition-fast);
+}
+
+.contact-icon-bubble:hover {
+  background: var(--green-fresh);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px var(--green-glow);
 }
 
 .contact-detail-text .label {
