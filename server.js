@@ -80,6 +80,12 @@ const server = http.createServer((req, res) => {
 
   if (reqUrl === '/') reqUrl = '/index.html';
   if (reqUrl === '/admin') reqUrl = '/admin.html';
+  if (reqUrl === '/rooms') reqUrl = '/rooms.html';
+  if (reqUrl === '/dining') reqUrl = '/dining.html';
+  if (reqUrl === '/banquet') reqUrl = '/banquet.html';
+  if (reqUrl === '/yatra') reqUrl = '/yatra.html';
+  if (reqUrl === '/contact') reqUrl = '/contact.html';
+  if (reqUrl === '/gallery') reqUrl = '/gallery.html';
 
   let decodedUrl;
   try {

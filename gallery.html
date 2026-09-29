@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery & Visual Tour | Hotel Mohan Inn Haridwar</title>
+  <meta name="description" content="Explore full photo gallery of Hotel Mohan Inn Haridwar: 32 AC suites, highway campus, 150 pax banquet hall, and authentic Mohan Ji Poori Wale restaurant dishes.">
+  <link rel="shortcut icon" href="assets/images/img_logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Topbar -->
+  <div class="header-topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span class="topbar-ticker-item"><span class="indicator"></span><span>Haridwar: 28°C • Holy Ganges Breeze</span></span>
+        <span class="topbar-ticker-item">● Sandhya Maha Aarti at Har Ki Pauri: <strong id="aarti-countdown" class="text-gold" style="margin-left:4px;">03h 45m 12s</strong></span>
+      </div>
+      <div class="topbar-right">
+        <span id="topbar-director-display">Managing Director: Manish Mishra</span>
+        <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle Temple Flute Soundscape">
+          <span class="audio-equalizer"><span></span><span></span><span></span></span>
+          <span class="audio-label">Temple Flute</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="luxury-navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="brand-link">
+          <div class="brand-symbol-wrap">
+            <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn Logo" width="34" height="34">
+          </div>
+          <div class="brand-text-col">
+            <span class="brand-title">HOTEL MOHAN INN</span>
+            <span class="brand-subtitle">ROOMS • BANQUET • DINING</span>
+          </div>
+        </a>
+
+        <nav class="nav-links-desktop" aria-label="Primary Navigation">
+          <a href="index.html" class="nav-item-link">Home</a>
+          <a href="rooms.html" class="nav-item-link">Suites</a>
+          <a href="dining.html" class="nav-item-link">Dining</a>
+          <a href="banquet.html" class="nav-item-link">Banquet</a>
+          <a href="gallery.html" class="nav-item-link active-link">Gallery</a>
+          <a href="yatra.html" class="nav-item-link">Char Dham</a>
+          <a href="contact.html" class="nav-item-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="tel:9259368869" class="nav-phone-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>9259368869</span>
+          </a>
+          <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn">Reserve Suite</button>
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <nav id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-brand">
+        <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn" width="32" height="32">
+        <div>
+          <div class="mobile-drawer-brand-name">HOTEL MOHAN INN</div>
+          <div class="mobile-drawer-brand-sub">HARIDWAR • LUXURY STAYS</div>
+        </div>
+      </div>
+      <button id="mobile-drawer-close" class="mobile-drawer-close" aria-label="Close navigation menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    </div>
+    <div class="mobile-drawer-body">
+      <div class="mobile-drawer-section-label">PAGES</div>
+      <a href="index.html" class="mobile-drawer-link">Home</a>
+      <a href="rooms.html" class="mobile-drawer-link">Suites &amp; Rooms</a>
+      <a href="dining.html" class="mobile-drawer-link">Mohan Ji Poori Wale</a>
+      <a href="banquet.html" class="mobile-drawer-link">150 Pax Banquet</a>
+      <a href="gallery.html" class="mobile-drawer-link active-link">Photo Gallery</a>
+      <a href="yatra.html" class="mobile-drawer-link">Char Dham Yatra Desk</a>
+      <a href="contact.html" class="mobile-drawer-link">Contact &amp; Map</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="tel:9259368869" class="mobile-drawer-call-btn">Call +91 9259368869</a>
+      <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="btn-bhagwa-primary mobile-drawer-book-btn">Book Suite Online ↗</a>
+    </div>
+  </nav>
+
+  <!-- Gallery Banner -->
+  <section class="page-banner-hero" style="background-image: linear-gradient(rgba(24,36,22,0.80), rgba(42,60,40,0.88)), url('assets/images/img_gallery_slider5.jpg'); background-size: cover; background-position: center; padding: 90px 0 60px 0; text-align: center; color: #fff;">
+    <div class="container">
+      <span class="hero-badge-pill">
+        <span class="hero-badge-dot"></span>
+        <span>HIGH RESOLUTION VISUAL TOUR</span>
+      </span>
+      <h1 class="hero-headline" style="font-size: clamp(2.4rem, 5vw, 4rem); margin-top: 10px;">Hotel Photo Gallery</h1>
+      <p class="hero-subtext" style="max-width: 740px; margin: 0 auto;">Authentic high-definition gallery showcasing our boutique suites, pristine attached baths, grand banquet ballroom, Mohan Ji Poori Wale restaurant, and Haridwar highway sanctuary facade.</p>
+    </div>
+  </section>
+
+  <!-- Full Photo Gallery with Tabs -->
+  <section class="luxury-section gallery-section">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <div class="gallery-filter-nav" style="margin-bottom: 0;">
+          <button class="gallery-filter-btn active" data-filter="all">All Photos (16)</button>
+          <button class="gallery-filter-btn" data-filter="rooms">Suites &amp; Rooms</button>
+          <button class="gallery-filter-btn" data-filter="facade">Campus &amp; Facade</button>
+          <button class="gallery-filter-btn" data-filter="dining">Mohan Ji Poori Wale</button>
+          <button class="gallery-filter-btn" data-filter="events">Banquet &amp; Events</button>
+        </div>
+      </div>
+
+      <div class="gallery-grid" id="gallery-container">
+        <!-- 1 -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/img_room1.jpg" data-title="Deluxe AC King Suite" data-tag="BOUTIQUE AC SUITES">
+          <img src="assets/images/img_room1.jpg" alt="Deluxe AC Room" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">BOUTIQUE AC SUITES</span><h4 class="gallery-title">Deluxe AC King Suite</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 2 -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/hotel_room_deluxe.jpg" data-title="Boutique AC King Suite with Mountain View" data-tag="BOUTIQUE AC SUITES">
+          <img src="assets/images/hotel_room_deluxe.jpg" alt="Boutique Suite" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">BOUTIQUE AC SUITES</span><h4 class="gallery-title">Boutique AC King Suite</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 3 -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/hotel_room_family.jpg" data-title="Family Grandeur Suite (350 sqft)" data-tag="FAMILY AC SUITE">
+          <img src="assets/images/hotel_room_family.jpg" alt="Family Suite" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">FAMILY AC SUITE</span><h4 class="gallery-title">Family Grandeur Suite (350 sqft)</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 4 -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/hotel_room_twin.jpg" data-title="Executive Twin Bedded AC Room" data-tag="TWIN AC ROOM">
+          <img src="assets/images/hotel_room_twin.jpg" alt="Twin Room" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">TWIN AC ROOM</span><h4 class="gallery-title">Executive Twin Bedded AC Room</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 5 -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/mohan_ji_poori_wale.jpg" data-title="Mohan Ji Poori Wale Restaurant (200 Pax)" data-tag="RESTAURANT">
+          <img src="assets/images/mohan_ji_poori_wale.jpg" alt="Mohan Ji Poori Wale" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">RESTAURANT</span><h4 class="gallery-title">Mohan Ji Poori Wale</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 6 -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_restaurant_1.jpg" data-title="Pure Vegetarian AC Dining Hall" data-tag="RESTAURANT">
+          <img src="assets/images/img_restaurant_1.jpg" alt="Dining Hall" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">RESTAURANT</span><h4 class="gallery-title">Pure Vegetarian AC Dining Hall</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 7 -->
+        <div class="gallery-card" data-category="events" data-img="assets/images/banquet_hall_grand.jpg" data-title="Grand 150 Pax Banquet Ballroom" data-tag="BANQUET HALL">
+          <img src="assets/images/banquet_hall_grand.jpg" alt="Grand Banquet Hall" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">BANQUET HALL</span><h4 class="gallery-title">Grand 150 Pax Banquet Ballroom</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 8 -->
+        <div class="gallery-card" data-category="facade" data-img="assets/images/img_gallery_rooms5.jpg" data-title="Highway Entrance &amp; Sanctuary Campus" data-tag="FACADE &amp; HIGHWAY SANCTUARY">
+          <img src="assets/images/img_gallery_rooms5.jpg" alt="Highway Entrance" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">FACADE</span><h4 class="gallery-title">Highway Entrance &amp; Campus</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 9 -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/img_gallery_slider7.jpg" data-title="Modern En-Suite Luxury Bathroom" data-tag="EN-SUITE AMENITIES">
+          <img src="assets/images/img_gallery_slider7.jpg" alt="Attached Bathroom" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">BATHROOM</span><h4 class="gallery-title">Modern En-Suite Luxury Bathroom</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 10 -->
+        <div class="gallery-card" data-category="events" data-img="assets/images/ganga_aarti_hero.jpg" data-title="Har Ki Pauri Sandhya Maha Aarti" data-tag="HARIDWAR PILGRIMAGE">
+          <img src="assets/images/ganga_aarti_hero.jpg" alt="Ganga Aarti" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">AARTI</span><h4 class="gallery-title">Har Ki Pauri Sandhya Maha Aarti</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 11 -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_resto3.jpg" data-title="Desi Ghee Bedmi Poori Bhaji" data-tag="CULINARY SPECIAL">
+          <img src="assets/images/img_resto3.jpg" alt="Desi Ghee Poori" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">CULINARY</span><h4 class="gallery-title">Desi Ghee Bedmi Poori Bhaji</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+        <!-- 12 -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_resto4.jpg" data-title="Hot Jalebi with Creamy Rabri" data-tag="SACRED SWEETS">
+          <img src="assets/images/img_resto4.jpg" alt="Rabri Jalebi" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">SWEETS</span><h4 class="gallery-title">Hot Jalebi with Creamy Rabri</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image Gallery Lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close Lightbox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev-btn" aria-label="Previous Image">‹</button>
+      <button class="lightbox-nav-btn lightbox-next" id="lightbox-next-btn" aria-label="Next Image">›</button>
+      <div class="lightbox-img-wrap"><img id="lightbox-img" src="" alt="Enlarged Gallery Photo"></div>
+      <div class="lightbox-caption-bar">
+        <div>
+          <span id="lightbox-tag" class="gallery-tag" style="display: block; margin-bottom: 2px;"></span>
+          <h3 id="lightbox-title" class="lightbox-title"></h3>
+        </div>
+        <span id="lightbox-counter" class="lightbox-counter"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="luxury-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-bio">
+          <div class="brand-link" style="margin-bottom: 12px;">
+            <div class="brand-symbol-wrap" style="background: rgba(255, 255, 255, 0.1);">
+              <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn Logo" width="30" height="30">
+            </div>
+            <div class="brand-text-col">
+              <span class="brand-title" style="font-size: 1.25rem; color: #FFFFFF;">HOTEL MOHAN INN</span>
+              <span class="brand-subtitle" style="color: var(--gold-champagne);">HARIDWAR, UTTARAKHAND</span>
+            </div>
+          </div>
+          <p>Experience divine luxury by the Ganges. Featuring 32 boutique AC suites, a 150-guest AC banquet hall, and Mohan Ji Poori Wale restaurant.</p>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--gold-antique); font-weight: 600;">
+            MANAGING DIRECTOR: MANISH MISHRA
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Suites &amp; Rooms</a></li>
+            <li><a href="dining.html">Mohan Ji Poori Wale</a></li>
+            <li><a href="banquet.html">150 Pax Banquet Hall</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="yatra.html">Char Dham Desk</a></li>
+            <li><a href="contact.html">Contact &amp; Directions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Direct Contact</div>
+          <p style="font-size: 0.85rem; color: rgba(249, 248, 246, 0.78); line-height: 1.6; margin-bottom: 12px;">
+            Khasra no 698, NH 58, Delhi-Haridwar Highway, Bahadarabad, Haridwar - 249423
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 13.5px;">
+            <a href="tel:9259368869" style="color: var(--gold-champagne); text-decoration: none;">+91 9259368869</a>
+            <a href="tel:9286081713" style="color: var(--gold-champagne); text-decoration: none;">+91 92860 81713</a>
+            <a href="mailto:hotelmohaninn@gmail.com" style="color: rgba(249, 248, 246, 0.78); text-decoration: none;">hotelmohaninn@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <span>© 2026 HOTEL MOHAN INN. ALL RIGHTS RESERVED. HARIDWAR, UTTARAKHAND.</span>
+        <a href="/admin" target="_blank" style="color: var(--gold-champagne); text-decoration: none;">Management Studio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

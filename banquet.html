@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>150 Pax AC Banquet Hall | Hotel Mohan Inn Haridwar - Weddings, Events & Satsang</title>
+  <meta name="description" content="Host grand weddings, ring ceremonies, corporate conferences, and yatra satsangs in our 150-guest AC Banquet Hall at Hotel Mohan Inn Haridwar. Complete catering by Mohan Ji Poori Wale.">
+  <link rel="shortcut icon" href="assets/images/img_logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Topbar -->
+  <div class="header-topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span class="topbar-ticker-item"><span class="indicator"></span><span>Haridwar: 28°C • Holy Ganges Breeze</span></span>
+        <span class="topbar-ticker-item">● Sandhya Maha Aarti at Har Ki Pauri: <strong id="aarti-countdown" class="text-gold" style="margin-left:4px;">03h 45m 12s</strong></span>
+      </div>
+      <div class="topbar-right">
+        <span id="topbar-director-display">Managing Director: Manish Mishra</span>
+        <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle Temple Flute Soundscape">
+          <span class="audio-equalizer"><span></span><span></span><span></span></span>
+          <span class="audio-label">Temple Flute</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Luxury Navbar -->
+  <header class="luxury-navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="brand-link">
+          <div class="brand-symbol-wrap">
+            <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn Logo" width="34" height="34">
+          </div>
+          <div class="brand-text-col">
+            <span class="brand-title">HOTEL MOHAN INN</span>
+            <span class="brand-subtitle">ROOMS • BANQUET • DINING</span>
+          </div>
+        </a>
+
+        <nav class="nav-links-desktop" aria-label="Primary Navigation">
+          <a href="index.html" class="nav-item-link">Home</a>
+          <a href="rooms.html" class="nav-item-link">Suites</a>
+          <a href="dining.html" class="nav-item-link">Dining</a>
+          <a href="banquet.html" class="nav-item-link active-link">Banquet</a>
+          <a href="gallery.html" class="nav-item-link">Gallery</a>
+          <a href="yatra.html" class="nav-item-link">Char Dham</a>
+          <a href="contact.html" class="nav-item-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="tel:9259368869" class="nav-phone-link" aria-label="Call Hotel Mohan Inn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>9259368869</span>
+          </a>
+          <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" id="nav-reserve-btn">Book Event</button>
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <nav id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-brand">
+        <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn" width="32" height="32">
+        <div>
+          <div class="mobile-drawer-brand-name">HOTEL MOHAN INN</div>
+          <div class="mobile-drawer-brand-sub">HARIDWAR • LUXURY STAYS</div>
+        </div>
+      </div>
+      <button id="mobile-drawer-close" class="mobile-drawer-close" aria-label="Close navigation menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    </div>
+    <div class="mobile-drawer-body">
+      <div class="mobile-drawer-section-label">PAGES</div>
+      <a href="index.html" class="mobile-drawer-link">Home</a>
+      <a href="rooms.html" class="mobile-drawer-link">Suites &amp; Rooms</a>
+      <a href="dining.html" class="mobile-drawer-link">Mohan Ji Poori Wale</a>
+      <a href="banquet.html" class="mobile-drawer-link active-link">150 Pax Banquet</a>
+      <a href="gallery.html" class="mobile-drawer-link">Photo Gallery</a>
+      <a href="yatra.html" class="mobile-drawer-link">Char Dham Yatra Desk</a>
+      <a href="contact.html" class="mobile-drawer-link">Contact &amp; Map</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="tel:9259368869" class="mobile-drawer-call-btn">Call +91 9259368869</a>
+      <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="btn-bhagwa-primary mobile-drawer-book-btn">Book Suite Online ↗</a>
+    </div>
+  </nav>
+
+  <!-- Banquet Hero Banner -->
+  <section class="page-banner-hero" style="background-image: linear-gradient(rgba(24,36,22,0.78), rgba(42,60,40,0.88)), url('assets/images/banquet_hall_grand.jpg'); background-size: cover; background-position: center; padding: 90px 0 60px 0; text-align: center; color: #fff;">
+    <div class="container">
+      <span class="hero-badge-pill">
+        <span class="hero-badge-dot"></span>
+        <span>GRAND CELEBRATIONS &amp; CONFERENCES</span>
+      </span>
+      <h1 class="hero-headline" style="font-size: clamp(2.4rem, 5vw, 4rem); margin-top: 10px;">150 Pax AC Banquet Hall</h1>
+      <p class="hero-subtext" style="max-width: 760px; margin: 0 auto;">Haridwar's premier venue on NH-58 Bahadarabad for weddings, ring ceremonies, anniversary gatherings, corporate symposiums, and sacred family satsangs. Powered by Mohan Ji Poori Wale catering.</p>
+    </div>
+  </section>
+
+  <!-- Key Specs Grid Strip -->
+  <div class="container" style="margin-top: -30px; position: relative; z-index: 25;">
+    <div class="booking-widget-bar" style="padding: 20px 28px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--bhagwa); font-weight: 700;">150 Guests</div>
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-charcoal-muted); text-transform: uppercase;">Hall Capacity</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--green-fresh); font-weight: 700;">Full Acoustic AC</div>
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-charcoal-muted); text-transform: uppercase;">Surround Sound &amp; Mic</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--gold-antique); font-weight: 700;">Pure Veg Catering</div>
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-charcoal-muted); text-transform: uppercase;">By Mohan Ji Poori Wale</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--bhagwa); font-weight: 700;">Highway Parking</div>
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-charcoal-muted); text-transform: uppercase;">Ample Car &amp; Bus Space</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event Setups & Formats -->
+  <section class="luxury-section">
+    <div class="container">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto 40px auto;">
+        <span class="section-eyebrow">VERSATILE EVENT CONFIGURATIONS</span>
+        <h2 class="section-title">Designed for Every Occasion</h2>
+        <div class="hairline-brass center"></div>
+        <p class="section-desc">Our pillar-less air-conditioned hall seamlessly transforms to accommodate your unique family celebration or executive conference.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        <div style="background: var(--bg-sand); padding: 26px; border-radius: var(--radius-md); border: 1px solid var(--border-medium);">
+          <div style="margin-bottom: 14px; color: var(--bhagwa); display: inline-flex;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="14" r="7"/><path d="M12 7 9 3h6l-3 4z"/></svg>
+          </div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-charcoal-pure); margin-bottom: 8px;">Weddings &amp; Engagements</h3>
+          <p style="color: var(--text-charcoal-muted); font-size: 0.88rem; line-height: 1.6;">
+            Elevated bridal stage, floral mandap setups, red carpet aisle, and separate buffet dining zones for 150 guests.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-sand); padding: 26px; border-radius: var(--radius-md); border: 1px solid var(--border-medium);">
+          <div style="margin-bottom: 14px; color: var(--gold-antique); display: inline-flex;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/></svg>
+          </div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-charcoal-pure); margin-bottom: 8px;">Spiritual Satsangs &amp; Bhajans</h3>
+          <p style="color: var(--text-charcoal-muted); font-size: 0.88rem; line-height: 1.6;">
+            Spacious carpeted floor seating and stage setup for holy discourse, Ramcharitmanas path, and devotional bhajan sandhyas.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-sand); padding: 26px; border-radius: var(--radius-md); border: 1px solid var(--border-medium);">
+          <div style="margin-bottom: 14px; color: var(--green-fresh); display: inline-flex;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-charcoal-pure); margin-bottom: 8px;">Corporate Meets &amp; Seminars</h3>
+          <p style="color: var(--text-charcoal-muted); font-size: 0.88rem; line-height: 1.6;">
+            Theater or classroom style seating, high-lumen projector screen, podium, cordless collar microphones, and high-speed Wi-Fi.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-sand); padding: 26px; border-radius: var(--radius-md); border: 1px solid var(--border-medium);">
+          <div style="margin-bottom: 14px; color: var(--bhagwa); display: inline-flex;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/></svg>
+          </div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text-charcoal-pure); margin-bottom: 8px;">Birthdays &amp; Family Reunions</h3>
+          <p style="color: var(--text-charcoal-muted); font-size: 0.88rem; line-height: 1.6;">
+            Thematic balloon decor, energetic music system, cake presentation stage, and live chaat counters from Mohan Ji Poori Wale.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Banquet Package Estimator -->
+  <section class="luxury-section" style="background: var(--bg-cream-alt);">
+    <div class="container">
+      <div class="banquet-hero-grid">
+        <div class="banquet-visual">
+          <img src="assets/images/banquet_hall_grand.jpg" alt="Hotel Mohan Inn Grand Banquet Hall" class="banquet-img" loading="lazy">
+          <div class="banquet-badge-overlay">
+            <span class="hall-cap">150 GUESTS</span>
+            <span class="hall-tag">AC BANQUET &amp; CATERING</span>
+          </div>
+        </div>
+
+        <div class="banquet-inquiry-box">
+          <span class="section-eyebrow">CUSTOM ESTIMATOR</span>
+          <h3>Instant Package Calculator</h3>
+          <p>Estimate the all-inclusive cost for your event in Haridwar:</p>
+
+          <div class="banquet-calc-controls" style="margin-top: 20px;">
+            <div class="calc-control-group">
+              <label for="banquet-guests-range" style="display: flex; justify-content: space-between;">
+                <span>Estimated Guests</span>
+                <span id="banquet-guests-val" class="font-mono text-bhagwa" style="font-weight: 700;">80 Guests</span>
+              </label>
+              <input type="range" id="banquet-guests-range" min="30" max="150" value="80" step="5" class="custom-range" style="width: 100%; margin-top: 8px;">
+            </div>
+
+            <div class="calc-control-group" style="margin-top: 16px;">
+              <label for="banquet-menu-tier" style="font-family: var(--font-mono); font-size: 12px; color: var(--green-fresh); font-weight: 700; text-transform: uppercase;">Catering Tier (Mohan Ji Poori Wale)</label>
+              <select id="banquet-menu-tier" class="custom-select" style="margin-top: 6px;">
+                <option value="600">Standard Satvik Buffet (₹600 / plate)</option>
+                <option value="850" selected>Royal Mohan Ji Grand Buffet (₹850 / plate)</option>
+                <option value="1100">Imperial Celebration Feast (₹1,100 / plate)</option>
+              </select>
+            </div>
+
+            <div style="background: #FFFFFF; border: 1.5px solid var(--border-medium); padding: 18px; border-radius: var(--radius-sm); margin-top: 20px;">
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--text-charcoal-muted);">
+                <span>ESTIMATED BUDGET</span>
+                <span class="text-bhagwa" style="font-weight: 700;">ALL-INCLUSIVE</span>
+              </div>
+              <div id="banquet-estimate-total" style="font-family: var(--font-serif); font-size: 2rem; color: var(--bhagwa); font-weight: 700; margin-top: 4px;">
+                ₹73,750
+              </div>
+              <p style="font-size: 11.5px; color: var(--text-charcoal-muted); margin-top: 6px;">
+                Includes AC hall rental, basic decor, sound system, and full buffet catering by Mohan Ji Poori Wale.
+              </p>
+            </div>
+
+            <a id="banquet-inquiry-btn" href="https://wa.me/919259368869?text=Namaste!%20I%20want%20to%20inquire%20about%20booking%20the%20150%20Pax%20AC%20Banquet%20Hall%20at%20Hotel%20Mohan%20Inn." target="_blank" rel="noopener noreferrer" class="btn-bhagwa-primary" style="width: 100%; height: 48px; margin-top: 18px; text-align: center;">
+              Book Banquet via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="luxury-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-bio">
+          <div class="brand-link" style="margin-bottom: 12px;">
+            <div class="brand-symbol-wrap" style="background: rgba(255, 255, 255, 0.1);">
+              <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn Logo" width="30" height="30">
+            </div>
+            <div class="brand-text-col">
+              <span class="brand-title" style="font-size: 1.25rem; color: #FFFFFF;">HOTEL MOHAN INN</span>
+              <span class="brand-subtitle" style="color: var(--gold-champagne);">HARIDWAR, UTTARAKHAND</span>
+            </div>
+          </div>
+          <p>Experience divine luxury by the Ganges. Featuring 32 boutique AC suites, a 150-guest AC banquet hall, and Mohan Ji Poori Wale restaurant.</p>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--gold-antique); font-weight: 600;">
+            MANAGING DIRECTOR: MANISH MISHRA
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Suites &amp; Rooms</a></li>
+            <li><a href="dining.html">Mohan Ji Poori Wale</a></li>
+            <li><a href="banquet.html">150 Pax Banquet Hall</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="yatra.html">Char Dham Desk</a></li>
+            <li><a href="contact.html">Contact &amp; Directions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Direct Contact</div>
+          <p style="font-size: 0.85rem; color: rgba(249, 248, 246, 0.78); line-height: 1.6; margin-bottom: 12px;">
+            Khasra no 698, NH 58, Delhi-Haridwar Highway, Bahadarabad, Haridwar - 249423
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 13.5px;">
+            <a href="tel:9259368869" style="color: var(--gold-champagne); text-decoration: none;">+91 9259368869</a>
+            <a href="tel:9286081713" style="color: var(--gold-champagne); text-decoration: none;">+91 92860 81713</a>
+            <a href="mailto:hotelmohaninn@gmail.com" style="color: rgba(249, 248, 246, 0.78); text-decoration: none;">hotelmohaninn@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <span>© 2026 HOTEL MOHAN INN. ALL RIGHTS RESERVED. HARIDWAR, UTTARAKHAND.</span>
+        <a href="/admin" target="_blank" style="color: var(--gold-champagne); text-decoration: none;">Management Studio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohan Ji Poori Wale | Legendary Pure Vegetarian Dining - Hotel Mohan Inn Haridwar</title>
+  <meta name="description" content="Experience Haridwar's celebrated pure vegetarian culinary heritage at Mohan Ji Poori Wale. 200 seating capacity, authentic desi ghee poori bhaji, royal thali, and sweets.">
+  <link rel="shortcut icon" href="assets/images/img_logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Topbar -->
+  <div class="header-topbar">
+    <div class="container">
+      <div class="topbar-info">
+        <span class="topbar-ticker-item"><span class="indicator"></span><span>Haridwar: 28°C • Holy Ganges Breeze</span></span>
+        <span class="topbar-ticker-item">● Sandhya Maha Aarti at Har Ki Pauri: <strong id="aarti-countdown" class="text-gold" style="margin-left:4px;">03h 45m 12s</strong></span>
+      </div>
+      <div class="topbar-right">
+        <span id="topbar-director-display">Managing Director: Manish Mishra</span>
+        <button id="audio-toggle-btn" class="audio-toggle-btn" aria-label="Toggle Temple Flute Soundscape">
+          <span class="audio-equalizer"><span></span><span></span><span></span></span>
+          <span class="audio-label">Temple Flute</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Luxury Navbar -->
+  <header class="luxury-navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="brand-link">
+          <div class="brand-symbol-wrap">
+            <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn Logo" width="34" height="34">
+          </div>
+          <div class="brand-text-col">
+            <span class="brand-title">HOTEL MOHAN INN</span>
+            <span class="brand-subtitle">ROOMS • BANQUET • DINING</span>
+          </div>
+        </a>
+
+        <nav class="nav-links-desktop" aria-label="Primary Navigation">
+          <a href="index.html" class="nav-item-link">Home</a>
+          <a href="rooms.html" class="nav-item-link">Suites</a>
+          <a href="dining.html" class="nav-item-link active-link">Dining</a>
+          <a href="banquet.html" class="nav-item-link">Banquet</a>
+          <a href="gallery.html" class="nav-item-link">Gallery</a>
+          <a href="yatra.html" class="nav-item-link">Char Dham</a>
+          <a href="contact.html" class="nav-item-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="tel:9259368869" class="nav-phone-link" aria-label="Call Hotel Mohan Inn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>9259368869</span>
+          </a>
+          <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" id="nav-reserve-btn">Reserve Table</button>
+          <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <nav id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-brand">
+        <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn" width="32" height="32">
+        <div>
+          <div class="mobile-drawer-brand-name">HOTEL MOHAN INN</div>
+          <div class="mobile-drawer-brand-sub">HARIDWAR • LUXURY STAYS</div>
+        </div>
+      </div>
+      <button id="mobile-drawer-close" class="mobile-drawer-close" aria-label="Close navigation menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    </div>
+    <div class="mobile-drawer-body">
+      <div class="mobile-drawer-section-label">PAGES</div>
+      <a href="index.html" class="mobile-drawer-link">Home</a>
+      <a href="rooms.html" class="mobile-drawer-link">Suites &amp; Rooms</a>
+      <a href="dining.html" class="mobile-drawer-link active-link">Mohan Ji Poori Wale</a>
+      <a href="banquet.html" class="mobile-drawer-link">150 Pax Banquet</a>
+      <a href="gallery.html" class="mobile-drawer-link">Photo Gallery</a>
+      <a href="yatra.html" class="mobile-drawer-link">Char Dham Yatra Desk</a>
+      <a href="contact.html" class="mobile-drawer-link">Contact &amp; Map</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="tel:9259368869" class="mobile-drawer-call-btn">Call +91 9259368869</a>
+      <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="btn-bhagwa-primary mobile-drawer-book-btn">Book Suite Online ↗</a>
+    </div>
+  </nav>
+
+  <!-- Dining Hero Banner -->
+  <section class="page-banner-hero" style="background-image: linear-gradient(rgba(24,36,22,0.78), rgba(42,60,40,0.88)), url('assets/images/mohan_ji_poori_wale.jpg'); background-size: cover; background-position: center; padding: 90px 0 60px 0; text-align: center; color: #fff;">
+    <div class="container">
+      <span class="hero-badge-pill">
+        <span class="hero-badge-dot"></span>
+        <span>LEGENDARY PURE VEGETARIAN GASTRONOMY</span>
+      </span>
+      <h1 class="hero-headline" style="font-size: clamp(2.4rem, 5vw, 4rem); margin-top: 10px;">Mohan Ji Poori Wale</h1>
+      <p class="hero-subtext" style="max-width: 760px; margin: 0 auto;">Haridwar's most trusted culinary landmark. Seating 200 guests in air-conditioned comfort, serving pure desi ghee delicacies, royal satvik thalis, and freshly prepared morning poori bhaji.</p>
+    </div>
+  </section>
+
+  <!-- Key Restaurant Highlights Strip -->
+  <div class="container" style="margin-top: -30px; position: relative; z-index: 25;">
+    <div class="booking-widget-bar" style="padding: 20px 28px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--bhagwa); font-weight: 700;">200 Pax</div>
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-charcoal-muted); text-transform: uppercase;">AC Dining Seating</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--green-fresh); font-weight: 700;">100% Shuddh</div>
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-charcoal-muted); text-transform: uppercase;">Pure Vegetarian &amp; Desi Ghee</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--gold-antique); font-weight: 700;">No Onion/Garlic</div>
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-charcoal-muted); text-transform: uppercase;">Jain &amp; Satvik on Request</div>
+        </div>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--bhagwa); font-weight: 700;">06:30 AM - 11 PM</div>
+          <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-charcoal-muted); text-transform: uppercase;">Daily Operating Hours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Heritage Story & Philosophy Section -->
+  <section class="luxury-section">
+    <div class="container">
+      <div class="culinary-showcase-grid">
+        <div class="culinary-media-frame">
+          <img src="assets/images/img_restaurant_1.jpg" alt="Mohan Ji Poori Wale Restaurant Interior" loading="lazy">
+          <div class="culinary-stamp">
+            <span class="stamp-text">ESTD</span>
+            <span class="stamp-sub">HARIDWAR</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="section-eyebrow">OUR HERITAGE &amp; PURITY</span>
+          <h2 class="section-title">A Tradition of Purity &amp; Taste by the Holy River</h2>
+          <div class="hairline-brass"></div>
+          <p class="section-desc" style="margin-bottom: 20px;">
+            For generations, pilgrims returning from Har Ki Pauri have sought solace and authentic nourishment at Mohan Ji Poori Wale. Located on NH-58 Bahadarabad, our dining hall brings this age-old culinary devotion into a grand, hygienic 200-seat sanctuary.
+          </p>
+          <p style="color: var(--text-charcoal-muted); line-height: 1.8; margin-bottom: 24px;">
+            Every batch of crispy golden pooris is fried fresh in pure aromatic ghee, accompanied by slow-simmered spiced aloo bhaji and tangy amchoor chutney. Our master halwais prepare warm halwa and hot rabri jalebi daily following traditional Vedic recipes.
+          </p>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="tel:9259368869" class="btn-bhagwa-primary">Call For Table Booking</a>
+            <a href="https://wa.me/919259368869?text=Namaste!%20I%20would%20like%20to%20inquire%20about%20catering%20/%20table%20reservation%20at%20Mohan%20Ji%20Poori%20Wale." target="_blank" rel="noopener noreferrer" class="btn-brass-ghost">WhatsApp Inquiry ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Curated Menu Highlights -->
+  <section class="luxury-section" style="background: var(--bg-cream-alt);">
+    <div class="container">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto 40px auto;">
+        <span class="section-eyebrow">SAVOUR THE FLAVOURS</span>
+        <h2 class="section-title">Signature Menu Offerings</h2>
+        <div class="hairline-brass center"></div>
+        <p class="section-desc">Freshly prepared pure vegetarian delicacies cooked with love, purity, and sacred reverence.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <!-- Category 1: Traditional Breakfast & Poori -->
+        <div style="background: var(--bg-sand); padding: 28px; border-radius: var(--radius-md); border: 1.5px solid var(--border-medium);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-charcoal-pure);">Traditional Poori Selections</h3>
+            <span style="font-family: var(--font-mono); font-size: 11px; background: var(--green-tint); color: var(--green-fresh); padding: 4px 10px; border-radius: var(--radius-pill); font-weight: 700;">MORNING &amp; EVENING</span>
+          </div>
+          <div class="dishes-pills-container" style="margin: 0; gap: 12px;">
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Signature Desi Ghee Poori Bhaji</h4>
+                <p>Crispy golden puffed pooris served with methi aloo &amp; amchoor pumpkin relish</p>
+              </div>
+              <span class="dish-badge">₹140</span>
+            </div>
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Bedmi Poori with Nagori Aloo</h4>
+                <p>Crispy urad dal stuffed poori with spicy aromatic gravy</p>
+              </div>
+              <span class="dish-badge">₹160</span>
+            </div>
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Amritsari Chole Bhature</h4>
+                <p>Fluffy bhature paired with overnight steeped dark spiced kabuli chana</p>
+              </div>
+              <span class="dish-badge">₹180</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Royal Main Course & Thalis -->
+        <div style="background: var(--bg-sand); padding: 28px; border-radius: var(--radius-md); border: 1.5px solid var(--border-medium);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-charcoal-pure);">Royal Thali &amp; Mains</h3>
+            <span style="font-family: var(--font-mono); font-size: 11px; background: var(--bhagwa-tint); color: var(--bhagwa); padding: 4px 10px; border-radius: var(--radius-pill); font-weight: 700;">LUNCH &amp; DINNER</span>
+          </div>
+          <div class="dishes-pills-container" style="margin: 0; gap: 12px;">
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Grand Mohan Ji Special Thali</h4>
+                <p>Paneer butter masala, dal makhani, seasonal sabzi, jeera rice, tandoori rotis &amp; sweet</p>
+              </div>
+              <span class="dish-badge">₹320</span>
+            </div>
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Paneer Lababdar &amp; Butter Naan</h4>
+                <p>Cottage cheese chunks cooked in rich creamy cashew &amp; tomato reduction</p>
+              </div>
+              <span class="dish-badge">₹280</span>
+            </div>
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Dal Tadka Desi Ghee</h4>
+                <p>Yellow lentils tempered with cumin, whole red chillies and heeng</p>
+              </div>
+              <span class="dish-badge">₹190</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Haridwar Sweets & Refreshers -->
+        <div style="background: var(--bg-sand); padding: 28px; border-radius: var(--radius-md); border: 1.5px solid var(--border-medium);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-charcoal-pure);">Sacred Sweets &amp; Lassi</h3>
+            <span style="font-family: var(--font-mono); font-size: 11px; background: var(--gold-champagne); color: #1a1a1a; padding: 4px 10px; border-radius: var(--radius-pill); font-weight: 700;">ALL DAY SPECIAL</span>
+          </div>
+          <div class="dishes-pills-container" style="margin: 0; gap: 12px;">
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Desi Ghee Jalebi with Rabri</h4>
+                <p>Crispy spiral jalebis soaked in saffron sugar syrup topped with thick malai rabri</p>
+              </div>
+              <span class="dish-badge">₹120</span>
+            </div>
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Kulhad Malai Kesar Lassi</h4>
+                <p>Thick hand-churned yogurt topped with saffron strands and fresh cream</p>
+              </div>
+              <span class="dish-badge">₹90</span>
+            </div>
+            <div class="dish-pill-item">
+              <div class="dish-info">
+                <h4>Moong Dal Halwa</h4>
+                <p>Traditional slow-cooked yellow moong dal halwa in organic cow ghee</p>
+              </div>
+              <span class="dish-badge">₹110</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Large Group & Pilgrim Catering Banner -->
+  <section class="luxury-section">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, #2A3C28 0%, #1A2818 100%); color: #fff; padding: 45px 36px; border-radius: var(--radius-lg); border: 1.5px solid var(--gold-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+        <div style="max-width: 650px;">
+          <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--gold-champagne); text-transform: uppercase;">GROUP &amp; YATRA PACKAGES</span>
+          <h3 style="font-family: var(--font-serif); font-size: 2rem; color: #F0E4B0; margin: 8px 0 12px 0;">Travelling with Family or a Tour Group?</h3>
+          <p style="color: rgba(255,255,255,0.85); line-height: 1.7; font-size: 0.95rem;">
+            We provide pre-booked group breakfast, packed yatra meal boxes for Kedarnath-Badrinath journeys, and customized buffet menus for tour groups up to 200 guests.
+          </p>
+        </div>
+        <a href="https://wa.me/919259368869?text=Namaste!%20I%20want%20to%20inquire%20about%20group%20dining%20/%20yatra%20meal%20boxes%20at%20Mohan%20Ji%20Poori%20Wale." target="_blank" rel="noopener noreferrer" class="btn-bhagwa-primary" style="height: 50px;">
+          Book Group Meals via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="luxury-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-bio">
+          <div class="brand-link" style="margin-bottom: 12px;">
+            <div class="brand-symbol-wrap" style="background: rgba(255, 255, 255, 0.1);">
+              <img src="assets/images/img_logo.png" alt="Hotel Mohan Inn Logo" width="30" height="30">
+            </div>
+            <div class="brand-text-col">
+              <span class="brand-title" style="font-size: 1.25rem; color: #FFFFFF;">HOTEL MOHAN INN</span>
+              <span class="brand-subtitle" style="color: var(--gold-champagne);">HARIDWAR, UTTARAKHAND</span>
+            </div>
+          </div>
+          <p>Experience divine luxury by the Ganges. Featuring 32 boutique AC suites, a 150-guest AC banquet hall, and Haridwar's celebrated 200-capacity Mohan Ji Poori Wale restaurant.</p>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: var(--gold-antique); font-weight: 600;">
+            MANAGING DIRECTOR: MANISH MISHRA
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Suites &amp; Rooms</a></li>
+            <li><a href="dining.html">Mohan Ji Poori Wale</a></li>
+            <li><a href="banquet.html">150 Pax Banquet Hall</a></li>
+            <li><a href="gallery.html">Photo Gallery</a></li>
+            <li><a href="yatra.html">Char Dham Desk</a></li>
+            <li><a href="contact.html">Contact &amp; Directions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Direct Contact</div>
+          <p style="font-size: 0.85rem; color: rgba(249, 248, 246, 0.78); line-height: 1.6; margin-bottom: 12px;">
+            Khasra no 698, NH 58, Delhi-Haridwar Highway, Bahadarabad, Haridwar - 249423
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-family: var(--font-mono); font-size: 13.5px;">
+            <a href="tel:9259368869" style="color: var(--gold-champagne); text-decoration: none;">+91 9259368869</a>
+            <a href="tel:9286081713" style="color: var(--gold-champagne); text-decoration: none;">+91 92860 81713</a>
+            <a href="mailto:hotelmohaninn@gmail.com" style="color: rgba(249, 248, 246, 0.78); text-decoration: none;">hotelmohaninn@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <span>© 2026 HOTEL MOHAN INN. ALL RIGHTS RESERVED. HARIDWAR, UTTARAKHAND.</span>
+        <a href="/admin" target="_blank" style="color: var(--gold-champagne); text-decoration: none;">Management Studio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

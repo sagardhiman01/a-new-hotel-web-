@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTariffConfigurator();
   initBanquetCalculator();
   initRoomFilters();
+  initRoomMoreInfo();
   initPhotoGallery();
   init3DCardTilt();
   initLiveAartiTimer();
@@ -75,9 +76,9 @@ function initParticles() {
   const particleCount = Math.min(width > 768 ? 45 : 22, 55);
   const particles = [];
   const colorPalette = [
-    'rgba(255, 122, 40,',   // bhagwa
-    'rgba(212, 175, 55,',   // gold
-    'rgba(76, 175, 130,',   // fresh green
+    'rgba(212, 115, 74,',   // warm terracotta
+    'rgba(196, 154, 59,',   // warm honey gold
+    'rgba(107, 142, 91,',   // sage olive green
   ];
 
   for (let i = 0; i < particleCount; i++) {
@@ -118,8 +119,8 @@ function initParticles() {
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fillStyle = `${p.color} ${Math.max(0.08, currentOpacity)})`;
       ctx.shadowBlur = 8;
-      // Fixed shadow color check: accurately match bhagwa vs gold
-      ctx.shadowColor = p.isBhagwa ? 'rgba(255, 122, 40, 0.7)' : 'rgba(212, 175, 55, 0.6)';
+      // Fixed shadow color check: accurately match terracotta vs gold
+      ctx.shadowColor = p.isBhagwa ? 'rgba(212, 115, 74, 0.7)' : 'rgba(196, 154, 59, 0.6)';
       ctx.fill();
     }
 
@@ -576,6 +577,34 @@ function initRoomFilters() {
 }
 
 /* -------------------------------------------------------------
+ * 9b. Room Card "More Info" Accordion Toggle (Compact / Deep View)
+ * ------------------------------------------------------------- */
+function initRoomMoreInfo() {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-room-more-info');
+    if (!btn) return;
+
+    e.preventDefault();
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    const card = btn.closest('.room-card');
+    if (!card) return;
+
+    const content = card.querySelector('.room-card-expanded-content');
+    const label = btn.querySelector('.more-info-label');
+
+    if (isExpanded) {
+      btn.setAttribute('aria-expanded', 'false');
+      if (content) content.classList.remove('is-open');
+      if (label) label.textContent = 'More Info';
+    } else {
+      btn.setAttribute('aria-expanded', 'true');
+      if (content) content.classList.add('is-open');
+      if (label) label.textContent = 'Less Info';
+    }
+  });
+}
+
+/* -------------------------------------------------------------
  * 10. 3D Card Tilt with Responsive Handling & CSS Variables
  * ------------------------------------------------------------- */
 function init3DCardTilt() {
@@ -899,42 +928,74 @@ Please confirm availability and booking tariff.`;
 }
 
 /* -------------------------------------------------------------
- * 14. Mobile Navigation Drawer (Dynamic Height Calculation)
+ * 14. Mobile Navigation Drawer (Right-Side Slide & Backdrop)
  * ------------------------------------------------------------- */
 function initMobileMenu() {
   const toggleBtn = document.querySelector('.mobile-nav-toggle');
   const mobileDrawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-nav-backdrop');
+  const closeBtn = document.getElementById('mobile-drawer-close');
 
   if (!toggleBtn || !mobileDrawer) return;
 
-  toggleBtn.addEventListener('click', () => {
-    const isOpen = mobileDrawer.classList.toggle('active');
-    toggleBtn.setAttribute('aria-expanded', isOpen);
-    if (isOpen) {
-      mobileDrawer.style.maxHeight = (mobileDrawer.scrollHeight + 40) + 'px';
-      mobileDrawer.style.opacity = '1';
+  function openMenu() {
+    mobileDrawer.classList.add('open');
+    if (backdrop) backdrop.classList.add('active');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    mobileDrawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileDrawer.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('active');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (mobileDrawer.classList.contains('open')) {
+      closeMenu();
     } else {
-      mobileDrawer.style.maxHeight = '0px';
-      mobileDrawer.style.opacity = '0';
+      openMenu();
     }
   });
 
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeMenu);
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', closeMenu);
+  }
+
+  // Close when clicking any nav link inside drawer
   mobileDrawer.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      mobileDrawer.classList.remove('active');
-      toggleBtn.setAttribute('aria-expanded', 'false');
-      mobileDrawer.style.maxHeight = '0px';
-      mobileDrawer.style.opacity = '0';
+      closeMenu();
     });
+  });
+
+  // ESC key to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+      closeMenu();
+    }
   });
 }
 
 /* -------------------------------------------------------------
- * 15. Hotel Mohan Inn Photo Gallery & Fullscreen Lightbox
+ * 15. Hotel Mohan Inn Photo Gallery Carousel Slider & Lightbox
  * ------------------------------------------------------------- */
 function initPhotoGallery() {
   const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-  const galleryContainer = document.getElementById('gallery-container');
+  const sliderTrack = document.getElementById('gallery-slider-track');
+  const prevSlideBtn = document.getElementById('gallery-prev-slide');
+  const nextSlideBtn = document.getElementById('gallery-next-slide');
+  const dotsContainer = document.getElementById('gallery-slider-dots');
+
   const lightbox = document.getElementById('lightbox-modal');
   const lbImg = document.getElementById('lightbox-img');
   const lbTitle = document.getElementById('lightbox-title');
@@ -944,8 +1005,8 @@ function initPhotoGallery() {
   const prevBtn = document.getElementById('lightbox-prev-btn');
   const nextBtn = document.getElementById('lightbox-next-btn');
 
-  function getCards() {
-    return Array.from(document.querySelectorAll('.gallery-card'));
+  function getAllCards() {
+    return Array.from(document.querySelectorAll('.gallery-card, .gallery-slide-card'));
   }
 
   function getActiveFilter() {
@@ -955,46 +1016,16 @@ function initPhotoGallery() {
 
   function getVisibleCards() {
     const filterVal = getActiveFilter();
-    return getCards().filter(c => filterVal === 'all' || c.getAttribute('data-category') === filterVal);
+    return getAllCards().filter(c => filterVal === 'all' || c.getAttribute('data-category') === filterVal);
   }
 
-  let currentIndex = 0;
-
-  function filterGallery(filterVal) {
-    const cards = getCards();
-    cards.forEach(card => {
-      const cat = card.getAttribute('data-category');
-      if (filterVal === 'all' || cat === filterVal) {
-        card.style.display = 'block';
-        card.style.opacity = '0';
-        setTimeout(() => {
-          card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 30);
-      } else {
-        card.style.display = 'none';
-      }
-    });
-    currentIndex = 0;
-  }
-
-  if (!window._galleryFilterEventsAttached) {
-    window._galleryFilterEventsAttached = true;
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        filterGallery(btn.getAttribute('data-filter'));
-      });
-    });
-  }
+  let lightboxIndex = 0;
 
   function openLightbox(index) {
     const visible = getVisibleCards();
     if (!visible.length || !visible[index] || !lightbox) return;
-    currentIndex = index;
-    const card = visible[currentIndex];
+    lightboxIndex = index;
+    const card = visible[lightboxIndex];
     const imgSrc = card.getAttribute('data-img');
     const title = card.getAttribute('data-title') || '';
     const tag = card.getAttribute('data-tag') || '';
@@ -1005,7 +1036,7 @@ function initPhotoGallery() {
     }
     if (lbTitle) lbTitle.textContent = title;
     if (lbTag) lbTag.textContent = tag;
-    if (lbCounter) lbCounter.textContent = `Photo ${currentIndex + 1} of ${visible.length}`;
+    if (lbCounter) lbCounter.textContent = `Photo ${lightboxIndex + 1} of ${visible.length}`;
 
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -1017,39 +1048,194 @@ function initPhotoGallery() {
     document.body.style.overflow = '';
   }
 
-  function showNext() {
+  function showNextLightbox() {
     const visible = getVisibleCards();
     if (!visible.length) return;
-    currentIndex = (currentIndex + 1) % visible.length;
-    openLightbox(currentIndex);
+    lightboxIndex = (lightboxIndex + 1) % visible.length;
+    openLightbox(lightboxIndex);
   }
 
-  function showPrev() {
+  function showPrevLightbox() {
     const visible = getVisibleCards();
     if (!visible.length) return;
-    currentIndex = (currentIndex - 1 + visible.length) % visible.length;
-    openLightbox(currentIndex);
+    lightboxIndex = (lightboxIndex - 1 + visible.length) % visible.length;
+    openLightbox(lightboxIndex);
   }
 
-  // Delegation on container
-  if (galleryContainer && !galleryContainer._clickBound) {
-    galleryContainer._clickBound = true;
-    galleryContainer.addEventListener('click', (e) => {
-      const card = e.target.closest('.gallery-card');
-      if (!card) return;
-      const visible = getVisibleCards();
-      const idx = visible.indexOf(card);
-      if (idx !== -1) {
-        openLightbox(idx);
+  // --- CAROUSEL SLIDER LOGIC ---
+  if (sliderTrack) {
+    let currentSlide = 0;
+    let autoPlayTimer = null;
+
+    function getVisibleSlideCount() {
+      const w = window.innerWidth;
+      if (w <= 650) return 1;
+      if (w <= 1024) return 2;
+      return 3;
+    }
+
+    function getSlides() {
+      return Array.from(sliderTrack.querySelectorAll('.gallery-slide-card'));
+    }
+
+    function getMaxSlideIndex() {
+      const visibleCount = getVisibleSlideCount();
+      const totalSlides = getSlides().length;
+      return Math.max(0, totalSlides - visibleCount);
+    }
+
+    function updateSlider() {
+      const slides = getSlides();
+      if (!slides.length) return;
+      const maxIndex = getMaxSlideIndex();
+      if (currentSlide > maxIndex) currentSlide = maxIndex;
+      if (currentSlide < 0) currentSlide = 0;
+
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      const gap = 20;
+      const offset = currentSlide * (slideWidth + gap);
+
+      sliderTrack.style.transform = `translateX(-${offset}px)`;
+
+      // Update dots
+      if (dotsContainer) {
+        const dots = dotsContainer.querySelectorAll('.gallery-slider-dot');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentSlide);
+        });
       }
+    }
+
+    function buildDots() {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = '';
+      const maxIndex = getMaxSlideIndex();
+      for (let i = 0; i <= maxIndex; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'gallery-slider-dot' + (i === currentSlide ? ' active' : '');
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.addEventListener('click', () => {
+          currentSlide = i;
+          updateSlider();
+          resetAutoPlay();
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function nextSlide() {
+      const maxIndex = getMaxSlideIndex();
+      currentSlide = currentSlide >= maxIndex ? 0 : currentSlide + 1;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      const maxIndex = getMaxSlideIndex();
+      currentSlide = currentSlide <= 0 ? maxIndex : currentSlide - 1;
+      updateSlider();
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayTimer = setInterval(nextSlide, 2200);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) clearInterval(autoPlayTimer);
+    }
+
+    function resetAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
+    if (nextSlideBtn) {
+      nextSlideBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoPlay();
+      });
+    }
+
+    if (prevSlideBtn) {
+      prevSlideBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoPlay();
+      });
+    }
+
+    sliderTrack.addEventListener('mouseenter', stopAutoPlay);
+    sliderTrack.addEventListener('mouseleave', startAutoPlay);
+
+    // Touch swipe support
+    let startX = 0;
+    let isSwiping = false;
+
+    sliderTrack.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isSwiping = true;
+      stopAutoPlay();
+    }, { passive: true });
+
+    sliderTrack.addEventListener('touchend', (e) => {
+      if (!isSwiping) return;
+      isSwiping = false;
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) nextSlide();
+        else prevSlide();
+      }
+      startAutoPlay();
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      buildDots();
+      updateSlider();
+    });
+
+    buildDots();
+    updateSlider();
+    startAutoPlay();
+  }
+
+  // Click delegation for Lightbox on both slider and grid
+  document.addEventListener('click', (e) => {
+    const card = e.target.closest('.gallery-card, .gallery-slide-card');
+    if (!card) return;
+    const visible = getVisibleCards();
+    const idx = visible.indexOf(card);
+    if (idx !== -1) {
+      openLightbox(idx);
+    }
+  });
+
+  // Filter Buttons on Gallery Grid (gallery.html)
+  if (!window._galleryFilterEventsAttached) {
+    window._galleryFilterEventsAttached = true;
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filterVal = btn.getAttribute('data-filter');
+        const cards = document.querySelectorAll('.gallery-card');
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (filterVal === 'all' || cat === filterVal) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
     });
   }
 
+  // Lightbox Modal Controls
   if (!window._galleryModalEventsAttached) {
     window._galleryModalEventsAttached = true;
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (nextBtn) nextBtn.addEventListener('click', showNext);
-    if (prevBtn) prevBtn.addEventListener('click', showPrev);
+    if (nextBtn) nextBtn.addEventListener('click', showNextLightbox);
+    if (prevBtn) prevBtn.addEventListener('click', showPrevLightbox);
 
     if (lightbox) {
       lightbox.addEventListener('click', (e) => {
@@ -1060,8 +1246,8 @@ function initPhotoGallery() {
     window.addEventListener('keydown', (e) => {
       if (!lightbox || !lightbox.classList.contains('active')) return;
       if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNextLightbox();
+      if (e.key === 'ArrowLeft') showPrevLightbox();
     });
   }
 }
