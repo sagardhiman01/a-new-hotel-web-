@@ -12,7 +12,7 @@
    Theme: Rounded organic luxury (8px - 50px pill radius)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 
 :root {
   /* Warm Earth-Tone Core Palette */
@@ -122,7 +122,57 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  line-height: 1.68;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.78;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* Headings Typography Hierarchy — Mirrored from sunnysanitations.com */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: 0.045em;
+  color: var(--text-charcoal-pure);
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: clamp(3.2rem, 7.5vw, 6.8rem);
+  font-weight: 200;
+  line-height: 0.98;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: 0.045em;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 300;
+  line-height: 1.22;
+  letter-spacing: 0.035em;
+}
+
+h4 {
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+}
+
+p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.78;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+  color: var(--text-charcoal-muted);
 }
 
 ::selection {
@@ -237,16 +287,16 @@ body {
 
 /* Section Eyebrows & Titles */
 .section-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 12px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.26em;
   color: var(--bhagwa);
   display: inline-flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 14px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .section-eyebrow::before {
@@ -267,17 +317,19 @@ body {
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 300;
   line-height: 1.08;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.045em;
   color: var(--text-charcoal-pure);
   margin-bottom: 16px;
 }
 
 .section-desc {
+  font-family: var(--font-sans);
   font-size: 0.96rem;
-  line-height: 1.75;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
   color: var(--text-charcoal-muted);
   font-weight: 300;
   max-width: 680px;
@@ -309,10 +361,10 @@ body {
   background: linear-gradient(135deg, var(--bhagwa) 0%, var(--bhagwa-deep) 100%);
   color: #FFFFFF !important;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.24em;
   padding: 0 30px;
   border: 1.5px solid var(--bhagwa);
   border-radius: var(--radius-pill);
@@ -410,10 +462,10 @@ body {
   background: linear-gradient(135deg, var(--gold-antique) 0%, var(--gold-deep) 100%);
   color: #FFFFFF !important;
   font-family: var(--font-sans);
-  font-size: 12.5px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.24em;
   padding: 0 28px;
   border: 1.5px solid var(--gold-light);
   border-radius: var(--radius-pill);
@@ -438,9 +490,9 @@ body {
   background: var(--bhagwa-dark);
   border-bottom: 1px solid var(--gold-border-subtle);
   padding: 10px 0;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.14em;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
   color: var(--gold-champagne);
   z-index: 100;
   position: relative;
@@ -605,19 +657,20 @@ body {
 
 .brand-title {
   font-family: var(--font-serif);
-  font-size: 1.28rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
   color: var(--text-charcoal-pure);
   line-height: 1;
   white-space: nowrap;
 }
 
 .brand-subtitle {
-  font-family: var(--font-mono);
-  font-size: 9px;
+  font-family: var(--font-sans);
+  font-size: 8.5px;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.24em;
   color: var(--green-fresh);
   margin-top: 4px;
   font-weight: 600;
@@ -638,9 +691,9 @@ body {
 
 .nav-item-link {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 11.5px;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.20em;
   color: var(--text-charcoal-muted);
   text-decoration: none;
   position: relative;
@@ -848,10 +901,10 @@ body {
 }
 
 .hero-badge-pill span {
-  font-family: var(--font-mono);
-  font-size: 12px;
+  font-family: var(--font-sans);
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   color: var(--gold-champagne);
   font-weight: 600;
 }
@@ -867,25 +920,34 @@ body {
 
 .hero-headline {
   font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 6.5vw, 6.2rem);
-  font-weight: 300;
-  line-height: 0.98;
-  letter-spacing: 0.035em;
+  font-size: clamp(3.2rem, 7.5vw, 6.8rem);
+  font-weight: 200;
+  line-height: 0.96;
+  letter-spacing: 0.05em;
   color: #FFFFFF;
   margin-bottom: 24px;
+  text-transform: uppercase;
 }
 
 .hero-headline .italic-line {
+  font-family: var(--font-serif);
   font-style: italic;
   font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: none;
   display: block;
-  margin-top: 8px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #F5E6CC 0%, #E1C298 50%, #B89B74 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-subtext {
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.6vw, 1.05rem);
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.85);
   max-width: 780px;
   margin: 0 auto 36px auto;
   font-weight: 300;
@@ -901,10 +963,10 @@ body {
 }
 
 .feature-chip {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-family: var(--font-sans);
+  font-size: 9.5px;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.24em;
   color: var(--gold-champagne);
   display: inline-flex;
   align-items: center;
@@ -914,6 +976,7 @@ body {
   padding: 6px 14px;
   border-radius: var(--radius-pill);
   transition: all var(--transition-fast);
+  font-weight: 500;
 }
 
 .feature-chip:hover {
@@ -961,20 +1024,21 @@ body {
 
 .metric-number {
   font-family: var(--font-serif);
-  font-size: 1.9rem;
-  font-weight: 400;
+  font-size: 2.2rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
   color: var(--gold-light);
   line-height: 1.1;
 }
 
 .metric-label {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-family: var(--font-sans);
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.22em;
   color: var(--gold-champagne);
   margin-top: 6px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Quick Booking Widget Card */
@@ -1186,11 +1250,11 @@ body {
   background: rgba(58, 20, 5, 0.9);
   border: 1px solid var(--gold-antique);
   backdrop-filter: blur(8px);
-  padding: 6px 14px;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
+  padding: 5px 12px;
+  font-family: var(--font-sans);
+  font-size: 9.5px;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.24em;
   color: var(--gold-champagne);
   z-index: 5;
   border-radius: var(--radius-xs);
@@ -1206,20 +1270,22 @@ body {
   backdrop-filter: blur(8px);
   padding: 6px 14px;
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: var(--bhagwa);
-  font-weight: 700;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   z-index: 5;
   border-radius: var(--radius-sm);
 }
 
 .room-price-badge small {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   color: var(--text-charcoal-muted);
   margin-left: 4px;
+  font-weight: 500;
 }
 
 .room-card-body {
@@ -1231,9 +1297,9 @@ body {
 
 .room-type-title {
   font-family: var(--font-serif);
-  font-size: 1.65rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-size: 1.7rem;
+  font-weight: 300;
+  letter-spacing: 0.035em;
   color: var(--text-charcoal-pure);
   margin-bottom: 10px;
   transition: color var(--transition-fast);
@@ -1255,10 +1321,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   padding: 3px 8px;
   border-radius: 20px;
   background: rgba(107, 142, 91, 0.12);
@@ -1267,9 +1334,12 @@ body {
 }
 
 .room-card-teaser {
-  font-size: 0.86rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
   color: var(--text-charcoal-muted);
-  line-height: 1.5;
+  line-height: 1.7;
+  letter-spacing: 0.015em;
+  font-weight: 300;
   margin-bottom: 12px;
 }
 
@@ -1282,10 +1352,10 @@ body {
   background: rgba(196, 154, 59, 0.08);
   border: 1px solid rgba(196, 154, 59, 0.45);
   color: #8C6A1E;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
   padding: 6px 14px;
   border-radius: 20px;
@@ -1332,9 +1402,12 @@ body {
 }
 
 .room-card-desc {
-  font-size: 0.86rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
   color: var(--text-charcoal-muted);
-  line-height: 1.6;
+  line-height: 1.75;
+  letter-spacing: 0.015em;
+  font-weight: 300;
   margin-bottom: 14px;
 }
 
@@ -1394,10 +1467,11 @@ body {
 }
 
 .room-book-engine-link {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: var(--terracotta-warm);
   text-decoration: none;
   transition: all 0.2s ease;
@@ -1837,8 +1911,9 @@ body {
 
 .dish-info h4 {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 500;
+  font-size: 1.22rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
   color: var(--text-charcoal-pure);
 }
 
@@ -1849,9 +1924,9 @@ body {
 }
 
 .dish-badge {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.14em;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
   color: var(--green-fresh);
   background: var(--green-tint);
@@ -1901,7 +1976,8 @@ body {
 .banquet-inquiry-box h3 {
   font-family: var(--font-serif);
   font-size: 1.85rem;
-  font-weight: 400;
+  font-weight: 300;
+  letter-spacing: 0.04em;
   color: var(--text-charcoal-pure);
   margin-bottom: 10px;
 }
@@ -1930,13 +2006,13 @@ body {
 .luxury-tariff-table th {
   background: var(--bg-sand-deep);
   padding: 18px 24px;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
+  font-family: var(--font-sans);
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   color: var(--bhagwa-deep);
   border-bottom: 1px solid var(--border-medium);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .luxury-tariff-table td {
@@ -1952,8 +2028,9 @@ body {
 
 .tariff-room-name {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
   color: var(--text-charcoal-pure);
 }
 
@@ -1966,10 +2043,11 @@ body {
 }
 
 .tariff-price-val {
-  font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
   color: var(--green-fresh);
-  font-weight: 700;
+  font-weight: 400;
+  letter-spacing: 0.03em;
 }
 
 /* Yatra & Haridwar Distance Matrix */
@@ -2007,8 +2085,9 @@ body {
 
 .yatra-name {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 500;
+  font-size: 1.45rem;
+  font-weight: 300;
+  letter-spacing: 0.035em;
   color: var(--text-charcoal-pure);
 }
 
