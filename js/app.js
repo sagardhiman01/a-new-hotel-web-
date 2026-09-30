@@ -1407,26 +1407,56 @@ async function initDynamicConfig() {
       barOptFam.textContent = `Family Suite AC (₹${cfg.tariffs.family.cp.toLocaleString('en-IN')})`;
     }
 
-    // Published Tariff Table Cells
+    // Published Tariff Table Cells & Mobile Cards
     const stdEp = document.getElementById('tariff-std-ep');
     const stdCp = document.getElementById('tariff-std-cp');
     const stdMap = document.getElementById('tariff-std-map');
-    if (stdEp && cfg.tariffs.standard?.ep) stdEp.textContent = `₹${cfg.tariffs.standard.ep.toLocaleString('en-IN')}`;
-    if (stdCp && cfg.tariffs.standard?.cp) stdCp.textContent = `₹${cfg.tariffs.standard.cp.toLocaleString('en-IN')}`;
+    const cardStdEp = document.getElementById('card-std-ep');
+    const cardStdCp = document.getElementById('card-std-cp');
+    if (cfg.tariffs.standard?.ep) {
+      const val = `₹${cfg.tariffs.standard.ep.toLocaleString('en-IN')}`;
+      if (stdEp) stdEp.textContent = val;
+      if (cardStdEp) cardStdEp.textContent = val;
+    }
+    if (cfg.tariffs.standard?.cp) {
+      const val = `₹${cfg.tariffs.standard.cp.toLocaleString('en-IN')}`;
+      if (stdCp) stdCp.textContent = val;
+      if (cardStdCp) cardStdCp.textContent = val;
+    }
     if (stdMap && cfg.tariffs.standard?.map) stdMap.textContent = `₹${cfg.tariffs.standard.map.toLocaleString('en-IN')}`;
 
     const dlxEp = document.getElementById('tariff-dlx-ep');
     const dlxCp = document.getElementById('tariff-dlx-cp');
     const dlxMap = document.getElementById('tariff-dlx-map');
-    if (dlxEp && cfg.tariffs.deluxe?.ep) dlxEp.textContent = `₹${cfg.tariffs.deluxe.ep.toLocaleString('en-IN')}`;
-    if (dlxCp && cfg.tariffs.deluxe?.cp) dlxCp.textContent = `₹${cfg.tariffs.deluxe.cp.toLocaleString('en-IN')}`;
+    const cardDlxEp = document.getElementById('card-dlx-ep');
+    const cardDlxCp = document.getElementById('card-dlx-cp');
+    if (cfg.tariffs.deluxe?.ep) {
+      const val = `₹${cfg.tariffs.deluxe.ep.toLocaleString('en-IN')}`;
+      if (dlxEp) dlxEp.textContent = val;
+      if (cardDlxEp) cardDlxEp.textContent = val;
+    }
+    if (cfg.tariffs.deluxe?.cp) {
+      const val = `₹${cfg.tariffs.deluxe.cp.toLocaleString('en-IN')}`;
+      if (dlxCp) dlxCp.textContent = val;
+      if (cardDlxCp) cardDlxCp.textContent = val;
+    }
     if (dlxMap && cfg.tariffs.deluxe?.map) dlxMap.textContent = `₹${cfg.tariffs.deluxe.map.toLocaleString('en-IN')}`;
 
     const famEp = document.getElementById('tariff-fam-ep');
     const famCp = document.getElementById('tariff-fam-cp');
     const famMap = document.getElementById('tariff-fam-map');
-    if (famEp && cfg.tariffs.family?.ep) famEp.textContent = `₹${cfg.tariffs.family.ep.toLocaleString('en-IN')}`;
-    if (famCp && cfg.tariffs.family?.cp) famCp.textContent = `₹${cfg.tariffs.family.cp.toLocaleString('en-IN')}`;
+    const cardFamEp = document.getElementById('card-fam-ep');
+    const cardFamCp = document.getElementById('card-fam-cp');
+    if (cfg.tariffs.family?.ep) {
+      const val = `₹${cfg.tariffs.family.ep.toLocaleString('en-IN')}`;
+      if (famEp) famEp.textContent = val;
+      if (cardFamEp) cardFamEp.textContent = val;
+    }
+    if (cfg.tariffs.family?.cp) {
+      const val = `₹${cfg.tariffs.family.cp.toLocaleString('en-IN')}`;
+      if (famCp) famCp.textContent = val;
+      if (cardFamCp) cardFamCp.textContent = val;
+    }
     if (famMap && cfg.tariffs.family?.map) famMap.textContent = `₹${cfg.tariffs.family.map.toLocaleString('en-IN')}`;
 
     // Stay Configurator Select Options

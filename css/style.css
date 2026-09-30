@@ -2009,6 +2009,7 @@ p {
   margin-bottom: 30px;
 }
 
+.tariff-desktop-wrap,
 .tariff-table-wrap {
   width: 100%;
   max-width: 100%;
@@ -2041,6 +2042,177 @@ p {
 .tariff-scroll-hint svg {
   flex-shrink: 0;
   stroke: var(--bhagwa);
+}
+
+/* Mobile Tariff Cards — Fits 100% on Single Screen (Zero Horizontal Scroll) */
+.tariff-mobile-cards {
+  display: none;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tariff-mobile-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--gold-border-subtle);
+  border-top: 3.5px solid var(--bhagwa);
+  border-radius: var(--radius-md);
+  padding: 22px 18px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  width: 100%;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.tariff-mobile-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+}
+
+.tariff-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.tariff-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--text-charcoal-pure);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.tariff-card-desc {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-charcoal-muted);
+  font-weight: 300;
+}
+
+.tariff-card-badge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bhagwa-deep);
+  background: rgba(212, 115, 74, 0.1);
+  border: 1px solid rgba(212, 115, 74, 0.25);
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tariff-card-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 16px 0;
+}
+
+.spec-pill {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-charcoal);
+  background: var(--bg-sand);
+  border: 1px solid var(--border-medium);
+  padding: 4px 10px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tariff-card-rates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.rate-box {
+  background: var(--bg-sand);
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 12px 10px;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rate-box.rate-featured {
+  background: rgba(212, 115, 74, 0.06);
+  border-color: rgba(212, 115, 74, 0.35);
+  box-shadow: 0 4px 14px rgba(212, 115, 74, 0.08);
+}
+
+.rate-plan-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-charcoal-muted);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.rate-plan-tag.highlight {
+  color: var(--bhagwa-deep);
+}
+
+.rate-title {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--text-charcoal);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.rate-cost {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-charcoal-pure);
+  line-height: 1.1;
+  display: block;
+}
+
+.rate-cost.highlight {
+  color: var(--bhagwa);
+}
+
+.rate-unit {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  color: var(--text-charcoal-muted);
+  display: block;
+  margin-top: 3px;
+  letter-spacing: 0.02em;
+}
+
+.tariff-card-action-btn {
+  width: 100% !important;
+  height: 46px !important;
+  font-size: 11px !important;
+  letter-spacing: 0.14em !important;
+  justify-content: center !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  white-space: normal !important;
 }
 
 .luxury-tariff-table {
@@ -3581,15 +3753,9 @@ p {
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .gallery-card { height: 210px; }
 
-  /* Tariff table & Configurator */
-  .tariff-header-flex { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
-  .tariff-scroll-hint { display: flex; }
-  .luxury-tariff-table th { padding: 14px 14px; font-size: 11px; }
-  .luxury-tariff-table td { padding: 14px 14px; font-size: 0.88rem; }
-  .tariff-configurator-card { padding: 26px 18px; }
-  .tariff-configurator-grid { grid-template-columns: 1fr; gap: 16px; }
-  .tariff-configurator-total-card { grid-column: 1 / -1; padding: 18px 16px; }
-  #cfg-book-btn { width: 100% !important; white-space: normal !important; padding: 12px 14px !important; }
+  /* Tariff Table (Desktop) vs Tariff Cards (Mobile) */
+  .tariff-desktop-wrap { display: none !important; }
+  .tariff-mobile-cards { display: flex !important; }
 
   /* Yatra */
   .yatra-matrix-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -3776,24 +3942,17 @@ p {
   .gallery-filter-btn { font-size: 10px; padding: 7px 12px; letter-spacing: 0.12em; }
   .gallery-filter-nav { gap: 6px; }
 
-  /* Tariff table & Bespoke Configurator */
-  .tariff-header-flex { margin-bottom: 18px; gap: 12px; }
-  .tariff-table-wrap { margin-top: 16px; border-radius: var(--radius-md); }
-  .tariff-scroll-hint { display: flex; font-size: 10px; padding: 6px 10px; }
-  .luxury-tariff-table th,
-  .luxury-tariff-table td {
-    padding: 10px 10px;
-    font-size: 0.8rem;
-  }
-  .tariff-room-name { font-size: 0.98rem; }
-  .tariff-room-name small { font-size: 0.72rem; }
-  .tariff-price-val { font-size: 0.95rem; }
-  .tariff-configurator-card { padding: 20px 14px; border-radius: var(--radius-sm); }
-  .configurator-title { font-size: 1.45rem; margin-bottom: 18px; }
-  .tariff-configurator-grid { grid-template-columns: 1fr; gap: 16px; }
-  .tariff-configurator-total-card { padding: 16px 14px; }
-  .tariff-policy-strip { gap: 8px; margin: 16px 0 28px 0; }
-  .tariff-policy-badge { font-size: 9.5px; padding: 6px 10px; width: 100%; box-sizing: border-box; }
+  /* Tariff Mobile Cards (Compact Mobile) */
+  .tariff-desktop-wrap { display: none !important; }
+  .tariff-mobile-cards { display: flex !important; gap: 14px; margin-top: 18px; }
+  .tariff-mobile-card { padding: 18px 14px; }
+  .tariff-card-name { font-size: 1.32rem; }
+  .tariff-card-desc { font-size: 11.5px; }
+  .tariff-card-rates { gap: 8px; margin-bottom: 14px; }
+  .rate-box { padding: 10px 6px; }
+  .rate-cost { font-size: 1.35rem; }
+  .rate-title { font-size: 10.5px; }
+  .tariff-card-action-btn { height: 44px !important; font-size: 10.5px !important; }
 
   /* Yatra — 1 col */
   .yatra-matrix-grid { grid-template-columns: 1fr; gap: 12px; }

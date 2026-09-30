@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,600&family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3.2">
+  <link rel="stylesheet" href="css/style.css?v=3.3">
 </head>
 <body>
 
@@ -371,11 +371,8 @@
       <div class="hairline-brass"></div>
       <p class="section-desc">Best rate guaranteed when booking directly with our front desk or via official WhatsApp confirmation.</p>
 
-      <div class="tariff-table-wrap">
-        <div class="tariff-scroll-hint">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16l-4-4 4-4m10 0l4 4-4 4m-14-4h18"/></svg>
-          <span>Swipe table horizontally to compare all room rates</span>
-        </div>
+      <!-- Desktop Tariff Table (Visible on screens > 768px) -->
+      <div class="tariff-desktop-wrap">
         <table class="luxury-tariff-table">
           <thead>
             <tr>
@@ -394,8 +391,8 @@
               </td>
               <td>2 Adults</td>
               <td>180 sqft</td>
-              <td><span class="tariff-price-val">₹4,000</span></td>
-              <td><span class="tariff-price-val">₹4,600</span></td>
+              <td><span class="tariff-price-val" id="tariff-std-ep">₹4,000</span></td>
+              <td><span class="tariff-price-val" id="tariff-std-cp" style="color: var(--bhagwa);">₹4,600</span></td>
               <td><button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Standard AC Room">Reserve</button></td>
             </tr>
             <tr>
@@ -404,8 +401,8 @@
               </td>
               <td>2 Adults</td>
               <td>220 sqft</td>
-              <td><span class="tariff-price-val">₹5,000</span></td>
-              <td><span class="tariff-price-val">₹5,700</span></td>
+              <td><span class="tariff-price-val" id="tariff-dlx-ep">₹5,000</span></td>
+              <td><span class="tariff-price-val" id="tariff-dlx-cp" style="color: var(--bhagwa);">₹5,700</span></td>
               <td><button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Deluxe AC Room">Reserve</button></td>
             </tr>
             <tr>
@@ -414,12 +411,114 @@
               </td>
               <td>4 Adults</td>
               <td>350 sqft</td>
-              <td><span class="tariff-price-val">₹8,000</span></td>
-              <td><span class="tariff-price-val">₹9,200</span></td>
+              <td><span class="tariff-price-val" id="tariff-fam-ep">₹8,000</span></td>
+              <td><span class="tariff-price-val" id="tariff-fam-cp" style="color: var(--bhagwa);">₹9,200</span></td>
               <td><button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Family Suite AC">Reserve</button></td>
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Mobile Tariff Cards (Visible on screens <= 768px, Fits 100% on Single Screen, No Horizontal Scroll) -->
+      <div class="tariff-mobile-cards">
+        <!-- Standard AC Room -->
+        <div class="tariff-mobile-card">
+          <div class="tariff-card-header">
+            <div>
+              <h3 class="tariff-card-name">Standard AC Room</h3>
+              <p class="tariff-card-desc">Queen Bed • Attached Modern Bath • Wi-Fi</p>
+            </div>
+            <span class="tariff-card-badge">2 Adults</span>
+          </div>
+          <div class="tariff-card-specs">
+            <span class="spec-pill">📐 180 sqft</span>
+            <span class="spec-pill">❄ Modern AC</span>
+            <span class="spec-pill">🚿 Hot Water</span>
+          </div>
+          <div class="tariff-card-rates">
+            <div class="rate-box">
+              <span class="rate-plan-tag">EP Plan</span>
+              <span class="rate-title">Room Only</span>
+              <span class="rate-cost" id="card-std-ep">₹4,000</span>
+              <small class="rate-unit">/ night + taxes</small>
+            </div>
+            <div class="rate-box rate-featured">
+              <span class="rate-plan-tag highlight">CP Plan (Popular)</span>
+              <span class="rate-title">With Breakfast</span>
+              <span class="rate-cost highlight" id="card-std-cp">₹4,600</span>
+              <small class="rate-unit">/ night + taxes</small>
+            </div>
+          </div>
+          <button class="btn-bhagwa-primary tariff-card-action-btn open-reserve-modal-btn" data-room="Standard AC Room">
+            Reserve Standard Room ↗
+          </button>
+        </div>
+
+        <!-- Deluxe AC Room -->
+        <div class="tariff-mobile-card">
+          <div class="tariff-card-header">
+            <div>
+              <h3 class="tariff-card-name">Deluxe AC Room</h3>
+              <p class="tariff-card-desc">King Orthopedic • Mountain View • Work Desk</p>
+            </div>
+            <span class="tariff-card-badge">2 Adults</span>
+          </div>
+          <div class="tariff-card-specs">
+            <span class="spec-pill">📐 220 sqft</span>
+            <span class="spec-pill">🏔 Mountain View</span>
+            <span class="spec-pill">☕ Tea Maker</span>
+          </div>
+          <div class="tariff-card-rates">
+            <div class="rate-box">
+              <span class="rate-plan-tag">EP Plan</span>
+              <span class="rate-title">Room Only</span>
+              <span class="rate-cost" id="card-dlx-ep">₹5,000</span>
+              <small class="rate-unit">/ night + taxes</small>
+            </div>
+            <div class="rate-box rate-featured">
+              <span class="rate-plan-tag highlight">CP Plan (Popular)</span>
+              <span class="rate-title">With Breakfast</span>
+              <span class="rate-cost highlight" id="card-dlx-cp">₹5,700</span>
+              <small class="rate-unit">/ night + taxes</small>
+            </div>
+          </div>
+          <button class="btn-bhagwa-primary tariff-card-action-btn open-reserve-modal-btn" data-room="Deluxe AC Room">
+            Reserve Deluxe Room ↗
+          </button>
+        </div>
+
+        <!-- Family Suite AC -->
+        <div class="tariff-mobile-card">
+          <div class="tariff-card-header">
+            <div>
+              <h3 class="tariff-card-name">Family Suite AC</h3>
+              <p class="tariff-card-desc">Twin Double Beds • Sofa Lounge • Premium Bath</p>
+            </div>
+            <span class="tariff-card-badge">4 Adults</span>
+          </div>
+          <div class="tariff-card-specs">
+            <span class="spec-pill">📐 350 sqft</span>
+            <span class="spec-pill">👨‍👩‍👧‍👦 3-4 Persons</span>
+            <span class="spec-pill">🛋 Lounge</span>
+          </div>
+          <div class="tariff-card-rates">
+            <div class="rate-box">
+              <span class="rate-plan-tag">EP Plan</span>
+              <span class="rate-title">Room Only</span>
+              <span class="rate-cost" id="card-fam-ep">₹8,000</span>
+              <small class="rate-unit">/ night + taxes</small>
+            </div>
+            <div class="rate-box rate-featured">
+              <span class="rate-plan-tag highlight">CP Plan (Popular)</span>
+              <span class="rate-title">With Breakfast</span>
+              <span class="rate-cost highlight" id="card-fam-cp">₹9,200</span>
+              <small class="rate-unit">/ night + taxes</small>
+            </div>
+          </div>
+          <button class="btn-bhagwa-primary tariff-card-action-btn open-reserve-modal-btn" data-room="Family Suite AC">
+            Reserve Family Suite ↗
+          </button>
+        </div>
       </div>
     </div>
   </section>
