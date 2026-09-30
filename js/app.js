@@ -1594,7 +1594,41 @@ async function initDynamicConfig() {
     if (quickBarForm) quickBarForm.action = cfg.bookingEngineUrl;
   }
 
-  // 10. Photo Gallery Synchronization
+  // 10. Dynamic Site Images (Hero, Ganga Aarti, Rooms, Dining, Banquet, etc.)
+  if (cfg.images) {
+    // 10a. Hero Background Image (Ganga Aarti)
+    const heroBgImg = document.getElementById('hero-bg-img');
+    if (heroBgImg && cfg.images.heroGangaAarti) {
+      heroBgImg.src = cfg.images.heroGangaAarti;
+    }
+
+    // 10b. Room Images
+    const roomImgStd = document.getElementById('room-img-standard');
+    if (roomImgStd && cfg.images.roomStandard) roomImgStd.src = cfg.images.roomStandard;
+
+    const roomImgDlx = document.getElementById('room-img-deluxe');
+    if (roomImgDlx && cfg.images.roomDeluxe) roomImgDlx.src = cfg.images.roomDeluxe;
+
+    const roomImgFam = document.getElementById('room-img-family');
+    if (roomImgFam && cfg.images.roomFamily) roomImgFam.src = cfg.images.roomFamily;
+
+    const roomImgTwin = document.getElementById('room-img-twin');
+    if (roomImgTwin && cfg.images.roomTwin) roomImgTwin.src = cfg.images.roomTwin;
+
+    // 10c. Dining & Banquet Images
+    const diningImg = document.getElementById('dining-feature-img');
+    if (diningImg && cfg.images.diningFeature) diningImg.src = cfg.images.diningFeature;
+
+    const banquetImg = document.getElementById('banquet-feature-img');
+    if (banquetImg && cfg.images.banquetFeature) banquetImg.src = cfg.images.banquetFeature;
+
+    // 10d. Atmosphere Sandhya Aarti Image
+    if (cfg.images.atmosphereAarti && typeof presets !== 'undefined' && presets.aarti) {
+      presets.aarti.image = cfg.images.atmosphereAarti;
+    }
+  }
+
+  // 11. Photo Gallery Synchronization
   if (cfg.gallery && Array.isArray(cfg.gallery) && cfg.gallery.length) {
     const galleryContainer = document.getElementById('gallery-container');
     if (galleryContainer) {

@@ -584,6 +584,83 @@
     .btn-gal-order:hover {
       border-color: var(--gold-antique);
     }
+
+    /* Site Images Manager Styles */
+    .btn-preset-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--gold-champagne);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-preset-chip:hover {
+      background: rgba(212, 115, 74, 0.2);
+      border-color: var(--bhagwa);
+      color: #FFFFFF;
+    }
+    .image-control-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 20px;
+    }
+    .image-control-card {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: all 0.25s ease;
+    }
+    .image-control-card:hover {
+      border-color: var(--gold-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .image-control-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .image-control-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--gold-champagne);
+      font-weight: 500;
+    }
+    .image-preview-frame {
+      width: 100%;
+      height: 180px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1.5px solid var(--border-subtle);
+      background: #000;
+      position: relative;
+    }
+    .image-preview-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .image-preview-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(13, 7, 4, 0.85);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-champagne);
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      padding: 3px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
   </style>
 </head>
 <body>
@@ -648,6 +725,7 @@
       <button class="tab-btn" data-tab="tab-yatra">🗺️ Char Dham Yatra</button>
       <button class="tab-btn" data-tab="tab-policies">📜 Timings & Policies</button>
       <button class="tab-btn" data-tab="tab-announcements">🔔 Aarti & Ticker</button>
+      <button class="tab-btn" data-tab="tab-images">📸 Key Images & Ganga Aarti</button>
       <button class="tab-btn" data-tab="tab-gallery">🖼️ Photo Gallery</button>
     </nav>
 
@@ -744,6 +822,39 @@
         <div class="form-group">
           <label class="form-label" for="hero-subtext">Hero Welcoming Narrative / Paragraph</label>
           <textarea id="hero-subtext" class="form-textarea" placeholder="Welcoming pilgrims and discerning travelers..."></textarea>
+        </div>
+
+        <!-- Home Page Ganga Aarti Hero Background Box -->
+        <div style="margin-top: 24px; border-top: 1px solid var(--border-subtle); padding-top: 20px;">
+          <h3 class="card-section-title" style="font-size: 1.15rem; margin-bottom: 6px;">Home Page Hero Ganga Aarti Background Image</h3>
+          <p class="card-section-desc">Change the full-width background photo behind the main title on the website home page.</p>
+
+          <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+            <div class="image-preview-frame" style="width: 250px; height: 150px; flex-shrink: 0;">
+              <img id="preview-hero-quick" src="assets/images/ganga_aarti_hero.jpg" alt="Hero Ganga Aarti Preview">
+              <span class="image-preview-badge">HERO BANNER</span>
+            </div>
+            <div style="flex: 1; min-width: 280px;">
+              <div class="form-group" style="margin-bottom: 12px;">
+                <label class="form-label" for="img-hero-quick">Image File Path / URL</label>
+                <input type="text" id="img-hero-quick" class="form-input sync-hero-img" placeholder="assets/images/ganga_aarti_hero.jpg">
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px;">
+                <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                  📁 Upload New Image
+                  <input type="file" class="file-upload-input" data-target="img-hero-quick" data-preview="preview-hero-quick" accept="image/*" style="display: none;">
+                </label>
+                <span class="preview-pill">Uploads save directly to assets/images/</span>
+              </div>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
+                <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+                <button type="button" class="btn-preset-chip" data-target="img-hero-quick" data-preview="preview-hero-quick" data-val="assets/images/ganga_aarti_hero.jpg">Twilight Aarti (Default)</button>
+                <button type="button" class="btn-preset-chip" data-target="img-hero-quick" data-preview="preview-hero-quick" data-val="assets/images/img_slider_3.jpg">Har Ki Pauri Aarti</button>
+                <button type="button" class="btn-preset-chip" data-target="img-hero-quick" data-preview="preview-hero-quick" data-val="assets/images/hotel_suite_aarti.jpg">Sacred Lamps</button>
+                <button type="button" class="btn-preset-chip" data-target="img-hero-quick" data-preview="preview-hero-quick" data-val="assets/images/img_gallery_slider7.jpg">Ganges Sunset</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1010,7 +1121,282 @@
       </div>
     </section>
 
-    <!-- Tab 9: Photo Gallery Manager -->
+    <!-- Tab 9: Key Website Images & Ganga Aarti -->
+    <section id="tab-images" class="tab-pane">
+      <!-- 1. Hero & Ganga Aarti Visuals -->
+      <div class="card-section">
+        <h2 class="card-section-title">Home Page Ganga Aarti & Atmosphere Visuals</h2>
+        <p class="card-section-desc">Change the prominent Haridwar Ganga Aarti imagery shown on the website home page and interactive evening Aarti atmosphere.</p>
+
+        <div class="image-control-grid">
+          <!-- Hero Background (Ganga Aarti) -->
+          <div class="image-control-card">
+            <div class="image-control-header">
+              <h3 class="image-control-title">Home Page Hero Background</h3>
+              <span class="rate-card-badge">Full-Width Hero</span>
+            </div>
+            <div class="image-preview-frame">
+              <img id="preview-hero-bg" src="assets/images/ganga_aarti_hero.jpg" alt="Hero Background">
+              <span class="image-preview-badge">Ganga Aarti Hero</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="img-hero-ganga-aarti">Image Path / URL</label>
+              <input type="text" id="img-hero-ganga-aarti" class="form-input sync-hero-img" placeholder="assets/images/ganga_aarti_hero.jpg">
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                📁 Upload File
+                <input type="file" class="file-upload-input" data-target="img-hero-ganga-aarti" data-preview="preview-hero-bg" accept="image/*" style="display: none;">
+              </label>
+              <span class="preview-pill">Uploads save to assets/images/</span>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px;">
+              <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+              <button type="button" class="btn-preset-chip" data-target="img-hero-ganga-aarti" data-preview="preview-hero-bg" data-val="assets/images/ganga_aarti_hero.jpg">Twilight Aarti (Default)</button>
+              <button type="button" class="btn-preset-chip" data-target="img-hero-ganga-aarti" data-preview="preview-hero-bg" data-val="assets/images/img_slider_3.jpg">Har Ki Pauri Aarti</button>
+              <button type="button" class="btn-preset-chip" data-target="img-hero-ganga-aarti" data-preview="preview-hero-bg" data-val="assets/images/hotel_suite_aarti.jpg">Sacred Lamps</button>
+              <button type="button" class="btn-preset-chip" data-target="img-hero-ganga-aarti" data-preview="preview-hero-bg" data-val="assets/images/img_gallery_slider7.jpg">Ganges Sunset</button>
+            </div>
+          </div>
+
+          <!-- Atmosphere Sandhya Aarti Mode -->
+          <div class="image-control-card">
+            <div class="image-control-header">
+              <h3 class="image-control-title">Interactive Aarti Atmosphere Mode</h3>
+              <span class="rate-card-badge">Evening 18:30 Ritual</span>
+            </div>
+            <div class="image-preview-frame">
+              <img id="preview-atmosphere-aarti" src="assets/images/hotel_suite_aarti.jpg" alt="Atmosphere Aarti">
+              <span class="image-preview-badge">Aarti Mode</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="img-atmosphere-aarti">Image Path / URL</label>
+              <input type="text" id="img-atmosphere-aarti" class="form-input" placeholder="assets/images/hotel_suite_aarti.jpg">
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                📁 Upload File
+                <input type="file" class="file-upload-input" data-target="img-atmosphere-aarti" data-preview="preview-atmosphere-aarti" accept="image/*" style="display: none;">
+              </label>
+              <span class="preview-pill">Applied to Day/Night atmosphere</span>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px;">
+              <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+              <button type="button" class="btn-preset-chip" data-target="img-atmosphere-aarti" data-preview="preview-atmosphere-aarti" data-val="assets/images/hotel_suite_aarti.jpg">Sacred Lamps (Default)</button>
+              <button type="button" class="btn-preset-chip" data-target="img-atmosphere-aarti" data-preview="preview-atmosphere-aarti" data-val="assets/images/ganga_aarti_hero.jpg">Twilight Aarti</button>
+              <button type="button" class="btn-preset-chip" data-target="img-atmosphere-aarti" data-preview="preview-atmosphere-aarti" data-val="assets/images/img_slider_3.jpg">Har Ki Pauri Evening</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Boutique Rooms & Suites Images -->
+      <div class="card-section">
+        <h2 class="card-section-title">Boutique AC Rooms & Suites Photos</h2>
+        <p class="card-section-desc">Change the featured photos displayed on the room cards across the home page and rooms catalog.</p>
+
+        <div class="image-control-grid">
+          <!-- Standard AC -->
+          <div class="image-control-card">
+            <div class="image-control-header">
+              <h3 class="image-control-title">Standard AC Room</h3>
+              <span class="rate-card-badge">Standard Room Card</span>
+            </div>
+            <div class="image-preview-frame">
+              <img id="preview-room-standard" src="assets/images/hotel_room_twin.jpg" alt="Standard Room">
+              <span class="image-preview-badge">STANDARD AC</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="img-room-standard">Image Path / URL</label>
+              <input type="text" id="img-room-standard" class="form-input" placeholder="assets/images/hotel_room_twin.jpg">
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                📁 Upload File
+                <input type="file" class="file-upload-input" data-target="img-room-standard" data-preview="preview-room-standard" accept="image/*" style="display: none;">
+              </label>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px;">
+              <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+              <button type="button" class="btn-preset-chip" data-target="img-room-standard" data-preview="preview-room-standard" data-val="assets/images/hotel_room_twin.jpg">Twin Bed (Default)</button>
+              <button type="button" class="btn-preset-chip" data-target="img-room-standard" data-preview="preview-room-standard" data-val="assets/images/img_room1.jpg">King Deluxe</button>
+            </div>
+          </div>
+
+          <!-- Deluxe AC -->
+          <div class="image-control-card">
+            <div class="image-control-header">
+              <h3 class="image-control-title">Deluxe AC Room</h3>
+              <span class="rate-card-badge">Deluxe Room Card</span>
+            </div>
+            <div class="image-preview-frame">
+              <img id="preview-room-deluxe" src="assets/images/img_room1.jpg" alt="Deluxe Room">
+              <span class="image-preview-badge">DELUXE AC</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="img-room-deluxe">Image Path / URL</label>
+              <input type="text" id="img-room-deluxe" class="form-input" placeholder="assets/images/img_room1.jpg">
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                📁 Upload File
+                <input type="file" class="file-upload-input" data-target="img-room-deluxe" data-preview="preview-room-deluxe" accept="image/*" style="display: none;">
+              </label>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px;">
+              <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+              <button type="button" class="btn-preset-chip" data-target="img-room-deluxe" data-preview="preview-room-deluxe" data-val="assets/images/img_room1.jpg">King Suite (Default)</button>
+              <button type="button" class="btn-preset-chip" data-target="img-room-deluxe" data-preview="preview-room-deluxe" data-val="assets/images/hotel_room_deluxe.jpg">Boutique AC</button>
+            </div>
+          </div>
+
+          <!-- Family Suite AC -->
+          <div class="image-control-card">
+            <div class="image-control-header">
+              <h3 class="image-control-title">Family Suite AC</h3>
+              <span class="rate-card-badge">Family Grandeur</span>
+            </div>
+            <div class="image-preview-frame">
+              <img id="preview-room-family" src="assets/images/hotel_room_family.jpg" alt="Family Suite">
+              <span class="image-preview-badge">FAMILY SUITE</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="img-room-family">Image Path / URL</label>
+              <input type="text" id="img-room-family" class="form-input" placeholder="assets/images/hotel_room_family.jpg">
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                📁 Upload File
+                <input type="file" class="file-upload-input" data-target="img-room-family" data-preview="preview-room-family" accept="image/*" style="display: none;">
+              </label>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px;">
+              <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+              <button type="button" class="btn-preset-chip" data-target="img-room-family" data-preview="preview-room-family" data-val="assets/images/hotel_room_family.jpg">Family Suite (Default)</button>
+              <button type="button" class="btn-preset-chip" data-target="img-room-family" data-preview="preview-room-family" data-val="assets/images/img_gallery_rooms5.jpg">Grand Highway View</button>
+            </div>
+          </div>
+
+          <!-- Executive Twin Room -->
+          <div class="image-control-card">
+            <div class="image-control-header">
+              <h3 class="image-control-title">Executive Twin Room</h3>
+              <span class="rate-card-badge">Twin Suites</span>
+            </div>
+            <div class="image-preview-frame">
+              <img id="preview-room-twin" src="assets/images/hotel_room_twin.jpg" alt="Twin Room">
+              <span class="image-preview-badge">TWIN ROOM</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="img-room-twin">Image Path / URL</label>
+              <input type="text" id="img-room-twin" class="form-input" placeholder="assets/images/hotel_room_twin.jpg">
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                📁 Upload File
+                <input type="file" class="file-upload-input" data-target="img-room-twin" data-preview="preview-room-twin" accept="image/*" style="display: none;">
+              </label>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px;">
+              <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+              <button type="button" class="btn-preset-chip" data-target="img-room-twin" data-preview="preview-room-twin" data-val="assets/images/hotel_room_twin.jpg">Twin Bed (Default)</button>
+              <button type="button" class="btn-preset-chip" data-target="img-room-twin" data-preview="preview-room-twin" data-val="assets/images/img_room1.jpg">King Bed</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Dining & Banquet Visuals -->
+      <div class="card-section">
+        <h2 class="card-section-title">Dining & Banquet Ballroom Featured Visuals</h2>
+        <p class="card-section-desc">Change the showcase photos for Mohan Ji Poori Wale pure veg restaurant and the 150 Pax Banquet Ballroom.</p>
+
+        <div class="image-control-grid">
+          <!-- Mohan Ji Dining Featured -->
+          <div class="image-control-card">
+            <div class="image-control-header">
+              <h3 class="image-control-title">Mohan Ji Poori Wale Featured Platter</h3>
+              <span class="rate-card-badge">Heritage Dining</span>
+            </div>
+            <div class="image-preview-frame">
+              <img id="preview-dining-feature" src="assets/images/img_restaurant_1.jpg" alt="Dining Feature">
+              <span class="image-preview-badge">POORI PLATTER</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="img-dining-feature">Image Path / URL</label>
+              <input type="text" id="img-dining-feature" class="form-input" placeholder="assets/images/img_restaurant_1.jpg">
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                📁 Upload File
+                <input type="file" class="file-upload-input" data-target="img-dining-feature" data-preview="preview-dining-feature" accept="image/*" style="display: none;">
+              </label>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px;">
+              <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+              <button type="button" class="btn-preset-chip" data-target="img-dining-feature" data-preview="preview-dining-feature" data-val="assets/images/img_restaurant_1.jpg">Bedmi Poori Platter (Default)</button>
+              <button type="button" class="btn-preset-chip" data-target="img-dining-feature" data-preview="preview-dining-feature" data-val="assets/images/mohan_ji_poori_wale.jpg">Mohan Ji Heritage</button>
+            </div>
+          </div>
+
+          <!-- Restaurant AC Hall -->
+          <div class="image-control-card">
+            <div class="image-control-header">
+              <h3 class="image-control-title">200 Pax AC Restaurant Hall</h3>
+              <span class="rate-card-badge">Dining Hall</span>
+            </div>
+            <div class="image-preview-frame">
+              <img id="preview-dining-hall" src="assets/images/img_resto6.jpg" alt="Restaurant Hall">
+              <span class="image-preview-badge">RESTAURANT HALL</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="img-dining-hall">Image Path / URL</label>
+              <input type="text" id="img-dining-hall" class="form-input" placeholder="assets/images/img_resto6.jpg">
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                📁 Upload File
+                <input type="file" class="file-upload-input" data-target="img-dining-hall" data-preview="preview-dining-hall" accept="image/*" style="display: none;">
+              </label>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px;">
+              <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+              <button type="button" class="btn-preset-chip" data-target="img-dining-hall" data-preview="preview-dining-hall" data-val="assets/images/img_resto6.jpg">Dining Hall (Default)</button>
+              <button type="button" class="btn-preset-chip" data-target="img-dining-hall" data-preview="preview-dining-hall" data-val="assets/images/img_resto3.jpg">Warm Seating</button>
+            </div>
+          </div>
+
+          <!-- 150 Pax Banquet Ballroom -->
+          <div class="image-control-card">
+            <div class="image-control-header">
+              <h3 class="image-control-title">150 Pax Grand Banquet Ballroom</h3>
+              <span class="rate-card-badge">Events Ballroom</span>
+            </div>
+            <div class="image-preview-frame">
+              <img id="preview-banquet-feature" src="assets/images/banquet_hall_grand.jpg" alt="Banquet Ballroom">
+              <span class="image-preview-badge">BANQUET BALLROOM</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="img-banquet-feature">Image Path / URL</label>
+              <input type="text" id="img-banquet-feature" class="form-input" placeholder="assets/images/banquet_hall_grand.jpg">
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <label class="btn-secondary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 11px;">
+                📁 Upload File
+                <input type="file" class="file-upload-input" data-target="img-banquet-feature" data-preview="preview-banquet-feature" accept="image/*" style="display: none;">
+              </label>
+            </div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px;">
+              <span class="preview-pill" style="font-weight: 600;">Presets:</span>
+              <button type="button" class="btn-preset-chip" data-target="img-banquet-feature" data-preview="preview-banquet-feature" data-val="assets/images/banquet_hall_grand.jpg">Grand Ballroom (Default)</button>
+              <button type="button" class="btn-preset-chip" data-target="img-banquet-feature" data-preview="preview-banquet-feature" data-val="assets/images/img_gallery_ggn5.jpg">Celebration Setup</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 10: Photo Gallery Manager -->
     <section id="tab-gallery" class="tab-pane">
       <div class="card-section">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 14px;">
@@ -1095,6 +1481,17 @@
         headlineMain: "DIVINE LUXURY.",
         headlineSub: "Sanctuary by the Ganges.",
         subtext: "Welcoming pilgrims and discerning travelers to Haridwar’s premier hospitality sanctuary. Featuring 32 boutique AC rooms, a 150-guest grand banquet ballroom, dedicated Char Dham Yatra desk, and the legendary 200-capacity Mohan Ji Poori Wale pure vegetarian dining heritage."
+      },
+      images: {
+        heroGangaAarti: "assets/images/ganga_aarti_hero.jpg",
+        atmosphereAarti: "assets/images/hotel_suite_aarti.jpg",
+        roomStandard: "assets/images/hotel_room_twin.jpg",
+        roomDeluxe: "assets/images/img_room1.jpg",
+        roomFamily: "assets/images/hotel_room_family.jpg",
+        roomTwin: "assets/images/hotel_room_twin.jpg",
+        diningFeature: "assets/images/img_restaurant_1.jpg",
+        diningHall: "assets/images/img_resto6.jpg",
+        banquetFeature: "assets/images/banquet_hall_grand.jpg"
       },
       tariffs: {
         standard: {
@@ -1266,6 +1663,12 @@
             <div class="form-group">
               <label class="form-label" style="font-size:10px;">Image URL / Path</label>
               <input type="text" class="form-input gal-input-img" data-idx="${originalIdx}" value="${escapeHtml(item.img)}" placeholder="assets/images/... or https://...">
+              <div style="display: flex; gap: 8px; align-items: center; margin-top: 6px;">
+                <label class="btn-secondary" style="cursor: pointer; padding: 4px 10px; font-size: 10px; margin: 0;">
+                  📁 Upload / Replace Image
+                  <input type="file" class="gal-file-input" data-idx="${originalIdx}" accept="image/*" style="display: none;">
+                </label>
+              </div>
             </div>
           </div>
 
@@ -1310,6 +1713,22 @@
             currentGallery[idx].img = val;
             const thumb = document.getElementById(`gal-thumb-${idx}`);
             if (thumb) thumb.src = val;
+          }
+        });
+      });
+
+      container.querySelectorAll('.gal-file-input').forEach(input => {
+        input.addEventListener('change', async (e) => {
+          const idx = parseInt(e.target.dataset.idx);
+          const file = e.target.files && e.target.files[0];
+          if (file) {
+            await uploadImageFile(file, (url) => {
+              if (currentGallery[idx]) {
+                currentGallery[idx].img = url;
+                renderGalleryEditor();
+                showToast('✓ Photo updated in gallery! Click Save All Changes to commit.');
+              }
+            });
           }
         });
       });
@@ -1463,6 +1882,28 @@
       document.getElementById('ticker-weather').value = data.weatherTicker || '';
       document.getElementById('ticker-aarti-time').value = data.aartiTime || '18:30';
 
+      // Key Images & Ganga Aarti
+      const imgHero = data.images?.heroGangaAarti || 'assets/images/ganga_aarti_hero.jpg';
+      const imgAartiAtm = data.images?.atmosphereAarti || 'assets/images/hotel_suite_aarti.jpg';
+      const imgStd = data.images?.roomStandard || 'assets/images/hotel_room_twin.jpg';
+      const imgDlx = data.images?.roomDeluxe || 'assets/images/img_room1.jpg';
+      const imgFam = data.images?.roomFamily || 'assets/images/hotel_room_family.jpg';
+      const imgTwin = data.images?.roomTwin || 'assets/images/hotel_room_twin.jpg';
+      const imgDining = data.images?.diningFeature || 'assets/images/img_restaurant_1.jpg';
+      const imgHall = data.images?.diningHall || 'assets/images/img_resto6.jpg';
+      const imgBanquet = data.images?.banquetFeature || 'assets/images/banquet_hall_grand.jpg';
+
+      setImgFieldAndPreview('img-hero-ganga-aarti', 'preview-hero-bg', imgHero);
+      setImgFieldAndPreview('img-hero-quick', 'preview-hero-quick', imgHero);
+      setImgFieldAndPreview('img-atmosphere-aarti', 'preview-atmosphere-aarti', imgAartiAtm);
+      setImgFieldAndPreview('img-room-standard', 'preview-room-standard', imgStd);
+      setImgFieldAndPreview('img-room-deluxe', 'preview-room-deluxe', imgDlx);
+      setImgFieldAndPreview('img-room-family', 'preview-room-family', imgFam);
+      setImgFieldAndPreview('img-room-twin', 'preview-room-twin', imgTwin);
+      setImgFieldAndPreview('img-dining-feature', 'preview-dining-feature', imgDining);
+      setImgFieldAndPreview('img-dining-hall', 'preview-dining-hall', imgHall);
+      setImgFieldAndPreview('img-banquet-feature', 'preview-banquet-feature', imgBanquet);
+
       // Photo Gallery
       currentGallery = (data.gallery && Array.isArray(data.gallery) && data.gallery.length)
         ? JSON.parse(JSON.stringify(data.gallery))
@@ -1556,9 +1997,118 @@
         },
         weatherTicker: document.getElementById('ticker-weather').value.trim(),
         aartiTime: document.getElementById('ticker-aarti-time').value.trim() || '18:30',
+        images: {
+          heroGangaAarti: document.getElementById('img-hero-ganga-aarti')?.value.trim() || document.getElementById('img-hero-quick')?.value.trim() || 'assets/images/ganga_aarti_hero.jpg',
+          atmosphereAarti: document.getElementById('img-atmosphere-aarti')?.value.trim() || 'assets/images/hotel_suite_aarti.jpg',
+          roomStandard: document.getElementById('img-room-standard')?.value.trim() || 'assets/images/hotel_room_twin.jpg',
+          roomDeluxe: document.getElementById('img-room-deluxe')?.value.trim() || 'assets/images/img_room1.jpg',
+          roomFamily: document.getElementById('img-room-family')?.value.trim() || 'assets/images/hotel_room_family.jpg',
+          roomTwin: document.getElementById('img-room-twin')?.value.trim() || 'assets/images/hotel_room_twin.jpg',
+          diningFeature: document.getElementById('img-dining-feature')?.value.trim() || 'assets/images/img_restaurant_1.jpg',
+          diningHall: document.getElementById('img-dining-hall')?.value.trim() || 'assets/images/img_resto6.jpg',
+          banquetFeature: document.getElementById('img-banquet-feature')?.value.trim() || 'assets/images/banquet_hall_grand.jpg'
+        },
         gallery: currentGallery
       };
     }
+
+    // Image Management Helper & Upload Functions
+    function setImgFieldAndPreview(fieldId, previewId, val) {
+      const field = document.getElementById(fieldId);
+      const preview = document.getElementById(previewId);
+      if (field) field.value = val || '';
+      if (preview) {
+        preview.src = val || 'assets/images/ganga_aarti_hero.jpg';
+        preview.onerror = () => { preview.src = 'assets/images/ganga_aarti_hero.jpg'; };
+      }
+    }
+
+    async function uploadImageFile(file, callback) {
+      if (!file) return;
+      if (file.size > 25 * 1024 * 1024) {
+        alert('File size exceeds 25MB limit. Please choose a smaller image.');
+        return;
+      }
+      showToast('Uploading image to server assets...');
+      const reader = new FileReader();
+      reader.onload = async function(e) {
+        const base64Data = e.target.result;
+        try {
+          const res = await fetch('/api/upload', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              filename: file.name,
+              data: base64Data
+            })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            showToast('✓ Image uploaded: ' + data.filename);
+            callback(data.url);
+          } else {
+            showToast('✓ Image loaded in memory (Click Save All)');
+            callback(base64Data);
+          }
+        } catch (err) {
+          showToast('✓ Image loaded in memory (Click Save All)');
+          callback(base64Data);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Attach File Upload Input Listeners
+    document.querySelectorAll('.file-upload-input').forEach(input => {
+      input.addEventListener('change', async (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const targetId = e.target.dataset.target;
+        const previewId = e.target.dataset.preview;
+        await uploadImageFile(file, (url) => {
+          setImgFieldAndPreview(targetId, previewId, url);
+          // If this is hero background, sync both inputs
+          if (targetId === 'img-hero-ganga-aarti' || targetId === 'img-hero-quick') {
+            setImgFieldAndPreview('img-hero-ganga-aarti', 'preview-hero-bg', url);
+            setImgFieldAndPreview('img-hero-quick', 'preview-hero-quick', url);
+          }
+          showToast('✓ Image applied! Click "Save All Changes" to publish.');
+        });
+      });
+    });
+
+    // Attach Preset Buttons Listeners
+    document.querySelectorAll('.btn-preset-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const previewId = btn.dataset.preview;
+        const val = btn.dataset.val;
+        setImgFieldAndPreview(targetId, previewId, val);
+        if (targetId === 'img-hero-ganga-aarti' || targetId === 'img-hero-quick') {
+          setImgFieldAndPreview('img-hero-ganga-aarti', 'preview-hero-bg', val);
+          setImgFieldAndPreview('img-hero-quick', 'preview-hero-quick', val);
+        }
+        showToast('✓ Preset applied: ' + btn.textContent.trim());
+      });
+    });
+
+    // Manual typing on image input updates preview immediately
+    document.querySelectorAll('.image-control-card input[type="text"], .sync-hero-img').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const val = e.target.value.trim();
+        const id = e.target.id;
+        if (id === 'img-hero-ganga-aarti' || id === 'img-hero-quick') {
+          setImgFieldAndPreview('img-hero-ganga-aarti', 'preview-hero-bg', val);
+          setImgFieldAndPreview('img-hero-quick', 'preview-hero-quick', val);
+        } else {
+          const card = e.target.closest('.image-control-card');
+          if (card) {
+            const preview = card.querySelector('.image-preview-frame img');
+            if (preview) preview.src = val;
+          }
+        }
+      });
+    });
 
     // Load initial config (Server API with localStorage fallback)
     async function loadConfig() {

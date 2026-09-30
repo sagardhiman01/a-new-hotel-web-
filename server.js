@@ -46,7 +46,7 @@ const server = http.createServer((req, res) => {
     let body = '';
     req.on('data', chunk => {
       body += chunk.toString();
-      if (body.length > 1e6) { // 1MB limit
+      if (body.length > 30e6) { // 30MB limit
         req.destroy();
       }
     });
@@ -66,6 +66,65 @@ const server = http.createServer((req, res) => {
       } catch (parseErr) {
         res.writeHead(400, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Invalid JSON payload' }));
+      }
+    });
+    return;
+  }
+
+  // API Route: POST /api/upload (Upload image directly to assets/images/)
+  if (reqUrl === '/api/upload' && req.method === 'POST') {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk.toString();
+      if (body.length > 30e6) { // 30MB limit
+        req.destroy();
+      }
+    });
+
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body);
+        const { filename, data } = payload;
+        if (!data) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: 'No image data provided' }));
+          return;
+        }
+
+        // Support Data URI format: "data:image/jpeg;base64,..."
+        const matches = data.match(/^data:image\/([a-zA-Z0-9+]+);base64,(.+)$/);
+        let ext = 'jpg';
+        let base64Content = data;
+        if (matches) {
+          ext = matches[1].toLowerCase().replace('jpeg', 'jpg');
+          base64Content = matches[2];
+        }
+
+        // Clean filename
+        const baseName = (filename || 'uploaded_image')
+          .replace(/\.[^/.]+$/, '')
+          .replace(/[^a-zA-Z0-9_-]/g, '_')
+          .toLowerCase();
+        const safeFileName = `upload_${Date.now()}_${baseName}.${ext}`;
+        const targetPath = path.join(ROOT_DIR, 'assets', 'images', safeFileName);
+
+        fs.writeFile(targetPath, Buffer.from(base64Content, 'base64'), (err) => {
+          if (err) {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Failed to save image file: ' + err.message }));
+            return;
+          }
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({
+            success: true,
+            url: `assets/images/${safeFileName}`,
+            filename: safeFileName,
+            message: 'Image uploaded and saved successfully'
+          }));
+        });
+      } catch (err) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid upload payload' }));
       }
     });
     return;

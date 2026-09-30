@@ -21,6 +21,17 @@
     "headlineSub": "Sanctuary by the Ganges.",
     "subtext": "Welcoming pilgrims and discerning travelers to Haridwar’s premier hospitality sanctuary. Featuring 32 boutique AC rooms, a 150-guest grand banquet ballroom, dedicated Char Dham Yatra desk, and the legendary 200-capacity Mohan Ji Poori Wale pure vegetarian dining heritage."
   },
+  "images": {
+    "heroGangaAarti": "assets/images/ganga_aarti_hero.jpg",
+    "atmosphereAarti": "assets/images/hotel_suite_aarti.jpg",
+    "roomStandard": "assets/images/hotel_room_twin.jpg",
+    "roomDeluxe": "assets/images/img_room1.jpg",
+    "roomFamily": "assets/images/hotel_room_family.jpg",
+    "roomTwin": "assets/images/hotel_room_twin.jpg",
+    "diningFeature": "assets/images/img_restaurant_1.jpg",
+    "diningHall": "assets/images/img_resto6.jpg",
+    "banquetFeature": "assets/images/banquet_hall_grand.jpg"
+  },
   "tariffs": {
     "standard": {
       "ep": 3500,
