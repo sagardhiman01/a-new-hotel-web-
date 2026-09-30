@@ -922,11 +922,15 @@ p {
   font-family: var(--font-serif);
   font-size: clamp(3.2rem, 7.5vw, 6.8rem);
   font-weight: 200;
-  line-height: 0.96;
+  line-height: 1.08;
   letter-spacing: 0.05em;
   color: #FFFFFF;
   margin-bottom: 24px;
   text-transform: uppercase;
+}
+
+.hero-headline #hero-headline-main {
+  display: block;
 }
 
 .hero-headline .italic-line {
@@ -935,11 +939,18 @@ p {
   font-weight: 300;
   letter-spacing: 0.04em;
   text-transform: none;
-  display: block;
-  margin-top: 10px;
+  display: inline-block;
+  line-height: 1.35;
+  padding-top: 0.05em;
+  padding-bottom: 0.35em;
+  padding-right: 0.45em;
+  padding-left: 0.05em;
+  margin-top: 4px;
   background: linear-gradient(135deg, #F5E6CC 0%, #E1C298 50%, #B89B74 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .hero-subtext {
