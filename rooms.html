@@ -116,7 +116,7 @@
   </nav>
 
   <!-- Page Banner Hero -->
-  <section class="page-banner-hero" style="background-image: linear-gradient(rgba(24,36,22,0.78), rgba(42,60,40,0.85)), url('assets/images/hotel_room_deluxe.jpg'); background-size: cover; background-position: center; padding: 90px 0 60px 0; text-align: center; color: #fff;">
+  <section class="page-banner-hero" style="background-image: linear-gradient(rgba(24,36,22,0.78), rgba(42,60,40,0.85)), url('assets/images/suite_luxury_featured.jpg'); background-size: cover; background-position: center; padding: 90px 0 60px 0; text-align: center; color: #fff;">
     <div class="container">
       <span class="hero-badge-pill">
         <span class="hero-badge-dot"></span>
@@ -142,9 +142,12 @@
         <div class="input-field-group">
           <label>Suite Category</label>
           <select class="custom-select">
-            <option value="Standard AC Room">Standard AC Room (₹4,000)</option>
             <option value="Deluxe AC Room" selected>Deluxe AC Room (₹5,000)</option>
+            <option value="Super Deluxe AC Room">Super Deluxe AC Room (₹5,500)</option>
+            <option value="Superior AC Room">Superior Balcony Room (₹5,000)</option>
+            <option value="Executive Gold Suite">Executive Gold Suite (₹6,000)</option>
             <option value="Family Suite AC">Family Suite AC (₹8,000)</option>
+            <option value="Standard AC Room">Standard AC Room (₹4,000)</option>
           </select>
         </div>
         <div class="input-field-group">
@@ -172,63 +175,20 @@
         </div>
         <div class="rooms-filter-nav">
           <button class="filter-btn active" data-filter="all">All (32 Rooms)</button>
-          <button class="filter-btn" data-filter="standard">Standard</button>
           <button class="filter-btn" data-filter="deluxe">Deluxe</button>
+          <button class="filter-btn" data-filter="super_deluxe">Super Deluxe</button>
+          <button class="filter-btn" data-filter="superior">Superior Balcony</button>
+          <button class="filter-btn" data-filter="executive">Executive</button>
           <button class="filter-btn" data-filter="family">Family Grandeur</button>
-          <button class="filter-btn" data-filter="twin">Executive Twin</button>
+          <button class="filter-btn" data-filter="standard">Standard</button>
         </div>
       </div>
 
       <div class="rooms-grid">
-        <!-- Room 1: Standard AC Room -->
-        <article class="room-card" data-category="standard">
-          <div class="room-card-media">
-            <img src="assets/images/img_room1.jpg" alt="Standard AC Room" class="room-card-img" loading="lazy">
-            <span class="room-tag-badge">PILGRIM'S CHOICE</span>
-            <div class="room-price-badge">₹4,000<small>/ Night</small></div>
-          </div>
-          <div class="room-card-body">
-            <h3 class="room-type-title">Standard AC Room</h3>
-            <div class="room-compact-pills">
-              <span class="room-pill">2 Guests</span>
-              <span class="room-pill">180 sqft</span>
-              <span class="room-pill">Queen Bed</span>
-            </div>
-            <p class="room-card-teaser">
-              Peaceful, well-appointed sanctum with orthopedic queen bed, air-conditioning, and attached pristine bath.
-            </p>
-            <button type="button" class="btn-room-more-info" aria-expanded="false" aria-controls="rooms-page-details-std">
-              <span class="more-info-label">More Info</span>
-              <svg class="chevron-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="room-card-expanded-content" id="rooms-page-details-std">
-              <div class="room-expanded-inner">
-                <p class="room-card-desc">Peaceful, well-appointed sanctum with queen-size orthopedic mattress, air-conditioning, attached pristine bath, and hot water.</p>
-                <div class="room-specs-list">
-                  <div class="room-spec-item"><span>2 Guests</span></div>
-                  <div class="room-spec-item"><span>Queen Bed</span></div>
-                  <div class="room-spec-item"><span>24/7 Hot Water</span></div>
-                  <div class="room-spec-item"><span>180 sqft Area</span></div>
-                </div>
-                <div class="room-amenities-tags">
-                  <span class="room-amenity-tag">Queen Bed</span>
-                  <span class="room-amenity-tag">Attached Bath</span>
-                  <span class="room-amenity-tag">5G Wi-Fi</span>
-                  <span class="room-amenity-tag">Daily Housekeeping</span>
-                </div>
-              </div>
-            </div>
-            <div class="room-card-footer">
-              <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Standard AC Room">Reserve Room</button>
-              <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="room-book-engine-link">Book Engine ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Room 2: Deluxe AC Room -->
+        <!-- Room 1: Deluxe AC Room (Real Featured Living Shot) -->
         <article class="room-card" data-category="deluxe">
           <div class="room-card-media">
-            <img src="assets/images/hotel_room_deluxe.jpg" alt="Deluxe AC Room" class="room-card-img" loading="lazy">
+            <img src="assets/images/suite_luxury_featured.jpg" alt="Deluxe AC Room at Hotel Mohan Inn" class="room-card-img" loading="lazy">
             <span class="room-tag-badge">MOST POPULAR</span>
             <div class="room-price-badge">₹5,000<small>/ Night</small></div>
           </div>
@@ -236,11 +196,11 @@
             <h3 class="room-type-title">Deluxe AC Room</h3>
             <div class="room-compact-pills">
               <span class="room-pill">2 Adults</span>
-              <span class="room-pill">220 sqft</span>
+              <span class="room-pill">240 sqft</span>
               <span class="room-pill">King Orthopedic</span>
             </div>
             <p class="room-card-teaser">
-              Refurbished with contemporary styling and mountain vistas, ambient lighting, work desk, and breakfast.
+              Elegantly styled suite with two plush lounge armchairs, coffee table, ambient LED cove lighting, work desk, and king bedding.
             </p>
             <button type="button" class="btn-room-more-info" aria-expanded="false" aria-controls="rooms-page-details-dlx">
               <span class="more-info-label">More Info</span>
@@ -248,15 +208,15 @@
             </button>
             <div class="room-card-expanded-content" id="rooms-page-details-dlx">
               <div class="room-expanded-inner">
-                <p class="room-card-desc">Refurbished with contemporary styling and mountain vistas. Equipped with king bedding, ambient lighting, work desk, and breakfast inclusions.</p>
+                <p class="room-card-desc">Equipped with royal king bedding, dedicated sitting lounge with twin armchairs, ambient cove lighting, 43" Smart TV, and complimentary breakfast by Mohan Ji Poori Wale.</p>
                 <div class="room-specs-list">
                   <div class="room-spec-item"><span>2 Adults</span></div>
                   <div class="room-spec-item"><span>King Orthopedic</span></div>
-                  <div class="room-spec-item"><span>Breakfast Included</span></div>
-                  <div class="room-spec-item"><span>220 sqft Area</span></div>
+                  <div class="room-spec-item"><span>Sitting Lounge</span></div>
+                  <div class="room-spec-item"><span>240 sqft Area</span></div>
                 </div>
                 <div class="room-amenities-tags">
-                  <span class="room-amenity-tag">Mountain Views</span>
+                  <span class="room-amenity-tag">Twin Armchairs</span>
                   <span class="room-amenity-tag">Breakfast Included</span>
                   <span class="room-amenity-tag">24/7 Hot Shower</span>
                   <span class="room-amenity-tag">Tea/Coffee Station</span>
@@ -270,22 +230,157 @@
           </div>
         </article>
 
-        <!-- Room 3: Family Suite AC -->
+        <!-- Room 2: Super Deluxe AC Room (Real Fluted Wood & Marble) -->
+        <article class="room-card" data-category="super_deluxe">
+          <div class="room-card-media">
+            <img src="assets/images/room_super_deluxe.jpg" alt="Super Deluxe AC Room" class="room-card-img" loading="lazy">
+            <span class="room-tag-badge">PREMIUM DESIGN</span>
+            <div class="room-price-badge">₹5,500<small>/ Night</small></div>
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-type-title">Super Deluxe AC Room</h3>
+            <div class="room-compact-pills">
+              <span class="room-pill">2 Adults</span>
+              <span class="room-pill">260 sqft</span>
+              <span class="room-pill">King Bed</span>
+            </div>
+            <p class="room-card-teaser">
+              Architectural masterpiece featuring fluted teak ceilings, dark marble accent wall, upholstered headboard, and floral seating.
+            </p>
+            <button type="button" class="btn-room-more-info" aria-expanded="false" aria-controls="rooms-page-details-super-dlx">
+              <span class="more-info-label">More Info</span>
+              <svg class="chevron-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="room-card-expanded-content" id="rooms-page-details-super-dlx">
+              <div class="room-expanded-inner">
+                <p class="room-card-desc">Features custom fluted wood ceiling with perimeter ambient warm lighting, full-width executive desk, floral accent armchairs, and luxury porcelain bath.</p>
+                <div class="room-specs-list">
+                  <div class="room-spec-item"><span>2 Adults</span></div>
+                  <div class="room-spec-item"><span>Fluted Wood Ceiling</span></div>
+                  <div class="room-spec-item"><span>Marble Feature Wall</span></div>
+                  <div class="room-spec-item"><span>260 sqft Area</span></div>
+                </div>
+                <div class="room-amenities-tags">
+                  <span class="room-amenity-tag">Architectural Ceiling</span>
+                  <span class="room-amenity-tag">LED TV Console</span>
+                  <span class="room-amenity-tag">Ultra Silent AC</span>
+                  <span class="room-amenity-tag">High-Speed Wi-Fi</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-footer">
+              <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Super Deluxe AC Room">Reserve Room</button>
+              <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="room-book-engine-link">Book Engine ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 3: Superior AC Room with Private Garden Balcony -->
+        <article class="room-card" data-category="superior">
+          <div class="room-card-media">
+            <img src="assets/images/room_superior_balcony.jpg" alt="Superior AC Room with Garden Balcony" class="room-card-img" loading="lazy">
+            <span class="room-tag-badge">PRIVATE BALCONY</span>
+            <div class="room-price-badge">₹5,000<small>/ Night</small></div>
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-type-title">Superior Room with Balcony</h3>
+            <div class="room-compact-pills">
+              <span class="room-pill">2 Adults</span>
+              <span class="room-pill">250 sqft</span>
+              <span class="room-pill">Private Balcony</span>
+            </div>
+            <p class="room-card-teaser">
+              Step out onto your private balcony overlooking green trees and mountain breeze, complete with outdoor wicker chairs and tea table.
+            </p>
+            <button type="button" class="btn-room-more-info" aria-expanded="false" aria-controls="rooms-page-details-superior">
+              <span class="more-info-label">More Info</span>
+              <svg class="chevron-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="room-card-expanded-content" id="rooms-page-details-superior">
+              <div class="room-expanded-inner">
+                <p class="room-card-desc">Bask in natural Himalayan daylight with sliding glass doors opening to a private balcony with wicker chairs, geometric wall decor, and Mitsubishi Electric air-conditioning.</p>
+                <div class="room-specs-list">
+                  <div class="room-spec-item"><span>2 Adults</span></div>
+                  <div class="room-spec-item"><span>Balcony Seating</span></div>
+                  <div class="room-spec-item"><span>Lush Tree Views</span></div>
+                  <div class="room-spec-item"><span>250 sqft Area</span></div>
+                </div>
+                <div class="room-amenities-tags">
+                  <span class="room-amenity-tag">Private Balcony</span>
+                  <span class="room-amenity-tag">Wicker Outdoor Chairs</span>
+                  <span class="room-amenity-tag">Mitsubishi AC</span>
+                  <span class="room-amenity-tag">Soundproof Glass</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-footer">
+              <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Superior Room with Balcony">Reserve Room</button>
+              <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="room-book-engine-link">Book Engine ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 4: Executive Gold Suite -->
+        <article class="room-card" data-category="executive">
+          <div class="room-card-media">
+            <img src="assets/images/room_executive_gold.jpg" alt="Executive Gold Suite" class="room-card-img" loading="lazy">
+            <span class="room-tag-badge">EXECUTIVE CLASS</span>
+            <div class="room-price-badge">₹6,000<small>/ Night</small></div>
+          </div>
+          <div class="room-card-body">
+            <h3 class="room-type-title">Executive Gold Suite</h3>
+            <div class="room-compact-pills">
+              <span class="room-pill">2 Adults</span>
+              <span class="room-pill">280 sqft</span>
+              <span class="room-pill">King Bed</span>
+            </div>
+            <p class="room-card-teaser">
+              Opulent styling with shimmering gold-textured backdrop, tufted headboard, fluted ceiling accents, and marble workstation.
+            </p>
+            <button type="button" class="btn-room-more-info" aria-expanded="false" aria-controls="rooms-page-details-exec">
+              <span class="more-info-label">More Info</span>
+              <svg class="chevron-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="room-card-expanded-content" id="rooms-page-details-exec">
+              <div class="room-expanded-inner">
+                <p class="room-card-desc">Bespoke luxury featuring gold-gilded acoustic headboard, solid wood wardrobe, brass finish accents, bedside lighting controls, and dedicated business desk.</p>
+                <div class="room-specs-list">
+                  <div class="room-spec-item"><span>2 Adults</span></div>
+                  <div class="room-spec-item"><span>Gold Accent Wall</span></div>
+                  <div class="room-spec-item"><span>Full Wardrobe</span></div>
+                  <div class="room-spec-item"><span>280 sqft Area</span></div>
+                </div>
+                <div class="room-amenities-tags">
+                  <span class="room-amenity-tag">Gold Backdrop</span>
+                  <span class="room-amenity-tag">Workstation Desk</span>
+                  <span class="room-amenity-tag">Attached Luxury Bath</span>
+                  <span class="room-amenity-tag">Express Room Service</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-footer">
+              <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Executive Gold Suite">Reserve Room</button>
+              <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="room-book-engine-link">Book Engine ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 5: Family Grandeur Suite AC (4 Guests) -->
         <article class="room-card" data-category="family">
           <div class="room-card-media">
-            <img src="assets/images/hotel_room_family.jpg" alt="Family Suite AC" class="room-card-img" loading="lazy">
+            <img src="assets/images/room_family_suite_twin.jpg" alt="Family Suite AC" class="room-card-img" loading="lazy">
             <span class="room-tag-badge">FAMILY GRANDEUR</span>
             <div class="room-price-badge">₹8,000<small>/ Night</small></div>
           </div>
           <div class="room-card-body">
-            <h3 class="room-type-title">Family Suite AC</h3>
+            <h3 class="room-type-title">Family Grandeur Suite (4 Guests)</h3>
             <div class="room-compact-pills">
               <span class="room-pill">4+ Family</span>
               <span class="room-pill">350 sqft</span>
               <span class="room-pill">2 Double Beds</span>
             </div>
             <p class="room-card-teaser">
-              Our signature suite spanning 350 sqft. Furnished with two double beds, luxury bath, and sofa lounge.
+              Spacious 350 sqft signature family sanctuary furnished with two full double beds, marble wall, fluted paneling, and towel art.
             </p>
             <button type="button" class="btn-room-more-info" aria-expanded="false" aria-controls="rooms-page-details-fam">
               <span class="more-info-label">More Info</span>
@@ -293,68 +388,68 @@
             </button>
             <div class="room-card-expanded-content" id="rooms-page-details-fam">
               <div class="room-expanded-inner">
-                <p class="room-card-desc">Our most spacious signature suite spanning 350 sqft. Furnished with two double beds, luxury bath, and sofa lounge for comfortable family travel.</p>
+                <p class="room-card-desc">Specially designed for pilgrim families visiting Haridwar. Featuring 2 large double beds with plush mattresses, marble feature wall, fluted teak accents, and large attached bath.</p>
                 <div class="room-specs-list">
                   <div class="room-spec-item"><span>4+ Family</span></div>
                   <div class="room-spec-item"><span>2 Double Beds</span></div>
-                  <div class="room-spec-item"><span>Sofa Lounge</span></div>
+                  <div class="room-spec-item"><span>Marble Feature Wall</span></div>
                   <div class="room-spec-item"><span>350 sqft Area</span></div>
                 </div>
                 <div class="room-amenities-tags">
-                  <span class="room-amenity-tag">2 Double Beds</span>
-                  <span class="room-amenity-tag">Sofa Lounge</span>
-                  <span class="room-amenity-tag">Mini Fridge</span>
-                  <span class="room-amenity-tag">Family Dining Service</span>
+                  <span class="room-amenity-tag">2 Full Double Beds</span>
+                  <span class="room-amenity-tag">Family Sitting Area</span>
+                  <span class="room-amenity-tag">Geyser Hot Water</span>
+                  <span class="room-amenity-tag">In-Room Dining</span>
                 </div>
               </div>
             </div>
             <div class="room-card-footer">
-              <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Family Suite AC">Reserve Room</button>
+              <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Family Grandeur Suite (4 Guests)">Reserve Room</button>
               <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="room-book-engine-link">Book Engine ↗</a>
             </div>
           </div>
         </article>
 
-        <!-- Room 4: Executive Twin AC Room -->
-        <article class="room-card" data-category="twin">
+        <!-- Room 6: Standard AC Room -->
+        <article class="room-card" data-category="standard">
           <div class="room-card-media">
-            <img src="assets/images/hotel_room_twin.jpg" alt="Executive Twin Room" class="room-card-img" loading="lazy">
-            <span class="room-tag-badge">TWIN LUXURY</span>
-            <div class="room-price-badge">₹4,500<small>/ Night</small></div>
+            <img src="assets/images/room_happy_stay_bed.jpg" alt="Standard AC Room" class="room-card-img" loading="lazy">
+            <span class="room-tag-badge">PILGRIM'S CHOICE</span>
+            <div class="room-price-badge">₹4,000<small>/ Night</small></div>
           </div>
           <div class="room-card-body">
-            <h3 class="room-type-title">Executive Twin AC Room</h3>
+            <h3 class="room-type-title">Standard AC Room</h3>
             <div class="room-compact-pills">
-              <span class="room-pill">2 Adults</span>
+              <span class="room-pill">2 Guests</span>
               <span class="room-pill">200 sqft</span>
-              <span class="room-pill">2 Twin Beds</span>
+              <span class="room-pill">Queen Bed</span>
             </div>
             <p class="room-card-teaser">
-              Designed with two separated individual plush beds for colleagues, friends, or yatra companions.
+              Peaceful, well-appointed sanctum with orthopedic queen bed, air-conditioning, extra floor bed option, and attached bath.
             </p>
-            <button type="button" class="btn-room-more-info" aria-expanded="false" aria-controls="rooms-page-details-twin">
+            <button type="button" class="btn-room-more-info" aria-expanded="false" aria-controls="rooms-page-details-std">
               <span class="more-info-label">More Info</span>
               <svg class="chevron-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
-            <div class="room-card-expanded-content" id="rooms-page-details-twin">
+            <div class="room-card-expanded-content" id="rooms-page-details-std">
               <div class="room-expanded-inner">
-                <p class="room-card-desc">Designed with two separated individual plush beds for colleagues, friends, or yatra companions seeking dedicated comfort and privacy.</p>
+                <p class="room-card-desc">Peaceful, well-appointed sanctum with queen-size orthopedic mattress, air-conditioning, attached pristine bath, and extra mattress accommodation if required.</p>
                 <div class="room-specs-list">
-                  <div class="room-spec-item"><span>2 Adults</span></div>
-                  <div class="room-spec-item"><span>2 Separate Twin Beds</span></div>
-                  <div class="room-spec-item"><span>Executive Desk</span></div>
+                  <div class="room-spec-item"><span>2 Guests</span></div>
+                  <div class="room-spec-item"><span>Queen Bed</span></div>
+                  <div class="room-spec-item"><span>24/7 Hot Water</span></div>
                   <div class="room-spec-item"><span>200 sqft Area</span></div>
                 </div>
                 <div class="room-amenities-tags">
-                  <span class="room-amenity-tag">2 Separate Beds</span>
-                  <span class="room-amenity-tag">Executive Desk</span>
-                  <span class="room-amenity-tag">High-Speed Wi-Fi</span>
+                  <span class="room-amenity-tag">Queen Bed</span>
                   <span class="room-amenity-tag">Attached Bath</span>
+                  <span class="room-amenity-tag">5G Wi-Fi</span>
+                  <span class="room-amenity-tag">Daily Housekeeping</span>
                 </div>
               </div>
             </div>
             <div class="room-card-footer">
-              <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Executive Twin AC Room">Reserve Room</button>
+              <button class="btn-bhagwa-primary btn-brass-small open-reserve-modal-btn" data-room="Standard AC Room">Reserve Room</button>
               <a href="https://hotels.eglobe-solutions.com/hotelmohaninn/booking/hotels/hotel-mohan-inn-haridwar" target="_blank" rel="noopener noreferrer" class="room-book-engine-link">Book Engine ↗</a>
             </div>
           </div>

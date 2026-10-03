@@ -22,12 +22,13 @@
     "subtext": "Welcoming pilgrims and discerning travelers to Haridwar’s premier hospitality sanctuary. Featuring 32 boutique AC rooms, a 150-guest grand banquet ballroom, dedicated Char Dham Yatra desk, and the legendary 200-capacity Mohan Ji Poori Wale pure vegetarian dining heritage."
   },
   "images": {
-    "heroGangaAarti": "assets/images/ganga_aarti_hero.jpg",
-    "atmosphereAarti": "assets/images/hotel_suite_aarti.jpg",
-    "roomStandard": "assets/images/hotel_room_twin.jpg",
-    "roomDeluxe": "assets/images/img_room1.jpg",
-    "roomFamily": "assets/images/hotel_room_family.jpg",
-    "roomTwin": "assets/images/hotel_room_twin.jpg",
+    "heroHotelFront": "assets/images/hotel_front_hero.jpg",
+    "heroGangaAarti": "assets/images/hotel_front_hero.jpg",
+    "atmosphereAarti": "assets/images/exterior_facade_night.jpg",
+    "roomStandard": "assets/images/room_happy_stay_bed.jpg",
+    "roomDeluxe": "assets/images/suite_luxury_featured.jpg",
+    "roomFamily": "assets/images/room_family_suite_twin.jpg",
+    "roomTwin": "assets/images/room_superior_balcony.jpg",
     "diningFeature": "assets/images/img_restaurant_1.jpg",
     "diningHall": "assets/images/img_resto6.jpg",
     "banquetFeature": "assets/images/banquet_hall_grand.jpg"
@@ -96,142 +97,142 @@
   "gallery": [
     {
       "id": "gal-1",
-      "category": "rooms",
-      "img": "assets/images/img_room1.jpg",
-      "title": "Deluxe AC King Suite (Real View)",
-      "tag": "BOUTIQUE AC SUITES"
+      "category": "facade",
+      "img": "assets/images/exterior_facade_night.jpg",
+      "title": "Hotel Mohan Inn Grand Illumination & Mohan Ji Puri Wale",
+      "tag": "HOTEL EXTERIOR & FACADE"
     },
     {
       "id": "gal-2",
       "category": "rooms",
-      "img": "assets/images/hotel_room_deluxe.jpg",
-      "title": "Boutique AC King Suite",
-      "tag": "BOUTIQUE AC SUITES"
+      "img": "assets/images/suite_luxury_featured.jpg",
+      "title": "Executive Luxury Suite & King Bed Living",
+      "tag": "LUXURY SUITES"
     },
     {
       "id": "gal-3",
       "category": "rooms",
-      "img": "assets/images/hotel_room_family.jpg",
-      "title": "Family Grandeur Suite (350 sqft)",
-      "tag": "FAMILY AC SUITE"
+      "img": "assets/images/room_superior_balcony.jpg",
+      "title": "Superior AC Room with Garden Balcony View",
+      "tag": "SUPERIOR BALCONY ROOM"
     },
     {
       "id": "gal-4",
       "category": "rooms",
-      "img": "assets/images/hotel_room_twin.jpg",
-      "title": "Executive Twin Bedded AC Room",
-      "tag": "TWIN AC ROOM"
+      "img": "assets/images/room_super_deluxe.jpg",
+      "title": "Super Deluxe AC Room (Fluted Wood & Marble)",
+      "tag": "SUPER DELUXE SUITE"
     },
     {
       "id": "gal-5",
       "category": "rooms",
-      "img": "assets/images/img_rooms_2.jpg",
-      "title": "Heritage Double AC Suite",
-      "tag": "HERITAGE AC SUITE"
+      "img": "assets/images/room_family_suite_twin.jpg",
+      "title": "Family Grandeur Twin Double Suite (4 Guests)",
+      "tag": "FAMILY AC SUITE"
     },
     {
       "id": "gal-6",
       "category": "rooms",
-      "img": "assets/images/img_gallery_slider7.jpg",
-      "title": "Modern En-Suite Bathroom (Shower)",
-      "tag": "EN-SUITE AMENITIES"
+      "img": "assets/images/room_executive_gold.jpg",
+      "title": "Executive Room with Gold Accent & Wooden Ceiling",
+      "tag": "EXECUTIVE SUITE"
     },
     {
       "id": "gal-7",
-      "category": "rooms",
-      "img": "assets/images/img_gallery_rooms10.jpg",
-      "title": "Attached Bathroom Vanity & Mirror",
-      "tag": "EN-SUITE AMENITIES"
+      "category": "facade",
+      "img": "assets/images/exterior_entrance_night.jpg",
+      "title": "Night Portico, Glass Entrance & 24/7 Reception",
+      "tag": "ENTRANCE & RECEPTION"
     },
     {
       "id": "gal-8",
-      "category": "facade",
-      "img": "assets/images/img_gallery_rooms5.jpg",
-      "title": "Grand Entrance & Highway Facade",
-      "tag": "FACADE & HIGHWAY SANCTUARY"
+      "category": "rooms",
+      "img": "assets/images/room_bathroom_luxury.jpg",
+      "title": "Modern En-Suite Bath with Glass Shower Partition",
+      "tag": "EN-SUITE AMENITIES"
     },
     {
       "id": "gal-9",
-      "category": "facade",
-      "img": "assets/images/img_gallery_slider5.jpg",
-      "title": "Arrival Steps & Glass Portico",
-      "tag": "ENTRANCE ARCHITECTURE"
+      "category": "rooms",
+      "img": "assets/images/room_happy_stay_bed.jpg",
+      "title": "Bespoke Welcome Room & Extra Bed Setup",
+      "tag": "SUITES & COMFORTS"
     },
     {
       "id": "gal-10",
-      "category": "facade",
-      "img": "assets/images/img_slider_1.jpg",
-      "title": "Warm Pilgrimage Reception",
-      "tag": "FRONT DESK & LOBBY"
+      "category": "rooms",
+      "img": "assets/images/suite_deluxe_wide.jpg",
+      "title": "Deluxe Suite Panoramic Layout & LED Console",
+      "tag": "DELUXE AC SUITES"
     },
     {
       "id": "gal-11",
-      "category": "dining",
-      "img": "assets/images/img_resto6.jpg",
-      "title": "200 Pax AC Restaurant Dining",
-      "tag": "HERITAGE DINING"
+      "category": "facade",
+      "img": "assets/images/exterior_campus_dusk.jpg",
+      "title": "Highway Sanctuary Campus & Ample Car Parking",
+      "tag": "HIGHWAY CAMPUS"
     },
     {
       "id": "gal-12",
-      "category": "dining",
-      "img": "assets/images/img_restaurant_1.jpg",
-      "title": "Signature Bedmi Poori Platter",
-      "tag": "MOHAN JI SPECIAL"
+      "category": "rooms",
+      "img": "assets/images/room_tea_coffee_amenity.jpg",
+      "title": "In-Room Tea/Coffee Maker Amenity Station",
+      "tag": "IN-ROOM AMENITIES"
     },
     {
       "id": "gal-13",
       "category": "dining",
-      "img": "assets/images/img_gallery_ggn2.jpg",
-      "title": "Bedmi Poori & Spicy Chana",
-      "tag": "BREAKFAST HERITAGE"
+      "img": "assets/images/mohan_ji_poori_wale.jpg",
+      "title": "Mohan Ji Poori Wale Heritage Restaurant (200 Pax)",
+      "tag": "HERITAGE RESTAURANT"
     },
     {
       "id": "gal-14",
       "category": "dining",
-      "img": "assets/images/img_gallery_ggn3.jpg",
-      "title": "Kadhi Pakoda & Basmati Rice",
-      "tag": "PURE VEG THALI"
+      "img": "assets/images/img_restaurant_1.jpg",
+      "title": "Signature Bedmi Poori & Mathura Aloo Platter",
+      "tag": "MOHAN JI SPECIAL"
     },
     {
       "id": "gal-15",
       "category": "dining",
-      "img": "assets/images/img_gallery_ggn4.jpg",
-      "title": "Desi Ghee Halwa & Sweets",
-      "tag": "SWEETS & SNACKS"
+      "img": "assets/images/img_resto3.jpg",
+      "title": "Desi Ghee Bedmi Poori & Spicy Chana",
+      "tag": "BREAKFAST HERITAGE"
     },
     {
       "id": "gal-16",
       "category": "dining",
-      "img": "assets/images/img_gallery_ggn5.jpg",
-      "title": "Special Raj Kachori & Chaat",
-      "tag": "HARIDWAR STREET CHAT"
+      "img": "assets/images/img_resto4.jpg",
+      "title": "Hot Crisp Jalebi with Creamy Rabri",
+      "tag": "SACRED SWEETS"
     },
     {
       "id": "gal-17",
-      "category": "events",
-      "img": "assets/images/banquet_hall_grand.jpg",
-      "title": "150 Pax AC Banquet Ballroom",
-      "tag": "EVENT BALLROOM"
+      "category": "dining",
+      "img": "assets/images/img_resto6.jpg",
+      "title": "200 Pax AC Restaurant Dining Hall",
+      "tag": "HERITAGE DINING"
     },
     {
       "id": "gal-18",
       "category": "events",
-      "img": "assets/images/img_slider_3.jpg",
-      "title": "Sandhya Maha Aarti (10 Mins Away)",
-      "tag": "SACRED HARIDWAR"
+      "img": "assets/images/banquet_hall_grand.jpg",
+      "title": "Grand 150 Pax Air-Conditioned Banquet Ballroom",
+      "tag": "EVENT BALLROOM"
     },
     {
       "id": "gal-19",
       "category": "events",
-      "img": "assets/images/img_slider_4.jpg",
-      "title": "Ganges River & Ghats View",
-      "tag": "DIVINE PILGRIMAGE"
+      "img": "assets/images/ganga_aarti_hero.jpg",
+      "title": "Har Ki Pauri Sandhya Maha Aarti (10 Mins Away)",
+      "tag": "SACRED HARIDWAR"
     },
     {
       "id": "gal-20",
       "category": "events",
-      "img": "assets/images/ganga_aarti_hero.jpg",
-      "title": "Twilight Ganga Ghat Prayers",
+      "img": "assets/images/img_slider_3.jpg",
+      "title": "Divine Ganga Ghat Evening Aarti",
       "tag": "GANGES SANCTUARY"
     }
   ]

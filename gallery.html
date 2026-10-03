@@ -101,7 +101,7 @@
   </nav>
 
   <!-- Gallery Banner -->
-  <section class="page-banner-hero" style="background-image: linear-gradient(rgba(24,36,22,0.80), rgba(42,60,40,0.88)), url('assets/images/img_gallery_slider5.jpg'); background-size: cover; background-position: center; padding: 90px 0 60px 0; text-align: center; color: #fff;">
+  <section class="page-banner-hero" style="background-image: linear-gradient(rgba(24,36,22,0.80), rgba(42,60,40,0.88)), url('assets/images/exterior_facade_night.jpg'); background-size: cover; background-position: center; padding: 90px 0 60px 0; text-align: center; color: #fff;">
     <div class="container">
       <span class="hero-badge-pill">
         <span class="hero-badge-dot"></span>
@@ -117,7 +117,7 @@
     <div class="container">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
         <div class="gallery-filter-nav" style="margin-bottom: 0;">
-          <button class="gallery-filter-btn active" data-filter="all">All Photos (16)</button>
+          <button class="gallery-filter-btn active" data-filter="all">All Photos (20)</button>
           <button class="gallery-filter-btn" data-filter="rooms">Suites &amp; Rooms</button>
           <button class="gallery-filter-btn" data-filter="facade">Campus &amp; Facade</button>
           <button class="gallery-filter-btn" data-filter="dining">Mohan Ji Poori Wale</button>
@@ -126,76 +126,143 @@
       </div>
 
       <div class="gallery-grid" id="gallery-container">
-        <!-- 1 -->
-        <div class="gallery-card" data-category="rooms" data-img="assets/images/img_room1.jpg" data-title="Deluxe AC King Suite" data-tag="BOUTIQUE AC SUITES">
-          <img src="assets/images/img_room1.jpg" alt="Deluxe AC Room" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">BOUTIQUE AC SUITES</span><h4 class="gallery-title">Deluxe AC King Suite</h4></div>
+        <!-- 1: Real Facade Night -->
+        <div class="gallery-card" data-category="facade" data-img="assets/images/exterior_facade_night.jpg" data-title="Hotel Mohan Inn Grand Illumination &amp; Mohan Ji Puri Wale" data-tag="HOTEL EXTERIOR &amp; FACADE">
+          <img src="assets/images/exterior_facade_night.jpg" alt="Hotel Mohan Inn Grand Illumination" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">EXTERIOR &amp; FACADE</span><h4 class="gallery-title">Hotel Mohan Inn &amp; Mohan Ji Puri Wale</h4></div>
           <div class="gallery-zoom-icon">⤢</div>
         </div>
-        <!-- 2 -->
-        <div class="gallery-card" data-category="rooms" data-img="assets/images/hotel_room_deluxe.jpg" data-title="Boutique AC King Suite with Mountain View" data-tag="BOUTIQUE AC SUITES">
-          <img src="assets/images/hotel_room_deluxe.jpg" alt="Boutique Suite" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">BOUTIQUE AC SUITES</span><h4 class="gallery-title">Boutique AC King Suite</h4></div>
+
+        <!-- 2: Real Executive Luxury Suite -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/suite_luxury_featured.jpg" data-title="Executive Luxury Suite &amp; King Bed Living" data-tag="LUXURY SUITES">
+          <img src="assets/images/suite_luxury_featured.jpg" alt="Executive Luxury Suite &amp; King Bed Living" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">LUXURY SUITES</span><h4 class="gallery-title">Executive Luxury Suite</h4></div>
           <div class="gallery-zoom-icon">⤢</div>
         </div>
-        <!-- 3 -->
-        <div class="gallery-card" data-category="rooms" data-img="assets/images/hotel_room_family.jpg" data-title="Family Grandeur Suite (350 sqft)" data-tag="FAMILY AC SUITE">
-          <img src="assets/images/hotel_room_family.jpg" alt="Family Suite" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">FAMILY AC SUITE</span><h4 class="gallery-title">Family Grandeur Suite (350 sqft)</h4></div>
+
+        <!-- 3: Real Superior Room with Balcony -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/room_superior_balcony.jpg" data-title="Superior AC Room with Garden Balcony View" data-tag="SUPERIOR BALCONY ROOM">
+          <img src="assets/images/room_superior_balcony.jpg" alt="Superior AC Room with Garden Balcony View" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">BALCONY SUITE</span><h4 class="gallery-title">Superior Room with Garden Balcony</h4></div>
           <div class="gallery-zoom-icon">⤢</div>
         </div>
-        <!-- 4 -->
-        <div class="gallery-card" data-category="rooms" data-img="assets/images/hotel_room_twin.jpg" data-title="Executive Twin Bedded AC Room" data-tag="TWIN AC ROOM">
-          <img src="assets/images/hotel_room_twin.jpg" alt="Twin Room" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">TWIN AC ROOM</span><h4 class="gallery-title">Executive Twin Bedded AC Room</h4></div>
+
+        <!-- 4: Real Super Deluxe Suite -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/room_super_deluxe.jpg" data-title="Super Deluxe AC Room (Fluted Wood &amp; Marble)" data-tag="SUPER DELUXE SUITE">
+          <img src="assets/images/room_super_deluxe.jpg" alt="Super Deluxe AC Room (Fluted Wood &amp; Marble)" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">SUPER DELUXE</span><h4 class="gallery-title">Super Deluxe AC Room</h4></div>
           <div class="gallery-zoom-icon">⤢</div>
         </div>
-        <!-- 5 -->
-        <div class="gallery-card" data-category="dining" data-img="assets/images/mohan_ji_poori_wale.jpg" data-title="Mohan Ji Poori Wale Restaurant (200 Pax)" data-tag="RESTAURANT">
+
+        <!-- 5: Real Family Suite -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/room_family_suite_twin.jpg" data-title="Family Grandeur Twin Double Suite (4 Guests)" data-tag="FAMILY AC SUITE">
+          <img src="assets/images/room_family_suite_twin.jpg" alt="Family Grandeur Twin Double Suite" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">FAMILY SUITE</span><h4 class="gallery-title">Family Grandeur Suite (4 Guests)</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 6: Real Executive Gold Room -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/room_executive_gold.jpg" data-title="Executive Room with Gold Accent &amp; Wooden Ceiling" data-tag="EXECUTIVE SUITE">
+          <img src="assets/images/room_executive_gold.jpg" alt="Executive Room with Gold Accent" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">EXECUTIVE SUITE</span><h4 class="gallery-title">Executive Gold Bedroom</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 7: Real Night Entrance & Reception -->
+        <div class="gallery-card" data-category="facade" data-img="assets/images/exterior_entrance_night.jpg" data-title="Night Portico, Glass Entrance &amp; 24/7 Reception" data-tag="ENTRANCE &amp; RECEPTION">
+          <img src="assets/images/exterior_entrance_night.jpg" alt="Night Portico &amp; Reception" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">ENTRANCE</span><h4 class="gallery-title">Night Portico &amp; Reception</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 8: Real Luxury Bathroom -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/room_bathroom_luxury.jpg" data-title="Modern En-Suite Bath with Glass Shower Partition" data-tag="EN-SUITE AMENITIES">
+          <img src="assets/images/room_bathroom_luxury.jpg" alt="Modern En-Suite Bath with Glass Shower" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">BATHROOM</span><h4 class="gallery-title">En-Suite Luxury Glass Shower</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 9: Real Happy Stay Bed Setup -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/room_happy_stay_bed.jpg" data-title="Bespoke Welcome Room &amp; Extra Bed Setup" data-tag="SUITES &amp; COMFORTS">
+          <img src="assets/images/room_happy_stay_bed.jpg" alt="Bespoke Welcome Room Setup" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">ROOM SETUP</span><h4 class="gallery-title">Bespoke Welcome Room Setup</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 10: Real Deluxe Wide Suite Layout -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/suite_deluxe_wide.jpg" data-title="Deluxe Suite Panoramic Layout &amp; LED Console" data-tag="DELUXE AC SUITES">
+          <img src="assets/images/suite_deluxe_wide.jpg" alt="Deluxe Suite Panoramic Layout" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">PANORAMIC SUITE</span><h4 class="gallery-title">Deluxe Suite Panoramic View</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 11: Real Highway Campus Dusk -->
+        <div class="gallery-card" data-category="facade" data-img="assets/images/exterior_campus_dusk.jpg" data-title="Highway Sanctuary Campus &amp; Ample Car Parking" data-tag="HIGHWAY CAMPUS">
+          <img src="assets/images/exterior_campus_dusk.jpg" alt="Highway Sanctuary Campus &amp; Car Parking" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">CAMPUS &amp; PARKING</span><h4 class="gallery-title">Highway Sanctuary Campus</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 12: Real In-room Tea/Coffee Maker -->
+        <div class="gallery-card" data-category="rooms" data-img="assets/images/room_tea_coffee_amenity.jpg" data-title="In-Room Tea/Coffee Maker Amenity Station" data-tag="IN-ROOM AMENITIES">
+          <img src="assets/images/room_tea_coffee_amenity.jpg" alt="In-Room Tea/Coffee Station" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">AMENITIES</span><h4 class="gallery-title">Tea &amp; Coffee Maker Station</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 13: Mohan Ji Restaurant -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/mohan_ji_poori_wale.jpg" data-title="Mohan Ji Poori Wale Heritage Restaurant (200 Pax)" data-tag="RESTAURANT">
           <img src="assets/images/mohan_ji_poori_wale.jpg" alt="Mohan Ji Poori Wale" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">RESTAURANT</span><h4 class="gallery-title">Mohan Ji Poori Wale</h4></div>
+          <div class="gallery-overlay"><span class="gallery-tag">RESTAURANT</span><h4 class="gallery-title">Mohan Ji Poori Wale (200 Pax)</h4></div>
           <div class="gallery-zoom-icon">⤢</div>
         </div>
-        <!-- 6 -->
-        <div class="gallery-card" data-category="dining" data-img="assets/images/img_restaurant_1.jpg" data-title="Pure Vegetarian AC Dining Hall" data-tag="RESTAURANT">
+
+        <!-- 14: Dining Platter -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_restaurant_1.jpg" data-title="Signature Bedmi Poori &amp; Mathura Aloo Platter" data-tag="MOHAN JI SPECIAL">
           <img src="assets/images/img_restaurant_1.jpg" alt="Dining Hall" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">RESTAURANT</span><h4 class="gallery-title">Pure Vegetarian AC Dining Hall</h4></div>
+          <div class="gallery-overlay"><span class="gallery-tag">SPECIALITY</span><h4 class="gallery-title">Signature Bedmi Poori Platter</h4></div>
           <div class="gallery-zoom-icon">⤢</div>
         </div>
-        <!-- 7 -->
-        <div class="gallery-card" data-category="events" data-img="assets/images/banquet_hall_grand.jpg" data-title="Grand 150 Pax Banquet Ballroom" data-tag="BANQUET HALL">
-          <img src="assets/images/banquet_hall_grand.jpg" alt="Grand Banquet Hall" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">BANQUET HALL</span><h4 class="gallery-title">Grand 150 Pax Banquet Ballroom</h4></div>
-          <div class="gallery-zoom-icon">⤢</div>
-        </div>
-        <!-- 8 -->
-        <div class="gallery-card" data-category="facade" data-img="assets/images/img_gallery_rooms5.jpg" data-title="Highway Entrance &amp; Sanctuary Campus" data-tag="FACADE &amp; HIGHWAY SANCTUARY">
-          <img src="assets/images/img_gallery_rooms5.jpg" alt="Highway Entrance" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">FACADE</span><h4 class="gallery-title">Highway Entrance &amp; Campus</h4></div>
-          <div class="gallery-zoom-icon">⤢</div>
-        </div>
-        <!-- 9 -->
-        <div class="gallery-card" data-category="rooms" data-img="assets/images/img_gallery_slider7.jpg" data-title="Modern En-Suite Luxury Bathroom" data-tag="EN-SUITE AMENITIES">
-          <img src="assets/images/img_gallery_slider7.jpg" alt="Attached Bathroom" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">BATHROOM</span><h4 class="gallery-title">Modern En-Suite Luxury Bathroom</h4></div>
-          <div class="gallery-zoom-icon">⤢</div>
-        </div>
-        <!-- 10 -->
-        <div class="gallery-card" data-category="events" data-img="assets/images/ganga_aarti_hero.jpg" data-title="Har Ki Pauri Sandhya Maha Aarti" data-tag="HARIDWAR PILGRIMAGE">
-          <img src="assets/images/ganga_aarti_hero.jpg" alt="Ganga Aarti" loading="lazy">
-          <div class="gallery-overlay"><span class="gallery-tag">AARTI</span><h4 class="gallery-title">Har Ki Pauri Sandhya Maha Aarti</h4></div>
-          <div class="gallery-zoom-icon">⤢</div>
-        </div>
-        <!-- 11 -->
-        <div class="gallery-card" data-category="dining" data-img="assets/images/img_resto3.jpg" data-title="Desi Ghee Bedmi Poori Bhaji" data-tag="CULINARY SPECIAL">
+
+        <!-- 15: Bedmi Poori Special -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_resto3.jpg" data-title="Desi Ghee Bedmi Poori &amp; Spicy Chana" data-tag="BREAKFAST HERITAGE">
           <img src="assets/images/img_resto3.jpg" alt="Desi Ghee Poori" loading="lazy">
           <div class="gallery-overlay"><span class="gallery-tag">CULINARY</span><h4 class="gallery-title">Desi Ghee Bedmi Poori Bhaji</h4></div>
           <div class="gallery-zoom-icon">⤢</div>
         </div>
-        <!-- 12 -->
-        <div class="gallery-card" data-category="dining" data-img="assets/images/img_resto4.jpg" data-title="Hot Jalebi with Creamy Rabri" data-tag="SACRED SWEETS">
+
+        <!-- 16: Hot Jalebi Sweets -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_resto4.jpg" data-title="Hot Crisp Jalebi with Creamy Rabri" data-tag="SACRED SWEETS">
           <img src="assets/images/img_resto4.jpg" alt="Rabri Jalebi" loading="lazy">
           <div class="gallery-overlay"><span class="gallery-tag">SWEETS</span><h4 class="gallery-title">Hot Jalebi with Creamy Rabri</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 17: 200 Pax Dining Hall -->
+        <div class="gallery-card" data-category="dining" data-img="assets/images/img_resto6.jpg" data-title="200 Pax AC Restaurant Dining Hall" data-tag="HERITAGE DINING">
+          <img src="assets/images/img_resto6.jpg" alt="200 Pax AC Dining Hall" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">DINING HALL</span><h4 class="gallery-title">200 Pax AC Dining Hall</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 18: Grand Banquet Ballroom -->
+        <div class="gallery-card" data-category="events" data-img="assets/images/banquet_hall_grand.jpg" data-title="Grand 150 Pax Air-Conditioned Banquet Ballroom" data-tag="BANQUET HALL">
+          <img src="assets/images/banquet_hall_grand.jpg" alt="Grand Banquet Hall" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">BANQUET HALL</span><h4 class="gallery-title">150 Pax Grand AC Ballroom</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 19: Ganga Aarti -->
+        <div class="gallery-card" data-category="events" data-img="assets/images/ganga_aarti_hero.jpg" data-title="Har Ki Pauri Sandhya Maha Aarti (10 Mins Away)" data-tag="SACRED HARIDWAR">
+          <img src="assets/images/ganga_aarti_hero.jpg" alt="Ganga Aarti" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">AARTI</span><h4 class="gallery-title">Har Ki Pauri Sandhya Maha Aarti</h4></div>
+          <div class="gallery-zoom-icon">⤢</div>
+        </div>
+
+        <!-- 20: Ganga Ghat Twilight -->
+        <div class="gallery-card" data-category="events" data-img="assets/images/img_slider_3.jpg" data-title="Divine Ganga Ghat Evening Aarti" data-tag="GANGES SANCTUARY">
+          <img src="assets/images/img_slider_3.jpg" alt="Divine Ganga Ghat Evening Aarti" loading="lazy">
+          <div class="gallery-overlay"><span class="gallery-tag">PILGRIMAGE</span><h4 class="gallery-title">Divine Ganga Ghat Evening</h4></div>
           <div class="gallery-zoom-icon">⤢</div>
         </div>
       </div>

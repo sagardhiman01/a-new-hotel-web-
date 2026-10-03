@@ -1626,10 +1626,10 @@ async function initDynamicConfig() {
 
   // 10. Dynamic Site Images (Hero, Ganga Aarti, Rooms, Dining, Banquet, etc.)
   if (cfg.images) {
-    // 10a. Hero Background Image (Ganga Aarti)
+    // 10a. Hero Background Image (Direct Hotel Front)
     const heroBgImg = document.getElementById('hero-bg-img');
-    if (heroBgImg && cfg.images.heroGangaAarti) {
-      heroBgImg.src = cfg.images.heroGangaAarti;
+    if (heroBgImg && (cfg.images.heroHotelFront || cfg.images.heroGangaAarti)) {
+      heroBgImg.src = (cfg.images.heroHotelFront || cfg.images.heroGangaAarti) + '?v=front3';
     }
 
     // 10b. Room Images
