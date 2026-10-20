@@ -104,132 +104,230 @@
     },
     {
       "id": "gal-2",
-      "category": "rooms",
-      "img": "assets/images/suite_luxury_featured.jpg",
-      "title": "Executive Luxury Suite & King Bed Living",
-      "tag": "LUXURY SUITES"
+      "category": "facade",
+      "img": "assets/images/hotel_front_hero.jpg",
+      "title": "Hotel Mohan Inn Front Facade & Highway Sanctuary",
+      "tag": "HOTEL FRONT"
     },
     {
       "id": "gal-3",
-      "category": "rooms",
-      "img": "assets/images/room_superior_balcony.jpg",
-      "title": "Superior AC Room with Garden Balcony View",
-      "tag": "SUPERIOR BALCONY ROOM"
-    },
-    {
-      "id": "gal-4",
-      "category": "rooms",
-      "img": "assets/images/room_super_deluxe.jpg",
-      "title": "Super Deluxe AC Room (Fluted Wood & Marble)",
-      "tag": "SUPER DELUXE SUITE"
-    },
-    {
-      "id": "gal-5",
-      "category": "rooms",
-      "img": "assets/images/room_family_suite_twin.jpg",
-      "title": "Family Grandeur Twin Double Suite (4 Guests)",
-      "tag": "FAMILY AC SUITE"
-    },
-    {
-      "id": "gal-6",
-      "category": "rooms",
-      "img": "assets/images/room_executive_gold.jpg",
-      "title": "Executive Room with Gold Accent & Wooden Ceiling",
-      "tag": "EXECUTIVE SUITE"
-    },
-    {
-      "id": "gal-7",
       "category": "facade",
       "img": "assets/images/exterior_entrance_night.jpg",
       "title": "Night Portico, Glass Entrance & 24/7 Reception",
       "tag": "ENTRANCE & RECEPTION"
     },
     {
-      "id": "gal-8",
-      "category": "rooms",
-      "img": "assets/images/room_bathroom_luxury.jpg",
-      "title": "Modern En-Suite Bath with Glass Shower Partition",
-      "tag": "EN-SUITE AMENITIES"
-    },
-    {
-      "id": "gal-9",
-      "category": "rooms",
-      "img": "assets/images/room_happy_stay_bed.jpg",
-      "title": "Bespoke Welcome Room & Extra Bed Setup",
-      "tag": "SUITES & COMFORTS"
-    },
-    {
-      "id": "gal-10",
-      "category": "rooms",
-      "img": "assets/images/suite_deluxe_wide.jpg",
-      "title": "Deluxe Suite Panoramic Layout & LED Console",
-      "tag": "DELUXE AC SUITES"
-    },
-    {
-      "id": "gal-11",
+      "id": "gal-4",
       "category": "facade",
       "img": "assets/images/exterior_campus_dusk.jpg",
       "title": "Highway Sanctuary Campus & Ample Car Parking",
       "tag": "HIGHWAY CAMPUS"
     },
     {
+      "id": "gal-5",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_suite_bed.jpg",
+      "title": "Deluxe Boutique Suite & King Bed Layout",
+      "tag": "BOUTIQUE KING SUITE"
+    },
+    {
+      "id": "gal-6",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_luxury_bath.jpg",
+      "title": "Luxury En-Suite Bath with Glass Shower Cubicle",
+      "tag": "EN-SUITE GLASS SHOWER"
+    },
+    {
+      "id": "gal-7",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_tv_console.jpg",
+      "title": "HD LED TV Console, Vanity Mirror & Luggage Bench",
+      "tag": "TV & DRESSING AMENITIES"
+    },
+    {
+      "id": "gal-8",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_king_bed_front.jpg",
+      "title": "King Master Bed with Warm Ambient Headboard",
+      "tag": "MASTER KING SUITE"
+    },
+    {
+      "id": "gal-9",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_extra_bed_setup.jpg",
+      "title": "Family Comfort Suite with Extra Bed Setup",
+      "tag": "EXTRA BED SETUP"
+    },
+    {
+      "id": "gal-10",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_tea_kettle_amenity.jpg",
+      "title": "In-Room Tea/Coffee Maker Station & Mineral Water",
+      "tag": "IN-ROOM BEVERAGES"
+    },
+    {
+      "id": "gal-11",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_suite_lounge_wide.jpg",
+      "title": "Executive Suite with Twin Armchairs & Coffee Table",
+      "tag": "EXECUTIVE LOUNGE"
+    },
+    {
       "id": "gal-12",
       "category": "rooms",
-      "img": "assets/images/room_tea_coffee_amenity.jpg",
-      "title": "In-Room Tea/Coffee Maker Amenity Station",
-      "tag": "IN-ROOM AMENITIES"
+      "img": "assets/images/gallery/hotel_mohan_inn_suite_panoramic.jpg",
+      "title": "Panoramic Bedroom View & Seating Lounge",
+      "tag": "PANORAMIC SUITE VIEW"
     },
     {
       "id": "gal-13",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_suite_interior.jpg",
+      "title": "Contemporary Suite Interior & Ambient Lighting",
+      "tag": "CONTEMPORARY INTERIOR"
+    },
+    {
+      "id": "gal-14",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_room_ambience.jpg",
+      "title": "Bespoke Evening Room Ambience & Hospitality",
+      "tag": "WARM ROOM AMBIENCE"
+    },
+    {
+      "id": "gal-15",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_designer_bathroom.jpg",
+      "title": "Modern Bathroom with Designer Geometric Tiles & Basin",
+      "tag": "DESIGNER BATHROOM"
+    },
+    {
+      "id": "gal-16",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_swan_origami_heart.jpg",
+      "title": "Romantic Swan Towel Origami Welcome Setup",
+      "tag": "HONEYMOON & WELCOME DECOR"
+    },
+    {
+      "id": "gal-17",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_swan_welcome_bed.jpg",
+      "title": "Traditional Sacred Welcome Bed Arrangement",
+      "tag": "SACRED WELCOME DECOR"
+    },
+    {
+      "id": "gal-18",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_deluxe_king_cove.jpg",
+      "title": "Deluxe AC Room with Warm Cove Lighting & Nightstand",
+      "tag": "DELUXE AC ROOM"
+    },
+    {
+      "id": "gal-19",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_deluxe_room_wardrobe.jpg",
+      "title": "Deluxe Room Wardrobe, Luggage Console & King Bed",
+      "tag": "PREMIUM AC ROOM"
+    },
+    {
+      "id": "gal-20",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_master_suite_living.jpg",
+      "title": "Master Suite Full Living Space & Brown Velvet Headboard",
+      "tag": "MASTER SUITE LIVING"
+    },
+    {
+      "id": "gal-21",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_lounge_armchairs.jpg",
+      "title": "Cozy In-Room Coffee Lounge with Plush Armchairs",
+      "tag": "IN-ROOM COFFEE LOUNGE"
+    },
+    {
+      "id": "gal-22",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_swan_decor_suite.jpg",
+      "title": "Artisan Towel Art & Suite Bedding Details",
+      "tag": "ARTISAN BED ART"
+    },
+    {
+      "id": "gal-23",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_swan_bed_art.jpg",
+      "title": "Luxury Bed Runner & Swan Towel Presentation",
+      "tag": "LUXURY BED LINENS"
+    },
+    {
+      "id": "gal-24",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_king_bed_cushions.jpg",
+      "title": "Plush King Bedding, Crisp Linens & Accent Cushions",
+      "tag": "KING BEDDING & PILLOWS"
+    },
+    {
+      "id": "gal-25",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_coffee_table_flowers.jpg",
+      "title": "In-Room Seating Corner with Fresh Flowers & Tea Table",
+      "tag": "SEATING & FRESH FLOWERS"
+    },
+    {
+      "id": "gal-26",
+      "category": "rooms",
+      "img": "assets/images/gallery/hotel_mohan_inn_glass_shower_cubicle.jpg",
+      "title": "Spacious Attached Washroom with Wall-Hung Commode",
+      "tag": "ATTACHED WASHROOM"
+    },
+    {
+      "id": "gal-27",
       "category": "dining",
       "img": "assets/images/mohan_ji_poori_wale.jpg",
       "title": "Mohan Ji Poori Wale Heritage Restaurant (200 Pax)",
       "tag": "HERITAGE RESTAURANT"
     },
     {
-      "id": "gal-14",
+      "id": "gal-28",
       "category": "dining",
       "img": "assets/images/img_restaurant_1.jpg",
       "title": "Signature Bedmi Poori & Mathura Aloo Platter",
       "tag": "MOHAN JI SPECIAL"
     },
     {
-      "id": "gal-15",
+      "id": "gal-29",
       "category": "dining",
       "img": "assets/images/img_resto3.jpg",
       "title": "Desi Ghee Bedmi Poori & Spicy Chana",
       "tag": "BREAKFAST HERITAGE"
     },
     {
-      "id": "gal-16",
+      "id": "gal-30",
       "category": "dining",
       "img": "assets/images/img_resto4.jpg",
       "title": "Hot Crisp Jalebi with Creamy Rabri",
       "tag": "SACRED SWEETS"
     },
     {
-      "id": "gal-17",
+      "id": "gal-31",
       "category": "dining",
       "img": "assets/images/img_resto6.jpg",
       "title": "200 Pax AC Restaurant Dining Hall",
       "tag": "HERITAGE DINING"
     },
     {
-      "id": "gal-18",
+      "id": "gal-32",
       "category": "events",
       "img": "assets/images/banquet_hall_grand.jpg",
       "title": "Grand 150 Pax Air-Conditioned Banquet Ballroom",
       "tag": "EVENT BALLROOM"
     },
     {
-      "id": "gal-19",
+      "id": "gal-33",
       "category": "events",
       "img": "assets/images/ganga_aarti_hero.jpg",
       "title": "Har Ki Pauri Sandhya Maha Aarti (10 Mins Away)",
       "tag": "SACRED HARIDWAR"
     },
     {
-      "id": "gal-20",
+      "id": "gal-34",
       "category": "events",
       "img": "assets/images/img_slider_3.jpg",
       "title": "Divine Ganga Ghat Evening Aarti",
